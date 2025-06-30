@@ -54,14 +54,14 @@ export default function Footer() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#072549', fontWeight: 300 }}>
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#1976d2" strokeWidth="1.5"/><path d="M10 6v4l2.5 2.5" stroke="#1976d2" strokeWidth="1.5"/></svg>
-          <span>+91-8129993666</span>
+          <span>+91 8129993666</span>
         </div>
       </div>
       {/* Section 3: Company */}
       <div style={{ minWidth: 160, flex: '1 1 180px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Company</div>
         <div style={{ color: '#072549', fontWeight: 300, opacity: 0.92 }}>
-          Who we are<br />What we do<br />Careers
+          Who we are <br />What we do<br />Careers
         </div>
       </div>
       {/* Section 4: Quick Links */}
