@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#072549', fontWeight: 300 }}>
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#1976d2" strokeWidth="1.5"/><path d="M10 6v4l2.5 2.5" stroke="#1976d2" strokeWidth="1.5"/></svg>
-          <span>+91 8129993666</span>
+          <span>+91-8129993666</span>
         </div>
       </div>
       {/* Section 3: Company */}
