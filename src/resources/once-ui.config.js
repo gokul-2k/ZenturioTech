@@ -69,7 +69,7 @@ const effects = {
     cursor: false,
     x: 10,
     y: 10,
-    radius: 50, // Larger radius for better visibility
+    radius: 0, // Larger radius for better visibility
   },
   gradient: {
     display: false, // Disable to avoid conflicts
