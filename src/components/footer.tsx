@@ -61,7 +61,7 @@ export default function Footer() {
       <div style={{ minWidth: 160, flex: '1 1 180px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Company</div>
         <div style={{ color: '#072549', fontWeight: 300, opacity: 0.92 }}>
-          Who we are<br />What we do<br />Careers
+          Who we are <br />What we do<br />Careers
         </div>
       </div>
       {/* Section 4: Quick Links */}
