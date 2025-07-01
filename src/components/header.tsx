@@ -1,17 +1,50 @@
+'use client';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { Flex } from '@once-ui-system/core';
 import { HiOutlineHome, HiOutlineBriefcase, HiOutlineInformationCircle, HiOutlineUserGroup, HiOutlineCog, HiOutlineFire } from 'react-icons/hi';
 
 export default function Header() {
+  const [showDock, setShowDock] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 0) {
+        setShowDock(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down: hide dock
+        setShowDock(false);
+      } else {
+        // Scrolling up: show dock
+        setShowDock(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <Flex as="header" align="left" padding="16" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', zIndex: 100, background: 'transparent', backdropFilter: 'none', height: 110 }}>
-        {/* Logo Left */}
-        <div style={{ flex: 1, paddingLeft: '80px', paddingTop: '30px' }}>
-          <Link href="/">
-            <img src="/images/zen.png" alt="Logo" style={{ height: 38 }} />
-          </Link>
-        </div>
+      {/* Logo - sticky in normal document flow, scrolls up with content */}
+      <div className="zenturio-header-logo" style={{
+        width: '100vw',
+        background: 'transparent',
+        paddingLeft: '80px',
+        paddingTop: '30px',
+        height: 68,
+        position: 'relative',
+        zIndex: 10,
+      }}>
+        <Link href="/">
+          <img src="/images/zen.png" alt="Logo" style={{ height: 38 }} />
+        </Link>
+      </div>
+      {/* Navigation Dock - fixed and animated */}
+      <Flex as="header" align="left" padding="16" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', zIndex: 100, background: 'transparent', backdropFilter: 'none', height: 110, pointerEvents: 'none' }}>
+        <div style={{ flex: 1 }} />
         {/* Navigation Dock Right (desktop/tablet) */}
         <Flex
           as="nav"
@@ -28,14 +61,16 @@ export default function Header() {
             position: 'absolute',
             top: 36, // moved up from 56
             right: '5vw', // moved right from 8vw
-            transform: 'translateY(10px)', // moved up from 30px
+            transform: showDock ? 'translateY(0)' : 'translateY(-200%)',
+            transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
+            pointerEvents: showDock ? 'auto' : 'none',
           }}
         >
           <Link href="/" className="nav-link nav-link-flex"><HiOutlineHome className="nav-icon" /> <span>Home</span></Link>
           <Link href="/who-we-are" className="nav-link nav-link-flex"><HiOutlineUserGroup className="nav-icon" /> <span>Who we are</span></Link>
           <Link href="/services" className="nav-link nav-link-flex"><HiOutlineCog className="nav-icon" /> <span>Services</span></Link>
           <Link href="/trending" className="nav-link nav-link-flex"><HiOutlineFire className="nav-icon" /> <span>What's Trending</span></Link>
-          <Link href="/about" className="nav-link nav-link-flex"><HiOutlineInformationCircle className="nav-icon" /> <span>About</span></Link>
+          <Link href="/about" className="nav-link nav-link-flex"><HiOutlineInformationCircle className="nav-icon" /> <span>Contact Us</span></Link>
           <Link href="/careers" className="nav-link nav-link-flex"><HiOutlineBriefcase className="nav-icon" /> <span>Careers</span></Link>
         </Flex>
       </Flex>
@@ -158,6 +193,9 @@ export default function Header() {
           }
           .nav-dock-mobile a:active::after, .nav-dock-mobile a:focus::after, .nav-dock-mobile a:hover::after {
             opacity: 1;
+          }
+          .zenturio-header-logo {
+            padding-top: 60px !important;
           }
         }
       `}</style>

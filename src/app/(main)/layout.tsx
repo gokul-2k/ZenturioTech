@@ -9,6 +9,7 @@ import { Meta, Schema,  Column, Flex, opacity, SpacingToken, Background} from "@
 import { Providers } from '@/components/Providers';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import ChatbotButton from '@/components/ChatbotButton';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -154,6 +155,7 @@ export default function RootLayout({
           />
           {children}
           <Footer />
+          <ChatbotButton />
         </Column>
       </Providers>
     </Flex>
