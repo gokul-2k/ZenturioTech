@@ -23,7 +23,7 @@ export default function WhoWeAre() {
         <div className="about-core-team">Core Team</div>
         <div className="team-floating-layout">
           <div className="team-member" style={{ top: '120px', left: '0px' }}>
-            <div className="team-img team-img-d-normal">
+            <div className="team-img team-img-d-inverted">
               <Image src="/images/5.jpeg" alt="Team Member 1" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -32,7 +32,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '0px', left: '180px' }}>
-            <div className="team-img team-img-circle">
+            <div className="team-img team-img-d-up">
               <Image src="/images/2.jpeg" alt="Team Member 2" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -54,7 +54,7 @@ export default function WhoWeAre() {
               <Image src="/images/4.jpeg" alt="Team Member 4" width={180} height={180} />
             </div>
             <div className="team-info">
-              <div className="team-name">Mrudul</div>
+              <div className="team-name">Rahul</div>
               <div className="team-role">Business Development</div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '240px', left: '180px' }}>
-            <div className="team-img team-img-d-inverted">
+            <div className="team-img team-img-circle">
               <Image src="/images/3.jpeg" alt="Team Member 6" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -77,7 +77,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '240px', left: '540px' }}>
-            <div className="team-img team-img-d-normal">
+            <div className="team-img team-img-d-down">
               <Image src="/images/1.jpeg" alt="Team Member 7" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -172,7 +172,9 @@ export default function WhoWeAre() {
           font-size: 2rem;
           font-weight: bold;
           color: #fff;
+          margin-right: 1000px;
           margin-bottom: 0.5rem;
+          text-align: left;
         }
         .about-people-title span {
           color: #5B8DF6;
@@ -194,6 +196,7 @@ export default function WhoWeAre() {
           flex-direction: column;
           align-items: center;
           width: 180px;
+          margin: 18px 18px;
         }
         .team-img {
           width: 180px;
@@ -206,6 +209,7 @@ export default function WhoWeAre() {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 4px;
         }
         .team-img img {
           width: 100%;
@@ -216,6 +220,15 @@ export default function WhoWeAre() {
         .team-img-circle {
           border-radius: 50%;
         }
+          .team-img-d-up {
+    
+          border-radius: 50% 50% 0 0 / 90px 90px 0 0%;
+          }
+
+          .team-img-d-down {
+         border-radius: 0 0 50% 50% / 0 0 90px 90px;
+        }
+
         .team-img-d-normal {
           border-radius: 0 90px 90px 0 / 0 50% 50% 0;
         }
@@ -252,7 +265,7 @@ export default function WhoWeAre() {
           font-size: 1rem;
         }
         .about-leadership-box {
-          max-width: 900px;
+          max-width: 1000px;
           background: rgba(21, 58, 91, 0.85);
           border-radius: 12px;
           padding: 2rem;
@@ -263,6 +276,7 @@ export default function WhoWeAre() {
           margin-bottom: 2rem;
         }
         .about-leadership-box p {
+          text-align: justify;
           margin-bottom: 1.2rem;
         }
         @media (max-width: 1000px) {
@@ -284,16 +298,41 @@ export default function WhoWeAre() {
             font-size: 1.3rem;
           }
           .team-floating-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: static;
             width: 100vw;
             min-width: 0;
-            height: 600px;
+            height: auto;
+            padding: 0 0.5rem;
           }
-          .team-img, .team-member {
-            width: 120px;
+          .team-member {
+            position: static;
+            margin: 12px 0;
+            width: 100%;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
-          .team-img, .team-img-circle, .team-img-d-normal, .team-img-d-inverted {
-            height: 120px;
-            width: 120px;
+          .team-img, .team-img-circle, .team-img-d-normal, .team-img-d-inverted, .team-img-d-up, .team-img-d-down {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            min-height: 100px;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50% !important;
+          }
+          .team-info {
+            margin-top: 0.4rem;
+            text-align: center;
+            max-width: 100%;
+          }
+          .team-name, .team-role {
+            text-align: center;
+            font-size: 0.98rem;
           }
         }
       `}</style>
