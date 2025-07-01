@@ -17,7 +17,7 @@ export default function Home() {
       {/* Video Background - positioned absolutely behind content, starts under header */}
       <div style={{
         position: 'absolute',
-        top: '-100px', // Adjust this value based on your header height
+        top: '-110px', // Adjust this value based on your header height
         left: 0,
         width: '100vw',
         height: 'calc(100vh - 80px)', // Subtract header height from total height
@@ -135,7 +135,7 @@ export default function Home() {
             style={{
               position: 'absolute',
               // Responsive top offset for arch
-              top: 'clamp(0px, 6vw, 60px)', // default for desktop
+              top: 'clamp(20px, 6vw, 60px)', // default for desktop
               left: '50%',
               transform: 'translate(-50%, -70%)',
               width: 'min(1400px, 120vw)',
