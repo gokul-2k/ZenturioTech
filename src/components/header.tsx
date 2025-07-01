@@ -39,7 +39,7 @@ export default function Header() {
         zIndex: 10,
       }}>
         <Link href="/">
-          <img src="/images/zen.png" alt="Logo" style={{ height: 38 }} />
+          <img src="/images/zen-white.png" alt="Logo" style={{ height: 38 }} />
         </Link>
       </div>
       {/* Navigation Dock - fixed and animated */}
