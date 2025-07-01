@@ -4,14 +4,14 @@ export default function Services() {
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
-        minHeight: 380,
+        minHeight: 580,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'url("https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=80") center/cover no-repeat',
-        borderBottomLeftRadius: 48,
-        borderBottomRightRadius: 48,
+        background: 'url("/images/services.webp") center/cover no-repeat',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
         overflow: 'hidden',
         marginBottom: 0,
       }}>
@@ -25,14 +25,26 @@ export default function Services() {
           background: 'rgba(10,34,64,0.65)',
           zIndex: 1,
         }} />
+        {/* Bottom Blur Gradient */}
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          height: 120,
+          background: 'linear-gradient(180deg, rgba(10,34,64,0) 0%, #0a2240 100%)',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }} />
         <h1 style={{
           position: 'relative',
-          zIndex: 2,
+          zIndex: 3,
           color: '#fff',
-          fontSize: 48,
+          fontSize: 68,
           fontWeight: 600,
           textAlign: 'center',
           letterSpacing: 1,
+          marginTop: 400,
         }}>
           Services
         </h1>
@@ -56,7 +68,7 @@ export default function Services() {
       </div>
 
       {/* SERVICES CARDS SECTION */}
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2vw', marginTop: 40 }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2vw', marginTop: 110 }}>
         {/* Card 1: AI */}
         <div style={{
           display: 'flex',
@@ -66,7 +78,7 @@ export default function Services() {
           alignItems: 'stretch',
         }}>
           {/* Image with text overlay */}
-          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: '#111' }}>
+          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: 'transparent' }}>
             <img
               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
               alt="Artificial Intelligence"
@@ -99,11 +111,11 @@ export default function Services() {
             justifyContent: 'center',
             padding: '0 0 0 12px',
           }}>
-            <div style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, lineHeight: 1.15 }}>
-              <span style={{ color: '#2ea6ff' }}>AI-Powered Innovation</span><br/>
-              <span style={{ color: '#fff' }}>for Smarter Business</span>
+            <div style={{ fontSize: 50, fontWeight: 700, marginBottom: 8, lineHeight: 1.15, background: 'linear-gradient(90deg, #2ea6ff 0%, #fff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>
+              <span>AI-Powered Innovation</span><br/>
+              <span>for Smarter Business</span>
             </div>
-            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6 , textAlign: 'justify'}}>
               At ZenturioTech, we design and deploy cutting-edge AI solutions that help businesses unlock efficiency, improve decision-making, and create personalized experiences. Whether you're starting with AI or scaling your existing systems, we tailor intelligent technology to meet your specific needs.
             </div>
             <button style={{
@@ -126,7 +138,7 @@ export default function Services() {
         </div>
 
         {/* Divider after Card 1 */}
-        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '36px 0 36px 0' }} />
+        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '80px 0 80px 0' }} />
 
         {/* Card 2: VR/AR (mirrored layout) */}
         <div style={{
@@ -147,11 +159,11 @@ export default function Services() {
             justifyContent: 'center',
             padding: '0 12px 0 0',
           }}>
-            <div style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, lineHeight: 1.15 }}>
-              <span style={{ color: '#2ea6ff' }}>Create, Engage & Inspire</span><br/>
-              <span style={{ color: '#fff' }}>with Immersive Experiences</span>
+            <div style={{ fontSize: 50, fontWeight: 700, marginBottom: 8, lineHeight: 1.15, background: 'linear-gradient(90deg, #2ea6ff 0%, #fff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>
+              <span>Create, Engage & Inspire</span><br/>
+              <span>with Immersive Experiences</span>
             </div>
-            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6, textAlign: 'justify' }}>
               At ZenturioTech, we design and deploy cutting-edge AI solutions that help businesses unlock efficiency, improve decision-making. Step into the future with ZenturioTech's Virtual Reality (VR) and Augmented Reality (AR) development services.
             </div>
             <button style={{
@@ -172,7 +184,7 @@ export default function Services() {
             </button>
           </div>
           {/* Image with text overlay (right) */}
-          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: '#111' }}>
+          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: 'transparent' }}>
             <img
               src="https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&w=600&q=80"
               alt="Augmented Reality & Virtual Reality"
@@ -197,7 +209,7 @@ export default function Services() {
         </div>
 
         {/* Divider after Card 2 */}
-        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '36px 0 36px 0' }} />
+        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '80px 0 80px 0' }} />
 
         {/* Card 3: Web Development */}
         <div style={{
@@ -208,7 +220,7 @@ export default function Services() {
           alignItems: 'stretch',
         }}>
           {/* Image with text overlay */}
-          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: '#111' }}>
+          <div style={{ flex: 1.1, minWidth: 320, maxWidth: 420, borderRadius: 32, overflow: 'hidden', boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)', position: 'relative', background: 'transparent' }}>
             <img
               src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80"
               alt="Web Development"
@@ -241,11 +253,11 @@ export default function Services() {
             justifyContent: 'center',
             padding: '0 0 0 12px',
           }}>
-            <div style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, lineHeight: 1.15 }}>
-              <span style={{ color: '#2ea6ff' }}>Modern Web Solutions</span><br/>
-              <span style={{ color: '#fff' }}>for Every Business</span>
+            <div style={{ fontSize: 50, fontWeight: 700, marginBottom: 8, lineHeight: 1.15, background: 'linear-gradient(90deg, #2ea6ff 0%, #fff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>
+              <span>Modern Web Solutions</span><br/>
+              <span>for Every Business</span>
             </div>
-            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 17, opacity: 0.97, marginBottom: 18, lineHeight: 1.6 , textAlign: 'justify' }}>
               ZenturioTech crafts high-performance, scalable, and visually stunning web applications tailored to your business needs. From landing pages to complex platforms, our web development team ensures seamless user experiences and robust functionality.
             </div>
             <button style={{
@@ -268,7 +280,7 @@ export default function Services() {
         </div>
 
         {/* Divider after Card 3 */}
-        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '36px 0 36px 0' }} />
+        <div style={{ height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, margin: '80px 0 80px 0' }} />
       </div>
     </div>
   );

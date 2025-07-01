@@ -9,7 +9,7 @@ export default function Careers() {
         maxWidth: 1200,
         margin: "0 auto",
         position: "relative",
-        marginTop: 60,
+        marginTop: 150,
         marginBottom: 40,
         minHeight: 380,
       }}>
@@ -21,6 +21,7 @@ export default function Careers() {
           color: "#fff",
           marginBottom: 18,
           letterSpacing: 0.5,
+          marginTop: 60,
         }}>
           Careers
         </div>
@@ -50,7 +51,7 @@ export default function Careers() {
           alignItems: "center",
           position: "relative",
           marginLeft: 220,
-          marginBottom: 100,
+          marginBottom: 150,
           padding: "2.8rem 2.8rem 2.8rem 2.8rem",
           zIndex: 1,
           border: "2px solid #1976d2",
