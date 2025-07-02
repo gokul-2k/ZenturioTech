@@ -330,9 +330,9 @@ export default function Header() {
                   top: '110%',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  background: 'rgba(36, 36, 49, 0.75)',
-                  backdropFilter: 'blur(28px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(28px) saturate(180%)',
+                  background: 'rgba(36, 36, 49, 0.65)',
+                  backdropFilter: 'blur(35px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(35px) saturate(180%)',
                   borderRadius: 16,
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
                   minWidth: 180,
@@ -573,9 +573,9 @@ export default function Header() {
                 bottom: '80px',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                background: 'rgba(36, 36, 49, 0.75)',
-                backdropFilter: 'blur(28px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(28px) saturate(180%)',
+                background: 'rgba(36, 36, 49, 0.65)',
+                backdropFilter: 'blur(35px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(35px) saturate(180%)',
                 borderRadius: 16,
                 boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
                 minWidth: 180,
@@ -833,7 +833,7 @@ export default function Header() {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(36, 36, 49, 0.75);
+          background: rgba(36, 36, 49, 0.65);
           border-radius: inherit;
           pointer-events: none;
           z-index: 0;
