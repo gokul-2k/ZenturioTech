@@ -137,7 +137,11 @@ export default function Home() {
             style={{
               position: 'absolute',
               // Responsive top offset for arch
+<<<<<<< Updated upstream
               top: 'clamp(20px, 6vw, 60px)', // default for desktop
+=======
+              top: 'clamp(0px, 6vw, 80px)', // default for desktop
+>>>>>>> Stashed changes
               left: '50%',
               transform: 'translate(-50%, -70%)',
               width: 'min(1400px, 120vw)',
