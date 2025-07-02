@@ -1,12 +1,98 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { Flex } from '@once-ui-system/core';
-import { HiOutlineHome, HiOutlineBriefcase, HiOutlineInformationCircle, HiOutlineUserGroup, HiOutlineCog, HiOutlineFire } from 'react-icons/hi';
+import { HiOutlineHome, HiOutlineBriefcase, HiOutlineInformationCircle, HiOutlineUserGroup, HiOutlineCog, HiOutlineFire, HiChevronDown } from 'react-icons/hi';
+import { usePathname, useRouter } from 'next/navigation';
+
+// DropdownItem component for menu
+function DropdownItem({ 
+  label, 
+  path,
+  closeDesktopDropdown,
+  closeMobileDropdown 
+}: { 
+  label: string, 
+  path: string,
+  closeDesktopDropdown: () => void,
+  closeMobileDropdown: () => void
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const navTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dockRef = useRef<HTMLDivElement | null>(document.querySelector('.nav-dock-desktop'));
+
+  return (
+    <button
+      type="button"
+      className="services-dropdown-item"
+      style={{
+        width: '100%',
+        background: 'none',
+        border: 'none',
+        color: pathname === path ? '#2ea6ff' : '#fff',
+        fontSize: 17,
+        padding: '12px 24px',
+        textAlign: 'left',
+        cursor: 'pointer',
+        transition: 'background 0.18s',
+        borderRadius: 10,
+        outline: 'none',
+        display: 'block',
+      }}
+      onClick={() => {
+        // Close both dropdowns
+        closeDesktopDropdown();
+        closeMobileDropdown();
+
+        if (pathname !== path) {
+          if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+          
+          // Step 1: Move glider to Services button
+          const servicesBtn = document.querySelector('.nav-link-dropdown-btn');
+          const dock = dockRef.current;
+          if (servicesBtn && dock) {
+            const dockRect = dock.getBoundingClientRect();
+            const selRect = servicesBtn.getBoundingClientRect();
+            const glider = document.querySelector('.nav-glider') as HTMLElement;
+            if (glider) {
+              glider.style.left = `${selRect.left - dockRect.left}px`;
+              glider.style.width = `${selRect.width}px`;
+            }
+          }
+
+          // Step 2: Navigate after animation
+          setTimeout(() => {
+            navTimeoutRef.current = setTimeout(() => {
+              router.push(path);
+            }, 350);
+          }, 10);
+        }
+      }}
+      tabIndex={0}
+    >
+      {label}
+    </button>
+  );
+}
 
 export default function Header() {
   const [showDock, setShowDock] = useState(true);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+  const dockRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const [gliderStyle, setGliderStyle] = useState({ left: 0, width: 0 });
+  const mobileDockRef = useRef<HTMLDivElement>(null);
+  const [mobileGliderStyle, setMobileGliderStyle] = useState({ left: 0, width: 0 });
+  const [pendingPath, setPendingPath] = useState<string | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const navTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileNavTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesDropdownOpen, setMobileServicesDropdownOpen] = useState(false);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const mobileServicesDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +112,84 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useLayoutEffect(() => {
+    const updateGlider = () => {
+      if (!dockRef.current) return;
+      const dock = dockRef.current;
+      const selector = `.nav-link.selected`;
+      const selected = dock.querySelector(selector);
+      if (selected) {
+        const dockRect = dock.getBoundingClientRect();
+        const selRect = selected.getBoundingClientRect();
+        setGliderStyle(prev => {
+          const left = selRect.left - dockRect.left;
+          const width = selRect.width;
+          if (prev.left !== left || prev.width !== width) {
+            return { left, width };
+          }
+          return prev;
+        });
+      }
+    };
+    updateGlider();
+    window.addEventListener('resize', updateGlider);
+    return () => window.removeEventListener('resize', updateGlider);
+  }, [pathname, showDock]);
+
+  useLayoutEffect(() => {
+    const updateMobileGlider = () => {
+      if (!mobileDockRef.current) return;
+      const dock = mobileDockRef.current;
+      const selector = `.nav-link-mobile.selected`;
+      const selected = dock.querySelector(selector);
+      if (selected) {
+        const dockRect = dock.getBoundingClientRect();
+        const selRect = selected.getBoundingClientRect();
+        setMobileGliderStyle(prev => {
+          const left = (selRect.left - dockRect.left);
+          const width = selRect.width;
+          if (prev.left !== left || prev.width !== width) {
+            return { left, width };
+          }
+          return prev;
+        });
+      }
+    };
+    updateMobileGlider();
+    window.addEventListener('resize', updateMobileGlider);
+    return () => window.removeEventListener('resize', updateMobileGlider);
+  }, [pathname]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    }
+    if (servicesDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [servicesDropdownOpen]);
+
+  // Close mobile dropdown on outside click
+  useEffect(() => {
+    function handleMobileClickOutside(event: MouseEvent) {
+      if (mobileServicesDropdownRef.current && !mobileServicesDropdownRef.current.contains(event.target as Node)) {
+        setMobileServicesDropdownOpen(false);
+      }
+    }
+    if (mobileServicesDropdownOpen) {
+      document.addEventListener('mousedown', handleMobileClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleMobileClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleMobileClickOutside);
+  }, [mobileServicesDropdownOpen]);
+
   return (
     <>
       {/* Logo - sticky in normal document flow, scrolls up with content */}
@@ -33,7 +197,7 @@ export default function Header() {
         width: '100vw',
         background: 'transparent',
         paddingLeft: '80px',
-        paddingTop: '30px',
+        paddingTop: '50px',
         height: 68,
         position: 'relative',
         zIndex: 10,
@@ -51,6 +215,7 @@ export default function Header() {
           gap="0"
           align="center"
           className="nav-dock-desktop nav-dock-glass"
+          ref={dockRef}
           style={{
             background: 'rgba(32, 32, 32, 0.27)',
             backdropFilter: 'blur(16px)',
@@ -64,36 +229,486 @@ export default function Header() {
             transform: showDock ? 'translateY(0)' : 'translateY(-200%)',
             transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
             pointerEvents: showDock ? 'auto' : 'none',
+            overflow: 'visible !important',
           }}
         >
-          <Link href="/" className="nav-link nav-link-flex"><HiOutlineHome className="nav-icon" /> <span>Home</span></Link>
-          <Link href="/who-we-are" className="nav-link nav-link-flex"><HiOutlineUserGroup className="nav-icon" /> <span>Who we are</span></Link>
-          <Link href="/services" className="nav-link nav-link-flex"><HiOutlineCog className="nav-icon" /> <span>Services</span></Link>
-          <Link href="/trending" className="nav-link nav-link-flex"><HiOutlineFire className="nav-icon" /> <span>What's Trending</span></Link>
-          <Link href="/about" className="nav-link nav-link-flex"><HiOutlineInformationCircle className="nav-icon" /> <span>Contact Us</span></Link>
-          <Link href="/careers" className="nav-link nav-link-flex"><HiOutlineBriefcase className="nav-icon" /> <span>Careers</span></Link>
+          <div
+            className="nav-glider"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: gliderStyle.left,
+              width: gliderStyle.width,
+              height: '100%',
+              background: 'rgba(255,255,255,0.18)',
+              boxShadow: 'none',
+              border: '1.5px solid rgba(255,255,255,0.22)',
+              borderRadius: '2rem',
+              backdropFilter: 'blur(8px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(8px) saturate(180%)',
+              transition: 'left 0.35s cubic-bezier(.4,0,.2,1), width 0.35s cubic-bezier(.4,0,.2,1) !important',
+              zIndex: 0,
+            }}
+          />
+          <Link href="/" className={`nav-link nav-link-flex${pathname === '/' ? ' selected' : ''}`} data-path="/"
+            onClick={e => {
+              if (pathname !== '/') {
+                e.preventDefault();
+                if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                const dock = dockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/');
+                  setIsAnimating(true);
+                  navTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/');
+                  }, 350);
+                }, 10);
+              }
+            }}
+          >
+            <HiOutlineHome className="nav-icon" /> <span>Home</span>
+          </Link>
+          <Link href="/who-we-are" className={`nav-link nav-link-flex${pathname === '/who-we-are' ? ' selected' : ''}`} data-path="/who-we-are"
+            onClick={e => {
+              if (pathname !== '/who-we-are') {
+                e.preventDefault();
+                if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                const dock = dockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/who-we-are');
+                  setIsAnimating(true);
+                  navTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/who-we-are');
+                  }, 350);
+                }, 10);
+              }
+            }}
+          ><HiOutlineUserGroup className="nav-icon" /> <span>Who we are</span></Link>
+          <div style={{ position: 'relative', marginLeft: 0 }} ref={servicesDropdownRef}>
+            <button
+              type="button"
+              className={`nav-link nav-link-flex nav-link-dropdown-btn${pathname.startsWith('/services') ? ' selected' : ''}`}
+              style={{ background: 'none', border: 'none', color: '#fff', fontSize: 18, cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0 10px', height: 48 }}
+              onClick={() => setServicesDropdownOpen(v => !v)}
+              aria-haspopup="true"
+              aria-expanded={servicesDropdownOpen}
+            >
+              <HiOutlineCog className="nav-icon" /> <span>Services</span>
+              <HiChevronDown style={{ marginLeft: 2, fontSize: 20 }} />
+            </button>
+            {servicesDropdownOpen && (
+              <div
+                className="services-dropdown-menu"
+                style={{
+                  position: 'absolute',
+                  top: '110%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: 'rgba(36, 36, 49, 0.65)',
+                  backdropFilter: 'blur(35px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(35px) saturate(180%)',
+                  borderRadius: 16,
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
+                  minWidth: 180,
+                  zIndex: 9999,
+                  marginTop: 8,
+                  border: '1.5px solid rgba(255,255,255,0.13)',
+                  padding: '10px 0',
+                }}
+              >
+                <DropdownItem 
+                  label="Services" 
+                  path="/services" 
+                  closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                  closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+                />
+                <DropdownItem 
+                  label="AI" 
+                  path="/services/ai" 
+                  closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                  closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+                />
+                <DropdownItem 
+                  label="VR/AR" 
+                  path="/services/vr" 
+                  closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                  closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+                />
+                <DropdownItem 
+                  label="Web" 
+                  path="/services/web" 
+                  closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                  closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+                />
+              </div>
+            )}
+          </div>
+          <Link href="/trending" className={`nav-link nav-link-flex${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
+            onClick={e => {
+              if (pathname !== '/trending') {
+                e.preventDefault();
+                if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                const dock = dockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/trending');
+                  setIsAnimating(true);
+                  navTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/trending');
+                  }, 350);
+                }, 10);
+              }
+            }}
+          ><HiOutlineFire className="nav-icon" /> <span>What's Trending</span></Link>
+          <Link href="/about" className={`nav-link nav-link-flex${pathname === '/about' ? ' selected' : ''}`} data-path="/about"
+            onClick={e => {
+              if (pathname !== '/about') {
+                e.preventDefault();
+                if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                const dock = dockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/about');
+                  setIsAnimating(true);
+                  navTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/about');
+                  }, 350);
+                }, 10);
+              }
+            }}
+          ><HiOutlineInformationCircle className="nav-icon" /> <span>Contact Us</span></Link>
+          <Link href="/careers" className={`nav-link nav-link-flex${pathname === '/careers' ? ' selected' : ''}`} data-path="/careers"
+            onClick={e => {
+              if (pathname !== '/careers') {
+                e.preventDefault();
+                if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                const dock = dockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/careers');
+                  setIsAnimating(true);
+                  navTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/careers');
+                  }, 350);
+                }, 10);
+              }
+            }}
+          ><HiOutlineBriefcase className="nav-icon" /> <span>Careers</span></Link>
         </Flex>
       </Flex>
       {/* Mobile bottom nav dock */}
-      <Flex as="nav" gap="32" align="center" className="nav-dock-mobile">
-        <Link href="/" aria-label="Home"><HiOutlineHome style={{ fontSize: 28 }} /></Link>
-        <Link href="/who-we-are" aria-label="Who we are"><HiOutlineUserGroup style={{ fontSize: 28 }} /></Link>
-        <Link href="/services" aria-label="Services"><HiOutlineCog style={{ fontSize: 28 }} /></Link>
-        <Link href="/trending" aria-label="What's Trending"><HiOutlineFire style={{ fontSize: 28 }} /></Link>
-        <Link href="/about" aria-label="About"><HiOutlineInformationCircle style={{ fontSize: 28 }} /></Link>
-        <Link href="/careers" aria-label="Careers"><HiOutlineBriefcase style={{ fontSize: 28 }} /></Link>
+      <Flex as="nav" gap="32" align="center" className="nav-dock-mobile" ref={mobileDockRef}>
+        <div
+          className="nav-glider-mobile"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: (mobileGliderStyle.left ?? 0) - 8,
+            width: (mobileGliderStyle.width ?? 0) + 14,
+            height: '100%',
+            background: 'rgba(255,255,255,0.18)',
+            boxShadow: 'none',
+            border: '1.5px solid rgba(255,255,255,0.22)',
+            borderRadius: '2rem',
+            backdropFilter: 'blur(8px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(8px) saturate(180%)',
+            transition: 'left 0.35s cubic-bezier(.4,0,.2,1), width 0.35s cubic-bezier(.4,0,.2,1) !important',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}
+        />
+        <Link href="/" aria-label="Home" className={`nav-link-mobile${pathname === '/' ? ' selected' : ''}`} data-path="/"
+          onClick={e => {
+            if (pathname !== '/') {
+              e.preventDefault();
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/');
+                }, 350);
+              }, 10);
+            }
+          }}
+        ><HiOutlineHome style={{ fontSize: 28 }} /></Link>
+        <Link href="/who-we-are" aria-label="Who we are" className={`nav-link-mobile${pathname === '/who-we-are' ? ' selected' : ''}`} data-path="/who-we-are"
+          onClick={e => {
+            if (pathname !== '/who-we-are') {
+              e.preventDefault();
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/who-we-are');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/who-we-are');
+                }, 350);
+              }, 10);
+            }
+          }}
+        ><HiOutlineUserGroup style={{ fontSize: 28 }} /></Link>
+        <div style={{ position: 'relative' }} ref={mobileServicesDropdownRef}>
+          <button
+            type="button"
+            aria-label="Services"
+            className={`nav-link-mobile${pathname.startsWith('/services') ? ' selected' : ''}`}
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              padding: '0.2rem 0.4rem',
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              cursor: 'pointer',
+              color: '#fff',
+              fontSize: '1.5rem',
+              borderRadius: '1.2rem',
+              position: 'relative',
+              transition: 'color 0.18s, background 0.18s',
+              width: 'auto',
+              height: 'auto'
+            }}
+            onClick={() => setMobileServicesDropdownOpen(v => !v)}
+            aria-haspopup="true"
+            aria-expanded={mobileServicesDropdownOpen}
+            data-path="/services"
+          >
+            <HiOutlineCog style={{ fontSize: 28 }} />
+          </button>
+          {mobileServicesDropdownOpen && (
+            <div
+              className="services-dropdown-menu mobile-services-dropdown"
+              style={{
+                position: 'fixed',
+                bottom: '80px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: 'rgba(36, 36, 49, 0.65)',
+                backdropFilter: 'blur(35px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(35px) saturate(180%)',
+                borderRadius: 16,
+                boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
+                minWidth: 180,
+                maxWidth: '90vw',
+                zIndex: 101,
+                marginBottom: 8,
+                border: '1.5px solid rgba(255,255,255,0.13)',
+                padding: '10px 0',
+              }}
+            >
+              <DropdownItem 
+                label="Services" 
+                path="/services" 
+                closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+              />
+              <DropdownItem 
+                label="AI" 
+                path="/services/ai" 
+                closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+              />
+              <DropdownItem 
+                label="VR/AR" 
+                path="/services/vr" 
+                closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+              />
+              <DropdownItem 
+                label="Web" 
+                path="/services/web" 
+                closeDesktopDropdown={() => setServicesDropdownOpen(false)}
+                closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
+              />
+            </div>
+          )}
+        </div>
+        <Link href="/trending" aria-label="What's Trending" className={`nav-link-mobile${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
+          onClick={e => {
+            if (pathname !== '/trending') {
+              e.preventDefault();
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/trending');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/trending');
+                }, 350);
+              }, 10);
+            }
+          }}
+        ><HiOutlineFire style={{ fontSize: 28 }} /></Link>
+        <Link href="/about" aria-label="About" className={`nav-link-mobile${pathname === '/about' ? ' selected' : ''}`} data-path="/about"
+          onClick={e => {
+            if (pathname !== '/about') {
+              e.preventDefault();
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/about');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/about');
+                }, 350);
+              }, 10);
+            }
+          }}
+        ><HiOutlineInformationCircle style={{ fontSize: 28 }} /></Link>
+        <Link href="/careers" aria-label="Careers" className={`nav-link-mobile${pathname === '/careers' ? ' selected' : ''}`} data-path="/careers"
+          onClick={e => {
+            if (pathname !== '/careers') {
+              e.preventDefault();
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/careers');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/careers');
+                }, 350);
+              }, 10);
+            }
+          }}
+        ><HiOutlineBriefcase style={{ fontSize: 28 }} /></Link>
       </Flex>
       <style>{`
-        .nav-link {
+        .nav-link, .nav-link-mobile {
           color: #fff !important;
-          transition: color 0.18s cubic-bezier(.4,0,.2,1);
+          transition: transform 0.18s cubic-bezier(.4,0,.2,1), font-size 0.18s cubic-bezier(.4,0,.2,1);
           position: relative;
           z-index: 1;
           font-size: 1.08rem;
           font-weight: 500;
-        }
-        .nav-link:hover, .nav-link:focus {
-          color: #60a5fa !important;
         }
         .nav-link-flex {
           display: flex;
@@ -107,7 +722,7 @@ export default function Header() {
         }
         .nav-dock-glass {
           position: relative;
-          overflow: hidden;
+          overflow: visible !important;
         }
         .nav-dock-glass::before {
           content: '';
@@ -124,26 +739,12 @@ export default function Header() {
           transition: color 0.18s, background 0.18s, box-shadow 0.18s;
         }
         .nav-dock-glass .nav-link.selected, .nav-dock-glass .nav-link:active {
-          color: #60a5fa;
-        }
-        .nav-dock-glass .nav-link::after {
-          content: '';
-          display: block;
-          position: absolute;
-          left: 0; top: 0; right: 0; bottom: 0;
-          border-radius: 1.2rem;
-          background: rgba(96,165,250,0.13);
-          opacity: 0;
-          transition: opacity 0.18s cubic-bezier(.4,0,.2,1);
-          z-index: -1;
-        }
-        .nav-dock-glass .nav-link:hover::after, .nav-dock-glass .nav-link:focus::after, .nav-dock-glass .nav-link.selected::after {
-          opacity: 1;
+          color:rgba(96, 165, 250, 0);
         }
         .nav-dock-mobile {
           display: none;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1070px) {
           .nav-dock-desktop {
             display: none !important;
           }
@@ -164,7 +765,7 @@ export default function Header() {
             max-width: 95vw;
             min-width: unset;
             position: fixed;
-            overflow: hidden;
+            overflow: visible !important;
           }
           .nav-dock-mobile a {
             color: #fff;
@@ -177,26 +778,84 @@ export default function Header() {
             position: relative;
             transition: color 0.18s, background 0.18s;
           }
-          .nav-dock-mobile a:active, .nav-dock-mobile a:focus {
-            color: #60a5fa;
-          }
-          .nav-dock-mobile a::after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0; top: 0; right: 0; bottom: 0;
-            border-radius: 1.2rem;
-            background: rgba(96,165,250,0.13);
-            opacity: 0;
-            transition: opacity 0.18s cubic-bezier(.4,0,.2,1);
-            z-index: -1;
-          }
-          .nav-dock-mobile a:active::after, .nav-dock-mobile a:focus::after, .nav-dock-mobile a:hover::after {
-            opacity: 1;
-          }
           .zenturio-header-logo {
             padding-top: 60px !important;
           }
+          .nav-glider-mobile {
+            border-radius: 2rem;
+          }
+        }
+        @media (max-width: 600px) {
+          .nav-glider-mobile {
+            border-radius: 3rem;
+          }
+        }
+          @media (max-width: 1450px) and (min-width: 1071px) {
+          .zenturio-header-logo {
+            padding-left: 0 !important;
+            text-align: center !important;
+            justify-content: center !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 auto !important;
+          }
+          .zenturio-header-logo img {
+            margin: 0 auto !important;
+            display: block !important;
+          }
+          .nav-dock-desktop {
+            top: 110px !important; /* or increase as needed */
+          }
+        }
+        .nav-glider {
+          pointer-events: none;
+          transition: left 0.35s cubic-bezier(.4,0,.2,1), width 0.35s cubic-bezier(.4,0,.2,1) !important;
+        }
+        .nav-glider-mobile {
+          pointer-events: none;
+          border-radius: 2rem;
+          transition: left 0.35s cubic-bezier(.4,0,.2,1), width 0.35s cubic-bezier(.4,0,.2,1) !important;
+        }
+        .nav-link:hover, .nav-link:focus, .nav-link-mobile:hover, .nav-link-mobile:focus {
+          transform: scale(1.12);
+        }
+        .nav-link.selected, .nav-link-mobile.selected {
+          color: #60a5fa !important;
+        }
+        .nav-link-dropdown-btn:focus, .nav-link-dropdown-btn:hover {
+          color: #2ea6ff;
+        }
+        .services-dropdown-menu {
+          position: relative;
+          animation: fadeInDropdown 0.18s;
+        }
+        .services-dropdown-menu::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(36, 36, 49, 0.65);
+          border-radius: inherit;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .services-dropdown-item {
+          position: relative;
+          z-index: 1;
+        }
+        .services-dropdown-item:hover, .services-dropdown-item:focus {
+          background: #17304a;
+          color: #2ea6ff;
+        }
+        @keyframes fadeInDropdown {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .services-dropdown-menu.mobile-services-dropdown {
+          animation: fadeInDropdownMobile 0.18s;
+        }
+        @keyframes fadeInDropdownMobile {
+          from { opacity: 0; transform: translate(-50%, 20px); }
+          to { opacity: 1; transform: translate(-50%, 0); }
         }
       `}</style>
     </>

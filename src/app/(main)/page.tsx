@@ -9,7 +9,9 @@ import {
   Logo,
   Line,
   LetterFx,
+  RevealFx,
 } from "@once-ui-system/core";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -216,7 +218,7 @@ export default function Home() {
             <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
               Unlock the power of AI for automation, analytics, and smarter business decisions.
             </p>
-            <Button href="#" style={{ background: 'rgba(255,255,255,0.13)', color: '#fff', borderRadius: '1rem', fontWeight: 600, padding: '0.6rem 1.5rem', fontSize: '1rem', border: 'none', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.08)' }}>Read More</Button>
+            <Link href="/services/ai" className="explore-more-btn">Read More</Link>
           </div>
           {/* Card 2 */}
           <div style={{
@@ -240,7 +242,7 @@ export default function Home() {
             <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
               End-to-end solutions for web and mobile, from design to deployment and beyond.
             </p>
-            <Button href="#" style={{ background: 'rgba(255,255,255,0.13)', color: '#fff', borderRadius: '1rem', fontWeight: 600, padding: '0.6rem 1.5rem', fontSize: '1rem', border: 'none', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.08)' }}>Read More</Button>
+            <Link href="/services/web" className="explore-more-btn">Read More</Link>
           </div>
         </div>
 
@@ -267,7 +269,7 @@ export default function Home() {
           <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
             Immersive AR and VR experiences for next-gen engagement and interaction.
           </p>
-          <Button href="#" style={{ background: 'rgba(255,255,255,0.13)', color: '#fff', borderRadius: '1rem', fontWeight: 600, padding: '0.6rem 1.5rem', fontSize: '1rem', border: 'none', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.08)' }}>Read More</Button>
+          <Link href="/services/vr" className="explore-more-btn">Read More</Link>
         </div>
 
 
