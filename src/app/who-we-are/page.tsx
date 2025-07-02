@@ -296,7 +296,6 @@ export default function WhoWeAre() {
           }
           .about-title {
             font-size: 2rem;
-            
           }
           .about-people-title {
             font-size: 1.3rem;
@@ -311,10 +310,13 @@ export default function WhoWeAre() {
             flex-direction: column;
             align-items: center;
             position: static;
-            width: 100vw;
+            width: 100%;
             min-width: 0;
+            max-width: 100vw;
             height: auto;
-            padding: 0 0.5rem;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
           }
           .team-member {
             position: static;
@@ -343,6 +345,9 @@ export default function WhoWeAre() {
           .team-name, .team-role {
             text-align: center;
             font-size: 0.98rem;
+          }
+          body, html, :global(body), :global(html) {
+            overflow-x: hidden;
           }
         }
       `}</style>
