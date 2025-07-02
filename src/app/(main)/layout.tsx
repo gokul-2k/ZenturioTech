@@ -1,6 +1,11 @@
 import '@once-ui-system/core/css/styles.css';
 import '@once-ui-system/core/css/tokens.css';
 import '@/resources/custom.css'
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
 
 import classNames from "classnames";
 
@@ -35,6 +40,7 @@ export default function RootLayout({
       as="html"
       lang="en"
       fillWidth
+      style={{ fontFamily: 'Poppins, sans-serif' }}
       className={classNames(
         fonts.heading.variable,
         fonts.body.variable,

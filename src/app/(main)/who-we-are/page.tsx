@@ -1,13 +1,59 @@
-'use client'
-import Image from 'next/image';
+"use client";
+
+import Image from "next/image";
+import {
+  Heading,
+  Text,
+  Column,
+} from "@once-ui-system/core";
 
 export default function WhoWeAre() {
   return (
-    <div className="about-root">
-      <div className="about-arch-container">
-        <div className="about-arch-bg"></div>
-        <h1 className="about-title">About Us</h1>
-      </div>
+    <Column fillWidth center padding="l" style={{ position: 'relative', minHeight: '100vh', paddingTop: '0vh', justifyContent: 'flex-start', paddingBottom: 0, marginTop: '20vh' }}>
+      {/* Arch-like background above About Us (updated to match home page) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 'clamp(20px, 6vw, 60px)',
+          left: '50%',
+          transform: 'translate(-50%, -70%)',
+          width: 'min(1400px, 120vw)',
+          height: 'min(220px, 18vw)',
+          zIndex: 1,
+          pointerEvents: 'none',
+          background: 'linear-gradient(180deg,rgb(18, 64, 95) 0%, #142e55 80%, #142e55 100%)',
+          opacity: 0.7,
+          borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+          filter: 'blur(2px)',
+          maxWidth: '98vw',
+          minWidth: '320px',
+          minHeight: '60px',
+        }}
+      ></div>
+      {/* Main content starts here */}
+      <Column maxWidth="l" horizontal="center" gap="l" align="center" style={{ marginTop: '5vh', position: 'relative', zIndex: 4, marginBottom: '5vh'   }}>
+        <Heading 
+          variant="display-strong-xl" 
+          marginTop="0" 
+          onBackground="neutral-weak" 
+          style={{ 
+            lineHeight: '1.1', 
+            textAlign: 'center', 
+            width: '100%',
+            maxWidth: '100vw',
+            wordBreak: 'break-word',
+            whiteSpace: 'normal',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            fontSize: 'clamp(3rem, 12vw, 5rem)',
+            color: '#5B8DF6',
+          }}
+          className="about-title"
+        >
+          About Us
+        </Heading>
+      </Column>
+      {/* About Content */}
       <div className="about-header">
         <div className="about-intro">
           <p>
@@ -23,7 +69,7 @@ export default function WhoWeAre() {
         <div className="about-core-team">Core Team</div>
         <div className="team-floating-layout">
           <div className="team-member" style={{ top: '120px', left: '0px' }}>
-            <div className="team-img team-img-d-normal">
+            <div className="team-img team-img-d-inverted">
               <Image src="/images/5.jpeg" alt="Team Member 1" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -32,7 +78,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '0px', left: '180px' }}>
-            <div className="team-img team-img-circle">
+            <div className="team-img team-img-d-up">
               <Image src="/images/2.jpeg" alt="Team Member 2" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -54,7 +100,7 @@ export default function WhoWeAre() {
               <Image src="/images/4.jpeg" alt="Team Member 4" width={180} height={180} />
             </div>
             <div className="team-info">
-              <div className="team-name">Mrudul</div>
+              <div className="team-name">Rahul</div>
               <div className="team-role">Business Development</div>
             </div>
           </div>
@@ -68,7 +114,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '240px', left: '180px' }}>
-            <div className="team-img team-img-d-inverted">
+            <div className="team-img team-img-circle">
               <Image src="/images/3.jpeg" alt="Team Member 6" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -77,7 +123,7 @@ export default function WhoWeAre() {
             </div>
           </div>
           <div className="team-member" style={{ top: '240px', left: '540px' }}>
-            <div className="team-img team-img-d-normal">
+            <div className="team-img team-img-d-down">
               <Image src="/images/1.jpeg" alt="Team Member 7" width={180} height={180} />
             </div>
             <div className="team-info">
@@ -89,58 +135,14 @@ export default function WhoWeAre() {
         <div className="about-leadership-box">
           <p>
             At ZenturioTech, we believe in the power of holistic leadership and growth. Our team is a collective of visionary individuals, each driven by a shared commitment to innovation and excellence. Together, we are more than just a team; we are a network connected by a common vision.
-      </p>
-      <p>
+          </p>
+          <p>
             Every member of our team acts with the autonomy and initiative of a leader, bringing unique perspectives and skills to the table. This delegated leadership ensures that our projects benefit from diverse insights and collaborative energy, allowing us to deliver groundbreaking solutions with passion and precision.
           </p>
         </div>
       </div>
+      {/* Styles for About Page */}
       <style jsx>{`
-        .about-root {
-          min-height: 100vh;
-          width: 100%;
-          background: #0B2341;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .about-arch-container {
-          width: 100%;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-end;
-          padding-top: 100px;
-          min-height: 220px;
-        }
-        .about-arch-bg {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translate(-50%, 50%);
-          width: min(1400px, 98vw);
-          height: min(220px, 18vw);
-          z-index: 1;
-          pointer-events: none;
-          background: linear-gradient(180deg,rgb(18, 64, 95) 0%, #142e55 80%, #142e55 100%);
-          opacity: 0.7;
-          border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-          filter: blur(2px);
-          max-width: 98vw;
-          min-width: 320px;
-          min-height: 60px;
-          
-        }
-        .about-title {
-          font-size: 3rem;
-          padding-top: 150px;
-          font-weight: bold;
-          color: #5B8DF6;
-          z-index: 2;
-          position: relative;
-          margin-bottom: 2rem;
-        }
         .about-header {
           width: 100%;
           display: flex;
@@ -150,7 +152,7 @@ export default function WhoWeAre() {
           background: none;
         }
         .about-intro {
-          max-width: 1000px;
+          max-width: 1200px;
           text-align: justify;
           color: #fff;
           font-size: 1.05rem;
@@ -167,12 +169,15 @@ export default function WhoWeAre() {
           flex-direction: column;
           align-items: center;
           padding: 48px 0 0 0;
+          margin-top: 10px;
         }
         .about-people-title {
           font-size: 2rem;
           font-weight: bold;
           color: #fff;
+          margin-right: 1100px;
           margin-bottom: 0.5rem;
+          text-align: left;
         }
         .about-people-title span {
           color: #5B8DF6;
@@ -181,6 +186,8 @@ export default function WhoWeAre() {
           color: #fff;
           font-weight: 600;
           margin-bottom: 2rem;
+          font-size: 1.5rem;
+          margin-right: 1100px;
         }
         .team-floating-layout {
           position: relative;
@@ -194,6 +201,8 @@ export default function WhoWeAre() {
           flex-direction: column;
           align-items: center;
           width: 180px;
+          margin: 18px 18px;
+          gap: 30px;
         }
         .team-img {
           width: 180px;
@@ -206,6 +215,7 @@ export default function WhoWeAre() {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 5px;
         }
         .team-img img {
           width: 100%;
@@ -215,6 +225,12 @@ export default function WhoWeAre() {
         }
         .team-img-circle {
           border-radius: 50%;
+        }
+        .team-img-d-up {
+          border-radius: 50% 50% 0 0 / 90px 90px 0 0%;
+        }
+        .team-img-d-down {
+          border-radius: 0 0 50% 50% / 0 0 90px 90px;
         }
         .team-img-d-normal {
           border-radius: 0 90px 90px 0 / 0 50% 50% 0;
@@ -232,7 +248,6 @@ export default function WhoWeAre() {
           max-height: 0;
           transition: opacity 0.25s, max-height 0.25s;
           text-align: center;
-          margin-top: 0.5rem;
           pointer-events: none;
         }
         .team-member:hover .team-info {
@@ -244,7 +259,7 @@ export default function WhoWeAre() {
           color: #fff;
           font-size: 1.1rem;
           font-weight: 500;
-          margin-bottom: 0.2rem;
+          margin-top: -20px;
         }
         .team-role {
           color: #fff;
@@ -252,7 +267,7 @@ export default function WhoWeAre() {
           font-size: 1rem;
         }
         .about-leadership-box {
-          max-width: 900px;
+          max-width: 1000px;
           background: rgba(21, 58, 91, 0.85);
           border-radius: 12px;
           padding: 2rem;
@@ -261,8 +276,10 @@ export default function WhoWeAre() {
           font-weight: 300;
           line-height: 1.7;
           margin-bottom: 2rem;
+          margin-top: 5rem;
         }
         .about-leadership-box p {
+          text-align: justify;
           margin-bottom: 1.2rem;
         }
         @media (max-width: 1000px) {
@@ -279,24 +296,56 @@ export default function WhoWeAre() {
           }
           .about-title {
             font-size: 2rem;
+            
           }
           .about-people-title {
             font-size: 1.3rem;
+            margin-right: 0;
+          }
+          .about-core-team {
+            margin-right: 0;
+            font-size: 1.1rem;
           }
           .team-floating-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: static;
             width: 100vw;
             min-width: 0;
-            height: 600px;
+            height: auto;
+            padding: 0 0.5rem;
           }
-          .team-img, .team-member {
-            width: 120px;
+          .team-member {
+            position: static;
+            margin: 12px 0;
+            width: 100%;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
           }
-          .team-img, .team-img-circle, .team-img-d-normal, .team-img-d-inverted {
-            height: 120px;
-            width: 120px;
+          .team-img, .team-img-circle, .team-img-d-normal, .team-img-d-inverted, .team-img-d-up, .team-img-d-down {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            min-height: 100px;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50% !important;
+          }
+          .team-info {
+            margin-top: 0.4rem;
+            text-align: center;
+            max-width: 100%;
+          }
+          .team-name, .team-role {
+            text-align: center;
+            font-size: 0.98rem;
           }
         }
       `}</style>
-    </div>
+    </Column>
   );
 }
