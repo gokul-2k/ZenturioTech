@@ -1,17 +1,62 @@
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
+import React from "react";
+
+const services = [
+  {
+    title: "AI Chatbots & Virtual Assistants",
+    desc: "Automate customer service with human like, 24/7 support.",
+    img: "/images/robo.webp",
+  },
+  {
+    title: "LLM & Agentic AI Integration",
+    desc: "Build systems that can reason, adapt, and learn continuously",
+    img: "/images/boy.webp",
+  },
+  {
+    title: "Computer Vision Applications",
+    desc: "Enable real-time image recognition, defect detection, and object tracking",
+    img: "/images/eva.webp",
+  },
+  {
+    title: "Predictive Analytics & Machine Learning",
+    desc: "Make data-driven decisions using custom ML models.",
+    img: "/images/pred.webp",
+  },
+  {
+    title: "Custom AI Development",
+    desc: "End-to-end AI solutions designed for your business workflow.",
+    img: "/images/kid-robo.webp",
+  }
+];
 
 export default function AIPage() {
+  // SSR-safe window width check
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+  
+  React.useEffect(() => {
+    const check = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
-    <div style={{ background: '#0a2240', minHeight: '100vh', width: '100%', padding: 0, margin: 0 }}>
+    <div style={{ background: '#0a192f', minHeight: '100vh', width: '100%', padding: 0, margin: 0, marginBottom: -70 }}>
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
-        minHeight: 420,
+        minHeight: 780,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'url("/images/ai.webp") center/cover no-repeat',
+        background: 'url("/images/service.webp") center/cover no-repeat',
+        backgroundPosition: 'center 0px',
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         overflow: 'hidden',
@@ -28,11 +73,22 @@ export default function AIPage() {
           background: 'rgba(10,34,64,0.65)',
           zIndex: 1,
         }} />
+        {/* Bottom Blur Gradient */}
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          height: 180,
+          background: 'linear-gradient(180deg, rgba(10,25,47,0) 0%, #0a192f 100%)',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }} />
         <h1 style={{
           position: 'relative',
-          zIndex: 2,
+          zIndex: 3,
           color: '#fff',
-          fontSize: 48,
+          fontSize: 68,
           fontWeight: 600,
           textAlign: 'center',
           letterSpacing: 1,
@@ -41,107 +97,157 @@ export default function AIPage() {
         </h1>
       </div>
 
-      {/* Feature Cards */}
-      <div style={{ width: '100%', maxWidth: 1200, margin: '0 auto', marginTop: 32, marginBottom: 32 }}>
-        {/* Row 1 */}
-        <div style={{ display: 'flex', gap: 32, marginBottom: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {/* Card 1 */}
-          <FeatureCard
-            img="/images/robo.webp"
-            title="AI Chatbots & Virtual Assistants"
-            desc="Automate customer service with human like, 24/7 support."
-          />
-          {/* Card 2 */}
-          <FeatureCard
-            img="/images/boy.webp"
-            title="LLM & Agentic AI Integration"
-            desc="Build systems that can reason, adapt, and learn continuously."
-          />
-        </div>
-        {/* Row 2 */}
-        <div style={{ display: 'flex', gap: 32, marginBottom: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {/* Card 3 */}
-          <FeatureCard
-            img="/images/eva.webp"
-            title="Computer Vision Applications"
-            desc="Enable real-time image recognition, defect detection, and object tracking."
-          />
-          {/* Card 4 */}
-          <FeatureCard
-            img="/images/pred.webp"
-            title="Predictive Analytics & Machine Learning"
-            desc="Make data-driven decisions using custom ML models."
-          />
-        </div>
-        {/* Row 3 */}
-        <div style={{ display: 'flex', gap: 32, marginBottom: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {/* Card 5 */}
-          <FeatureCard
-            img="/images/kid-robo.webp"
-            title="Custom AI Development"
-            desc="End-to-end AI solutions designed for your business workflow."
-          />
-        </div>
+      {/* Services Section */}
+      <div style={{ 
+        maxWidth: isTablet ? 800 : 1200, 
+        margin: "0 auto", 
+        padding: '60px 20px', 
+        marginTop: 110 
+      }}>
+        {services.map((service, idx) => {
+          const isLeft = idx % 2 === 0;
+          return (
+            <div
+              key={service.title}
+              style={{
+                position: 'relative',
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : isLeft ? 'row' : 'row-reverse',
+                alignItems: 'center',
+                marginBottom: 80,
+                minHeight: isMobile ? 'auto' : 300,
+                width: '100%',
+              }}
+            >
+              {/* Image OUTSIDE the card box */}
+              <div
+                style={{
+                  zIndex: 2,
+                  flex: isMobile ? '0 0 auto' : '0 0 350px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginLeft: isMobile ? 0 : isLeft ? 0 : -100,
+                  marginRight: isMobile ? 0 : isLeft ? -100 : 0,
+                  marginBottom: isMobile ? 32 : 0,
+                }}
+              >
+                <Image
+                  src={service.img}
+                  alt={service.title}
+                  width={isMobile ? 280 : 350}
+                  height={isMobile ? 320 : 400}
+                  style={{
+                    borderRadius: 40,
+                    objectFit: 'cover',
+                    width: isMobile ? 280 : 350,
+                    height: isMobile ? 320 : 400,
+                    display: 'block',
+                    border: '8px solid #4bb6ff',
+                    boxSizing: 'border-box',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  }}
+                />
+              </div>
+              {/* Card box with only text */}
+              <div
+                style={{
+                  zIndex: 1,
+                  flex: 1,
+                  background: 'rgba(10, 44, 82, 0.44)',
+                  borderRadius: 36,
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+                  padding: isMobile ? '32px 24px' : '48px 64px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: isMobile ? 'center' : 'flex-start',
+                  minHeight: isMobile ? 200 : 320,
+                  paddingLeft: isMobile ? 24 : isLeft ? 140 : 64,
+                  paddingRight: isMobile ? 24 : isLeft ? 64 : 140,
+                  textAlign: isMobile ? 'center' : 'left',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: isMobile ? 24 : 36,
+                    fontWeight: 500,
+                    marginBottom: 16,
+                    color: '#8ecaff',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {service.title}
+                </div>
+                <div
+                  style={{
+                    fontSize: isMobile ? 17 : 30,
+                    color: '#e0e6ed',
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    maxWidth: isMobile ? 'none' : '90%',
+                  }}
+                >
+                  {service.desc}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Industries We Serve */}
-      <div style={{ width: '100%', background: 'transparent', padding: '48px 0 0 0', textAlign: 'center' }}>
-        <h2 style={{ color: '#2ea6ff', fontWeight: 600, fontSize: 36, marginBottom: 32 }}>
+      {/* Industries Section */}
+      <div style={{ textAlign: 'center', marginBottom: 60 }}>
+        <h2 style={{ 
+          fontSize: 32, 
+          color: '#4a9eff', 
+          marginBottom: 40,
+          fontWeight: 500 
+        }}>
           Industries <span style={{ color: '#fff' }}>We Serve</span>
         </h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32, marginBottom: 48 }}>
-          <IndustryCard icon="🎓" title="Education" desc="Transforming learning with smart interaction, and engaging educational tools." />
-          <IndustryCard icon="🏥" title="Health Care" desc="Innovative healthcare solutions for better patient outcomes and streamlined operations." />
-          <IndustryCard icon="🏢" title="Real Estate" desc="Transforming learning with smart interaction, and engaging educational tools." />
-          <IndustryCard icon="🛒" title="E-Commerce" desc="Empowering public services with advanced technological solutions." />
-          <IndustryCard icon="🚚" title="Logistics" desc="Transforming learning with smart interaction, and engaging educational tools." />
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: 24,
+          flexWrap: 'wrap',
+          padding: '0 20px'
+        }}>
+          <IndustryCard icon="🎓" title="Education" />
+          <IndustryCard icon="🏥" title="Health Care" />
+          <IndustryCard icon="🏢" title="Real Estate" />
+          <IndustryCard icon="🏛" title="E-Commerce" />
+          <IndustryCard icon="🚚" title="Logistics" />
         </div>
       </div>
     </div>
   );
 }
 
-function FeatureCard({ img, title, desc }: { img: string, title: string, desc: string }) {
+function IndustryCard({ icon, title }: { icon: string, title: string }) {
   return (
     <div style={{
-      background: 'rgba(255,255,255,0.04)',
-      borderRadius: 24,
-      boxShadow: '0 4px 24px 0 rgba(7,37,73,0.13)',
-      padding: 24,
-      minWidth: 320,
-      maxWidth: 380,
-      flex: '1 1 320px',
+      background: 'linear-gradient(135deg, #0a2240 0%, #2ea6ff 100%)',
+      backdropFilter: 'blur(20px)',
+      borderRadius: 16,
+      padding: '24px',
+      width: 200,
+      aspectRatio: '1',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'flex-start',
-      border: '1.5px solid #2e4a7b',
+      justifyContent: 'center',
+      gap: 12,
+      boxShadow: '0 4px 24px 0 rgba(46,166,255,0.10)',
     }}>
-      <img src={img} alt={title} style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 18, marginBottom: 18, boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)' }} />
-      <div style={{ color: '#bcd1f7', fontWeight: 700, fontSize: 22, marginBottom: 10, textAlign: 'center' }}>{title}</div>
-      <div style={{ color: '#fff', fontSize: 16, opacity: 0.92, textAlign: 'center' }}>{desc}</div>
-    </div>
-  );
-}
-
-function IndustryCard({ icon, title, desc }: { icon: string, title: string, desc: string }) {
-  return (
-    <div style={{
-      background: 'rgba(255,255,255,0.04)',
-      borderRadius: 18,
-      boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
-      padding: 24,
-      minWidth: 180,
-      maxWidth: 220,
-      flex: '1 1 180px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      border: '1.5px solid #2e4a7b',
-    }}>
-      <div style={{ fontSize: 38, marginBottom: 12 }}>{icon}</div>
-      <div style={{ color: '#bcd1f7', fontWeight: 700, fontSize: 18, marginBottom: 8, textAlign: 'center' }}>{title}</div>
-      <div style={{ color: '#fff', fontSize: 14, opacity: 0.92, textAlign: 'center' }}>{desc}</div>
+      <span style={{ fontSize: 36 }}>{icon}</span>
+      <h3 style={{ 
+        color: '#fff', 
+        margin: 0,
+        fontSize: 18,
+        fontWeight: 500
+      }}>{title}</h3>
     </div>
   );
 }

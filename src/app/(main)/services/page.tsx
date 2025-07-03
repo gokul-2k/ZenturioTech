@@ -16,7 +16,7 @@ export default function Services() {
 
   return (
     <>
-    <div style={{ minHeight: '100vh', width: '100%', background: '#0a2240', paddingTop: 0, margin: 0 }}>
+    <div style={{ minHeight: '100vh', width: '100%', background: '#0a2240', paddingTop: 0, margin: 0, marginBottom: -100 }}>
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
@@ -118,9 +118,32 @@ export default function Services() {
             <div style={{ fontSize: 22, opacity: 0.97, marginBottom: 24, lineHeight: 1.7 , textAlign: 'justify'}}>
               At ZenturioTech, we design and deploy cutting-edge AI solutions that help businesses unlock efficiency, improve decision-making, and create personalized experiences. Whether you're starting with AI or scaling your existing systems, we tailor intelligent technology to meet your specific needs.
             </div>
-            <button type="button" className="explore-more-btn" onClick={() => handleExploreClick('/services/ai')}>
+            <Link
+              href="/services/ai"
+              aria-label="Explore Artificial Intelligence Services"
+              style={{
+                background: '#2ea6ff',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 12,
+                fontWeight: 400,
+                fontSize: 18,
+                padding: '0.6rem 1.6rem',
+                alignSelf: 'flex-start',
+                cursor: 'pointer',
+                marginTop: 8,
+                boxShadow: '0 3px 12px 0 rgba(25,118,210,0.18)',
+                letterSpacing: '0.3px',
+                display: 'inline-block',
+                textDecoration: 'none',
+                transition: 'background 0.2s, transform 0.2s',
+                outline: 'none',
+                position: 'relative',
+                zIndex: 3,
+              }}
+            >
               Explore More »
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -153,9 +176,32 @@ export default function Services() {
             <div style={{ fontSize: 22, opacity: 0.97, marginBottom: 24, lineHeight: 1.7, textAlign: 'justify' }}>
               At ZenturioTech, we design and deploy cutting-edge AI solutions that help businesses unlock efficiency, improve decision-making. Step into the future with ZenturioTech's Virtual Reality (VR) and Augmented Reality (AR) development services.
             </div>
-            <button type="button" className="explore-more-btn" onClick={() => handleExploreClick('/services/vr')}>
+            <Link
+              href="/services/vr"
+              aria-label="Explore Virtual Reality Services"
+              style={{
+                background: '#2ea6ff',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 12,
+                fontWeight: 400,
+                fontSize: 18,
+                padding: '0.6rem 1.6rem',
+                alignSelf: 'flex-start',
+                cursor: 'pointer',
+                marginTop: 8,
+                boxShadow: '0 3px 12px 0 rgba(25,118,210,0.18)',
+                letterSpacing: '0.3px',
+                display: 'inline-block',
+                textDecoration: 'none',
+                transition: 'background 0.2s, transform 0.2s',
+                outline: 'none',
+                position: 'relative',
+                zIndex: 3,
+              }}
+            >
               Explore More »
-            </button>
+            </Link>
           </div>
           {/* Image with text overlay (right) */}
           <div className="service-card-img" style={{ flex: 1.5, minWidth: 0, maxWidth: '100%', aspectRatio: '16/9', borderRadius: 48, overflow: 'hidden', boxShadow: '0 8px 36px 0 rgba(7,37,73,0.22)', position: 'relative', background: 'transparent' }}>
@@ -234,9 +280,32 @@ export default function Services() {
             <div style={{ fontSize: 22, opacity: 0.97, marginBottom: 24, lineHeight: 1.7 , textAlign: 'justify' }}>
               ZenturioTech crafts high-performance, scalable, and visually stunning web applications tailored to your business needs. From landing pages to complex platforms, our web development team ensures seamless user experiences and robust functionality.
             </div>
-            <button type="button" className="explore-more-btn" onClick={() => handleExploreClick('/services/web')}>
+            <Link
+              href="/services/web"
+              aria-label="Explore Web Development Services"
+              style={{
+                background: '#2ea6ff',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 12,
+                fontWeight: 400,
+                fontSize: 18,
+                padding: '0.6rem 1.6rem',
+                alignSelf: 'flex-start',
+                cursor: 'pointer',
+                marginTop: 8,
+                boxShadow: '0 3px 12px 0 rgba(25,118,210,0.18)',
+                letterSpacing: '0.3px',
+                display: 'inline-block',
+                textDecoration: 'none',
+                transition: 'background 0.2s, transform 0.2s',
+                outline: 'none',
+                position: 'relative',
+                zIndex: 3,
+              }}
+            >
               Explore More »
-            </button>
+            </Link>
           </div>
         </div>
 
