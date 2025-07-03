@@ -229,7 +229,7 @@ export default function Header() {
             position: 'absolute',
             top: 36,
             right: '5vw',
-            transform: showDock ? 'translateY(0)' : 'translateY(-200%)',
+            transform: showDock ? 'translateY(0)' : 'translateY(-300%)',
             transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
             pointerEvents: showDock ? 'auto' : 'none',
             overflow: 'visible !important',
