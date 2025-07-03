@@ -220,12 +220,12 @@ export default function Header() {
             background: 'rgba(32, 32, 32, 0.27)',
             backdropFilter: 'blur(16px)',
             borderRadius: '2rem',
-            padding: '0.7rem 2.4rem',
+            padding: '0.5rem 2.4rem',
             boxShadow: '0 2px 24px 0 rgba(0,0,0,0.13)',
             minWidth: 420,
             position: 'absolute',
-            top: 36, // moved up from 56
-            right: '5vw', // moved right from 8vw
+            top: 36,
+            right: '5vw',
             transform: showDock ? 'translateY(0)' : 'translateY(-200%)',
             transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
             pointerEvents: showDock ? 'auto' : 'none',
@@ -310,12 +310,40 @@ export default function Header() {
               }
             }}
           ><HiOutlineUserGroup className="nav-icon" /> <span>Who we are</span></Link>
-          <div style={{ position: 'relative', marginLeft: 0 }} ref={servicesDropdownRef}>
+          <div style={{ position: 'relative', marginLeft: 0 }} ref={servicesDropdownRef}
+            onMouseEnter={() => setServicesDropdownOpen(true)}
+            onMouseLeave={() => setServicesDropdownOpen(false)}
+          >
             <button
               type="button"
               className={`nav-link nav-link-flex nav-link-dropdown-btn${pathname.startsWith('/services') ? ' selected' : ''}`}
               style={{ background: 'none', border: 'none', color: '#fff', fontSize: 18, cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0 10px', height: 48 }}
-              onClick={() => setServicesDropdownOpen(v => !v)}
+              onClick={(e) => {
+                if (pathname !== '/services') {
+                  if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
+                  // Step 1: Set glider to current position
+                  const currentEl = document.querySelector(`.nav-link[data-path='${pathname}']`);
+                  const dock = dockRef.current;
+                  if (currentEl && dock) {
+                    const dockRect = dock.getBoundingClientRect();
+                    const selRect = currentEl.getBoundingClientRect();
+                    setGliderStyle({
+                      left: selRect.left - dockRect.left,
+                      width: selRect.width
+                    });
+                  }
+                  // Step 2: Animate to new position
+                  setTimeout(() => {
+                    setPendingPath('/services');
+                    setIsAnimating(true);
+                    navTimeoutRef.current = setTimeout(() => {
+                      setPendingPath(null);
+                      setIsAnimating(false);
+                      router.push('/services');
+                    }, 350);
+                  }, 10);
+                }
+              }}
               aria-haspopup="true"
               aria-expanded={servicesDropdownOpen}
             >
@@ -330,11 +358,11 @@ export default function Header() {
                   top: '110%',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  background: 'rgba(36, 36, 49, 0.65)',
-                  backdropFilter: 'blur(35px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(35px) saturate(180%)',
+                  background: 'rgba(32, 32, 32, 0.27)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
                   borderRadius: 16,
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
+                  boxShadow: '0 2px 24px 0 rgba(0,0,0,0.12)',
                   minWidth: 180,
                   zIndex: 9999,
                   marginTop: 8,
@@ -342,12 +370,6 @@ export default function Header() {
                   padding: '10px 0',
                 }}
               >
-                <DropdownItem 
-                  label="Services" 
-                  path="/services" 
-                  closeDesktopDropdown={() => setServicesDropdownOpen(false)}
-                  closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
-                />
                 <DropdownItem 
                   label="AI" 
                   path="/services/ai" 
@@ -558,7 +580,33 @@ export default function Header() {
               width: 'auto',
               height: 'auto'
             }}
-            onClick={() => setMobileServicesDropdownOpen(v => !v)}
+            onClick={(e) => {
+              setMobileServicesDropdownOpen(v => !v);
+              if (pathname !== '/services') {
+                if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+                // Step 1: Set glider to current position
+                const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+                const dock = mobileDockRef.current;
+                if (currentEl && dock) {
+                  const dockRect = dock.getBoundingClientRect();
+                  const selRect = currentEl.getBoundingClientRect();
+                  setMobileGliderStyle({
+                    left: selRect.left - dockRect.left,
+                    width: selRect.width
+                  });
+                }
+                // Step 2: Animate to new position
+                setTimeout(() => {
+                  setPendingPath('/services');
+                  setIsAnimating(true);
+                  mobileNavTimeoutRef.current = setTimeout(() => {
+                    setPendingPath(null);
+                    setIsAnimating(false);
+                    router.push('/services');
+                  }, 350);
+                }, 10);
+              }
+            }}
             aria-haspopup="true"
             aria-expanded={mobileServicesDropdownOpen}
             data-path="/services"
@@ -573,9 +621,9 @@ export default function Header() {
                 bottom: '80px',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                background: 'rgba(36, 36, 49, 0.65)',
-                backdropFilter: 'blur(35px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(35px) saturate(180%)',
+                background: 'rgba(32, 32, 32, 0.27)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 borderRadius: 16,
                 boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
                 minWidth: 180,
@@ -586,12 +634,6 @@ export default function Header() {
                 padding: '10px 0',
               }}
             >
-              <DropdownItem 
-                label="Services" 
-                path="/services" 
-                closeDesktopDropdown={() => setServicesDropdownOpen(false)}
-                closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
-              />
               <DropdownItem 
                 label="AI" 
                 path="/services/ai" 
@@ -734,7 +776,7 @@ export default function Header() {
           z-index: 0;
         }
         .nav-dock-glass .nav-link {
-          padding: 0.3rem 1.1rem;
+          padding: 0.2rem 1.1rem;
           border-radius: 1.2rem;
           transition: color 0.18s, background 0.18s, box-shadow 0.18s;
         }
@@ -833,7 +875,7 @@ export default function Header() {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(36, 36, 49, 0.65);
+          background: rgba(32, 32, 32, 0.27);
           border-radius: inherit;
           pointer-events: none;
           z-index: 0;
