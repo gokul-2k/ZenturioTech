@@ -93,6 +93,7 @@ export default function Header() {
   const [mobileServicesDropdownOpen, setMobileServicesDropdownOpen] = useState(false);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const mobileServicesDropdownRef = useRef<HTMLDivElement>(null);
+  const [keepDropdownOpen, setKeepDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,8 +101,10 @@ export default function Header() {
       if (currentScrollY <= 0) {
         setShowDock(true);
       } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down: hide dock
+        // Scrolling down: hide dock and reset dropdown states
         setShowDock(false);
+        setServicesDropdownOpen(false);
+        setKeepDropdownOpen(false);
       } else {
         // Scrolling up: show dock
         setShowDock(true);
@@ -310,15 +313,19 @@ export default function Header() {
               }
             }}
           ><HiOutlineUserGroup className="nav-icon" /> <span>Who we are</span></Link>
-          <div style={{ position: 'relative', marginLeft: 0 }} ref={servicesDropdownRef}
-            onMouseEnter={() => setServicesDropdownOpen(true)}
-            onMouseLeave={() => setServicesDropdownOpen(false)}
+          <div 
+            style={{ position: 'relative', marginLeft: 0 }} 
+            ref={servicesDropdownRef}
+            onMouseEnter={() => !keepDropdownOpen && setServicesDropdownOpen(true)}
+            onMouseLeave={() => !keepDropdownOpen && setServicesDropdownOpen(false)}
           >
             <button
               type="button"
               className={`nav-link nav-link-flex nav-link-dropdown-btn${pathname.startsWith('/services') ? ' selected' : ''}`}
               style={{ background: 'none', border: 'none', color: '#fff', fontSize: 18, cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0 10px', height: 48 }}
               onClick={(e) => {
+                setKeepDropdownOpen(true);
+                setServicesDropdownOpen(true);
                 if (pathname !== '/services') {
                   if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
                   // Step 1: Set glider to current position
@@ -355,14 +362,14 @@ export default function Header() {
                 className="services-dropdown-menu"
                 style={{
                   position: 'absolute',
-                  top: '110%',
+                  top: 'calc(100% - 1px)',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  background: 'rgba(32, 32, 32, 0.27)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
+                  background: 'rgba(32, 32, 32, 0.75)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
                   borderRadius: 16,
-                  boxShadow: '0 2px 24px 0 rgba(0,0,0,0.12)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
                   minWidth: 180,
                   zIndex: 9999,
                   marginTop: 8,
@@ -621,11 +628,11 @@ export default function Header() {
                 bottom: '80px',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                background: 'rgba(32, 32, 32, 0.27)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
+                background: 'rgba(32, 32, 32, 0.75)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
                 borderRadius: 16,
-                boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)',
+                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
                 minWidth: 180,
                 maxWidth: '90vw',
                 zIndex: 101,
@@ -872,20 +879,14 @@ export default function Header() {
           animation: fadeInDropdown 0.18s;
         }
         .services-dropdown-menu::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(32, 32, 32, 0.27);
-          border-radius: inherit;
-          pointer-events: none;
-          z-index: 0;
+          display: none;
         }
         .services-dropdown-item {
           position: relative;
           z-index: 1;
         }
         .services-dropdown-item:hover, .services-dropdown-item:focus {
-          background: #17304a;
+          background: rgba(46, 166, 255, 0.1);
           color: #2ea6ff;
         }
         @keyframes fadeInDropdown {

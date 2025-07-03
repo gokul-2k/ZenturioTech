@@ -137,11 +137,7 @@ export default function Home() {
             style={{
               position: 'absolute',
               // Responsive top offset for arch
-<<<<<<< Updated upstream
               top: 'clamp(20px, 6vw, 60px)', // default for desktop
-=======
-              top: 'clamp(0px, 6vw, 80px)', // default for desktop
->>>>>>> Stashed changes
               left: '50%',
               transform: 'translate(-50%, -70%)',
               width: 'min(1400px, 120vw)',
@@ -196,86 +192,151 @@ export default function Home() {
           justifyContent: 'center',
           alignItems: 'stretch',
           width: '100%',
-          maxWidth: 1100,
+          maxWidth: 1500,
           margin: '0 auto',
           zIndex: 4,
         }}>
           {/* Card 1 */}
           <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
             flex: '1 1 340px',
             minWidth: 340,
-            maxWidth: 500,
-            height: 320,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
+            maxWidth: 700,
+            height: 200,
+            background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
             borderRadius: '1.5rem',
-            boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
+            boxShadow: '0 4px 32px 0 rgba(3, 56, 121, 0.18)',
             padding: '2.5rem 2rem 2rem 2rem',
             color: '#fff',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
             position: 'relative',
             overflow: 'hidden',
+            marginBottom: 0,
           }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Artificial Intelligence</h2>
-            <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
-              Unlock the power of AI for automation, analytics, and smarter business decisions.
-            </p>
-            <Link href="/services/ai" className="explore-more-btn">Read More</Link>
+            <img src="/images/ai-h.webp" alt="AI" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Artificial <br /> Intelligence</h2>
+              <Link
+                href="/services/ai"
+                aria-label="Explore Artificial Intelligence Services"
+                style={{
+                  marginTop: 8,
+                  padding: '0.7rem 1.6rem',
+                  fontSize: '1.08rem',
+                  fontWeight: 600,
+                  border: 'none',
+                  borderRadius: '1.1rem',
+                  background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
+                  color: '#0a2240',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
+                  transition: 'background 0.2s, color 0.2s',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  textDecoration: 'none',
+                }}
+              >
+                Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
+              </Link>
+            </div>
           </div>
           {/* Card 2 */}
           <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
             flex: '1 1 340px',
             minWidth: 340,
-            maxWidth: 500,
-            height: 320,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
+            maxWidth: 700,
+            height: 200,
+            background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
             borderRadius: '1.5rem',
             boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
             padding: '2.5rem 2rem 2rem 2rem',
             color: '#fff',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
             position: 'relative',
             overflow: 'hidden',
+            marginBottom: 0,
           }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Web & Mobile App Development</h2>
-            <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
-              End-to-end solutions for web and mobile, from design to deployment and beyond.
-            </p>
-            <Link href="/services/web" className="explore-more-btn">Read More</Link>
+            <img src="/images/web-h.webp" alt="Web" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Web & Mobile App <br /> Development</h2>
+              <Link
+                href="/services/web"
+                aria-label="Explore Web and Mobile App Development Services"
+                style={{
+                  marginTop: 8,
+                  padding: '0.7rem 1.6rem',
+                  fontSize: '1.08rem',
+                  fontWeight: 600,
+                  border: 'none',
+                  borderRadius: '1.1rem',
+                  background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
+                  color: '#0a2240',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
+                  transition: 'background 0.2s, color 0.2s',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  textDecoration: 'none',
+                }}
+              >
+                Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* AR/VR Box Section - now below the two cards */}
         <div style={{
           width: '100%',
-          maxWidth: 500,
+          maxWidth: 700,
           margin: '2.5rem auto 0',
-          background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
+          background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
           borderRadius: '1.5rem',
           boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
           padding: '2.5rem 2rem 2rem 2rem',
           color: '#fff',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
           position: 'relative',
           overflow: 'hidden',
           zIndex: 4,
-          height: 320,
+          height: 200,
         }}>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Augmented Reality (AR) & Virtual Reality (VR)</h2>
-          <p style={{ fontSize: '1.08rem', opacity: 0.93, marginBottom: 24 }}>
-            Immersive AR and VR experiences for next-gen engagement and interaction.
-          </p>
-          <Link href="/services/vr" className="explore-more-btn">Read More</Link>
+          <img src="/images/vr-h.webp" alt="VR" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Augmented Reality (AR) <br /> Virtual Reality (VR)</h2>
+            <Link
+              href="/services/vr"
+              aria-label="Explore Augmented Reality and Virtual Reality Services"
+              style={{
+                marginTop: 8,
+                padding: '0.7rem 1.6rem',
+                fontSize: '1.08rem',
+                fontWeight: 600,
+                border: 'none',
+                borderRadius: '1.1rem',
+                background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
+                color: '#0a2240',
+                cursor: 'pointer',
+                boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
+                transition: 'background 0.2s, color 0.2s',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                textDecoration: 'none',
+              }}
+            >
+              Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
+            </Link>
+          </div>
         </div>
-
 
         {/* Bottom Circular Arch Gradient - copy of the top arch */}
         <div
@@ -324,7 +385,7 @@ export default function Home() {
             style={{
               fontSize: 'clamp(1.5rem, 4vw, 2rem)',
               fontWeight: 700,
-              background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 50%, #bae6fd 100%)',
+              background: 'linear-gradient(90deg,rgb(47, 90, 231) 0%,rgb(41, 184, 245) 50%,rgb(57, 181, 248) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -364,7 +425,7 @@ export default function Home() {
         <div
           style={{
             width: '100%',
-            maxWidth: 1300,
+            maxWidth: 1500,
             margin: '3.5rem auto 0',
             display: 'flex',
             flexWrap: 'wrap',
@@ -372,16 +433,19 @@ export default function Home() {
             justifyContent: 'center',
             alignItems: 'stretch',
             zIndex: 4,
+            marginBottom: 100,
+            marginLeft: 50,
+            marginRight: 50,
           }}
         >
           {/* Card 1: Education */}
           <div style={{
-            flex: '1 1 180px',
-            minWidth: 180,
-            maxWidth: 220,
-            height: 260,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
-            borderRadius: '1.1rem',
+            flex: '1 1 200px',
+            minWidth: 200,
+            maxWidth: 260,
+            height: 280,
+            background: 'linear-gradient(90deg,rgb(28, 51, 80) 0%,rgb(58, 97, 139) 100%)',
+            borderRadius: '2.5rem',
             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)',
             padding: '1.2rem 1rem',
             color: '#fff',
@@ -392,7 +456,7 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center' }}>Education</div>
+            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Education</div>
             <div style={{ margin: '0 0 12px 0' }}>
               {/* Education Icon */}
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#1976d2"/><path d="M19 11L29 16L19 21L9 16L19 11Z" fill="#fff"/><path d="M19 21V27" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
@@ -403,12 +467,12 @@ export default function Home() {
           </div>
           {/* Card 2: Health Care */}
           <div style={{
-            flex: '1 1 180px',
-            minWidth: 180,
-            maxWidth: 220,
-            height: 260,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
-            borderRadius: '1.1rem',
+            flex: '1 1 200px',
+            minWidth: 200,
+            maxWidth: 260,
+            height: 280,
+            background: 'linear-gradient(90deg,rgb(28, 51, 80) 0%,rgb(58, 97, 139) 100%)',
+            borderRadius: '2.5rem',
             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)',
             padding: '1.2rem 1rem',
             color: '#fff',
@@ -419,7 +483,7 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center' }}>Health Care</div>
+            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Health Care</div>
             <div style={{ margin: '0 0 12px 0' }}>
               {/* Health Care Icon */}
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#38bdf8"/><path d="M19 12V26" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M12 19H26" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
@@ -430,12 +494,12 @@ export default function Home() {
           </div>
           {/* Card 3: Real Estate */}
           <div style={{
-            flex: '1 1 180px',
-            minWidth: 180,
-            maxWidth: 220,
-            height: 260,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
-            borderRadius: '1.1rem',
+            flex: '1 1 200px',
+            minWidth: 200,
+            maxWidth: 260,
+            height: 280,
+            background: 'linear-gradient(90deg,rgb(28, 51, 80) 0%,rgb(58, 97, 139) 100%)',
+            borderRadius: '2.5rem',
             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)',
             padding: '1.2rem 1rem',
             color: '#fff',
@@ -446,7 +510,7 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center' }}>Real Estate</div>
+            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Real Estate</div>
             <div style={{ margin: '0 0 12px 0' }}>
               {/* Real Estate Icon */}
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#67e8f9"/><path d="M12 24V16L19 11L26 16V24" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><rect x="16" y="20" width="6" height="4" fill="#fff"/></svg>
@@ -457,12 +521,12 @@ export default function Home() {
           </div>
           {/* Card 4: Government */}
           <div style={{
-            flex: '1 1 180px',
-            minWidth: 180,
-            maxWidth: 220,
-            height: 260,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
-            borderRadius: '1.1rem',
+            flex: '1 1 200px',
+            minWidth: 200,
+            maxWidth: 260,
+            height: 280,
+            background: 'linear-gradient(90deg,rgb(28, 51, 80) 0%,rgb(58, 97, 139) 100%)',
+            borderRadius: '2.5rem',
             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)',
             padding: '1.2rem 1rem',
             color: '#fff',
@@ -473,7 +537,7 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center' }}>Government</div>
+            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Government</div>
             <div style={{ margin: '0 0 12px 0' }}>
               {/* Government Icon */}
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#bae6fd"/><path d="M10 24H28M12 20V24M26 20V24M19 14V24" stroke="#072549" strokeWidth="2" strokeLinejoin="round"/><rect x="16" y="10" width="6" height="4" fill="#072549"/></svg>
@@ -484,12 +548,12 @@ export default function Home() {
           </div>
           {/* Card 5: Corporate */}
           <div style={{
-            flex: '1 1 180px',
-            minWidth: 180,
-            maxWidth: 220,
-            height: 260,
-            background: 'linear-gradient(135deg, #072549 0%, #17304a 100%)',
-            borderRadius: '1.1rem',
+            flex: '1 1 200px',
+            minWidth: 200,
+            maxWidth: 260,
+            height: 280,
+            background: 'linear-gradient(90deg,rgb(28, 51, 80) 0%,rgb(58, 97, 139) 100%)',
+            borderRadius: '2.5rem',
             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.18)',
             padding: '1.2rem 1rem',
             color: '#fff',
@@ -500,7 +564,7 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center' }}>Corporate</div>
+            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Corporate</div>
             <div style={{ margin: '0 0 12px 0' }}>
               {/* Corporate Icon */}
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#1976d2"/><rect x="12" y="14" width="14" height="10" fill="#fff"/><rect x="16" y="18" width="6" height="6" fill="#1976d2"/></svg>

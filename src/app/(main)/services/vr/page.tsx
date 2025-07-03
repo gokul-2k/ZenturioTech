@@ -34,7 +34,7 @@ const applications = [
 ];
 
 // Responsive style helper
-const responsiveStyle = (base, mobile) => ({
+const responsiveStyle = (base: Record<string, any>, mobile: Record<string, any>) => ({
   ...base,
   ...(typeof window !== "undefined" && window.innerWidth <= 600 ? mobile : {}),
 });
@@ -42,165 +42,175 @@ const responsiveStyle = (base, mobile) => ({
 export default function VRServicePage() {
   // SSR-safe window width check
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+  
   React.useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 600);
+    const check = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#072549",
-        color: "#fff",
-        padding: "0 0 48px 0",
-        fontFamily: "Poppins, sans-serif",
-      }}
-    >
-      {/* Hero Section */}
+    <div style={{
+      minHeight: "100vh",
+      background: "#0a192f",
+      color: "#fff",
+      padding: 0,
+      margin: 0,
+      marginBottom: -65,
+    }}>
+      {/* HERO SECTION */}
       <div style={{
-        position: 'relative',
         width: '100%',
-        height: 320,
-        marginBottom: 32,
+        minHeight: 780,
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'url("/images/service.webp") center/cover no-repeat',
+        backgroundPosition: 'center 0px',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
         overflow: 'hidden',
-        borderBottomLeftRadius: 32,
-        borderBottomRightRadius: 32,
+        marginBottom: 0,
+        marginTop: -80,
       }}>
-        <Image
-          src="/images/vr-hp.webp"
-          alt="AR VR Hero Background"
-          fill
-          style={{
-            objectFit: 'cover',
-            filter: 'brightness(0.6)',
-          }}
-          priority
-        />
+        {/* Overlay */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(90deg, rgba(7,37,73,0.85) 60%, rgba(7,37,73,0.3) 100%)',
+          background: 'rgba(10,34,64,0.65)',
           zIndex: 1,
         }} />
+        {/* Bottom Blur Gradient */}
         <div style={{
           position: 'absolute',
-          top: 0,
           left: 0,
+          bottom: 0,
           width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          height: 180,
+          background: 'linear-gradient(180deg, rgba(10,25,47,0) 0%, #0a192f 100%)',
           zIndex: 2,
+          pointerEvents: 'none',
+        }} />
+        <h1 style={{
+          position: 'relative',
+          zIndex: 3,
+          color: '#fff',
+          fontSize: 68,
+          fontWeight: 600,
+          textAlign: 'center',
+          letterSpacing: 1,
         }}>
-          <h1 style={{
-            fontSize: 44,
-            fontWeight: 700,
-            color: '#e0f0ff',
-            letterSpacing: 1,
-            textShadow: '0 4px 24px rgba(0,0,0,0.25)',
-            margin: 0,
-          }}>
-            AI & VR Development
-          </h1>
-        </div>
+          Virtual Reality
+        </h1>
       </div>
+
       {/* Cards Section */}
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <div style={{ marginTop: 8 }}>
-          {cards.map((card, idx) => {
-            const isLeft = idx % 2 === 0;
-            return (
+      <div style={{ 
+        maxWidth: isTablet ? 800 : 1200, 
+        margin: "0 auto", 
+        padding: '60px 20px', 
+        marginTop: 110 
+      }}>
+        {cards.map((card, idx) => {
+          const isLeft = idx % 2 === 0;
+          return (
+            <div
+              key={card.title}
+              style={{
+                position: 'relative',
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : isLeft ? 'row' : 'row-reverse',
+                alignItems: 'center',
+                marginBottom: 80,
+                minHeight: isMobile ? 'auto' : 300,
+                width: '100%',
+              }}
+            >
+              {/* Image OUTSIDE the card box */}
               <div
-                key={card.title}
                 style={{
-                  position: 'relative',
+                  zIndex: 2,
+                  flex: isMobile ? '0 0 auto' : '0 0 350px',
                   display: 'flex',
-                  flexDirection: isMobile ? 'column' : isLeft ? 'row' : 'row-reverse',
                   alignItems: 'center',
-                  marginBottom: 64,
-                  minHeight: 220,
+                  justifyContent: 'center',
+                  marginLeft: isMobile ? 0 : isLeft ? 0 : -100,
+                  marginRight: isMobile ? 0 : isLeft ? -100 : 0,
+                  marginBottom: isMobile ? 32 : 0,
                 }}
               >
-                {/* Image OUTSIDE the card box */}
+                <Image
+                  src={card.img}
+                  alt={card.title}
+                  width={isMobile ? 280 : 350}
+                  height={isMobile ? 320 : 400}
+                  style={{
+                    borderRadius: 40,
+                    objectFit: 'cover',
+                    width: isMobile ? 280 : 350,
+                    height: isMobile ? 320 : 400,
+                    display: 'block',
+                    border: '8px solid #4bb6ff',
+                    boxSizing: 'border-box',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  }}
+                />
+              </div>
+              {/* Card box with only text */}
+              <div
+                style={{
+                  zIndex: 1,
+                  flex: 1,
+                  background: 'rgba(10, 44, 82, 0.44)',
+                  borderRadius: 36,
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+                  padding: isMobile ? '32px 24px' : '48px 64px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: isMobile ? 'center' : 'flex-start',
+                  minHeight: isMobile ? 200 : 320,
+                  paddingLeft: isMobile ? 24 : isLeft ? 140 : 64,
+                  paddingRight: isMobile ? 24 : isLeft ? 64 : 140,
+                  textAlign: isMobile ? 'center' : 'left',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
                 <div
                   style={{
-                    zIndex: 2,
-                    flex: isMobile ? '0 0 auto' : '0 0 250px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginLeft: isMobile ? 0 : isLeft ? 0 : -80,
-                    marginRight: isMobile ? 0 : isLeft ? -80 : 0,
-                    marginBottom: isMobile ? 24 : 0,
+                    fontSize: isMobile ? 24 : 36,
+                    fontWeight: 500,
+                    marginBottom: 16,
+                    color: '#8ecaff',
+                    lineHeight: 1.2,
                   }}
                 >
-                  <Image
-                    src={card.img}
-                    alt={card.title}
-                    width={isMobile ? 180 : 250}
-                    height={isMobile ? 200 : 300}
-                    style={{
-                      borderRadius: 32,
-                      objectFit: 'cover',
-                      width: isMobile ? 180 : 250,
-                      height: isMobile ? 200 : 300,
-                      display: 'block',
-                      border: '7px solid #4bb6ff',
-                      boxSizing: 'border-box',
-                    }}
-                  />
+                  {card.title}
                 </div>
-                {/* Card box with only text */}
                 <div
                   style={{
-                    zIndex: 1,
-                    flex: 1,
-                    background: 'rgba(10, 44, 82, 0.85)',
-                    borderRadius: 28,
-                    boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)',
-                    padding: isMobile ? '24px 16px' : '40px 48px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                    minHeight: 150,
-                    paddingLeft: isMobile ? 16 : isLeft ? 100 : 48,
-                    paddingRight: isMobile ? 16 : isLeft ? 48 : 100,
-                    textAlign: isMobile ? 'center' : 'left',
+                    fontSize: isMobile ? 17 : 30,
+                    color: '#e0e6ed',
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    maxWidth: isMobile ? 'none' : '90%',
                   }}
                 >
-                  <div
-                    style={{
-                      fontSize: isMobile ? 20 : 28,
-                      fontWeight: 600,
-                      marginBottom: 10,
-                      color: '#8ecaff',
-                    }}
-                  >
-                    {card.title}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? 15 : 21,
-                      color: '#e0e6ed',
-                      fontWeight: 400,
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {card.desc}
-                  </div>
+                  {card.desc}
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
       {/* Applications Section */}
       <div style={{ maxWidth: 1100, margin: '0 auto', marginTop: 64 }}>
@@ -209,7 +219,7 @@ export default function VRServicePage() {
           fontSize: isMobile ? 28 : 38,
           fontWeight: 700,
           textAlign: 'center',
-          marginBottom: 36,
+          marginBottom: 40,
           letterSpacing: 1,
         }}>
           Applications
@@ -221,6 +231,7 @@ export default function VRServicePage() {
           justifyContent: 'center',
           alignItems: isMobile ? 'center' : 'stretch',
           gap: 24,
+          marginBottom: 100,
         }}>
           {/* Desktop layout: 2x2 + 1 center, Mobile: stacked */}
           {isMobile ? (
@@ -244,7 +255,7 @@ export default function VRServicePage() {
             <>
               <div style={{ display: 'flex', gap: 32 }}>
                 <div style={{
-                  background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
                   borderRadius: 32,
                   padding: '28px 48px',
                   color: '#fff',
@@ -257,7 +268,7 @@ export default function VRServicePage() {
                   Corporate & Industrial Training
                 </div>
                 <div style={{
-                  background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
                   borderRadius: 32,
                   padding: '28px 48px',
                   color: '#fff',
@@ -272,7 +283,7 @@ export default function VRServicePage() {
               </div>
               <div style={{ display: 'flex', gap: 32 }}>
                 <div style={{
-                  background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
                   borderRadius: 32,
                   padding: '28px 48px',
                   color: '#fff',
@@ -285,7 +296,7 @@ export default function VRServicePage() {
                   Real Estate Virtual Tours
                 </div>
                 <div style={{
-                  background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
                   borderRadius: 32,
                   padding: '28px 48px',
                   color: '#fff',
@@ -300,7 +311,7 @@ export default function VRServicePage() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 16 }}>
                 <div style={{
-                  background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
                   borderRadius: 32,
                   padding: '28px 48px',
                   color: '#fff',
