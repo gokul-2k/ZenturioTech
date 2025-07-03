@@ -31,6 +31,7 @@ export default function StickyHeader() {
   return (
     <div
       ref={headerRef}
+      className="sticky-header"
       style={{
         position: "fixed",
         top: 0,
@@ -38,10 +39,17 @@ export default function StickyHeader() {
         width: "100vw",
         zIndex: 100,
         transition: "transform 0.35s cubic-bezier(.4,0,.2,1)",
-        transform: hidden ? "translateY(-120px)" : "translateY(0)",
+        transform: hidden ? "translateY(-220px)" : "translateY(0)",
       }}
     >
       <Header />
+      <style>{`
+        @media (max-width: 1450px) and (min-width: 1071px) {
+          .sticky-header {
+            transform: ${hidden ? "translateY(-300px)" : "translateY(0)"} !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
