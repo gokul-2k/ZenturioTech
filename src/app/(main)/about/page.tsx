@@ -4,8 +4,61 @@ import { Column, Button, Text, Heading, TiltFx, RevealFx } from "@once-ui-system
 import type { CSSProperties } from "react";
 
 export default function About() {
-  // Dummy state for form fields (no real submission logic)
-  const [form, setForm] = useState({ name: '', email: '', budget: '', category: '', details: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submission started');
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Convert FormData to JSON
+    const formDataObj = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      budget: formData.get('budget') as string,
+      category: formData.get('category') as string,
+      message: formData.get('message') as string,
+    };
+
+    console.log('Form data:', formDataObj);
+
+    try {
+      console.log('Sending request to API...');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataObj),
+      });
+
+      console.log('Response received:', response.status, response.statusText);
+
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        setSubmitStatus('success');
+        form.reset();
+        alert("Thank you! Your message has been sent successfully.");
+      } else {
+        const errorData = await response.json();
+        console.log('Form submission failed:', errorData);
+        throw new Error(errorData.error || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Failed to submit form:', error);
+      setSubmitStatus('error');
+      alert("Sorry, there was an error sending your message. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <RevealFx>
       <div style={{ minHeight: '100vh', width: '100%', background: 'transparent', paddingLeft: 24, paddingRight: 24 }}>
@@ -31,19 +84,57 @@ export default function About() {
             <Text style={{ color: '#bcd1f7', fontSize: 17, marginBottom: 28, lineHeight: 1.5 }}>
               We're here to help! Share your thoughts or questions with us, and we'll respond promptly.
             </Text>
-            {/* Updated Form Layout */}
-            <form className="about-form-responsive" style={{ display: 'flex', flexDirection: 'row', gap: 18, alignItems: 'flex-start', paddingTop: 50 }}>
+            {/* Status Message */}
+            {submitStatus === 'success' && (
+              <div style={{ color: '#4ade80', fontSize: 15, marginBottom: 12, padding: '8px 12px', background: 'rgba(74, 222, 128, 0.1)', borderRadius: 8 }}>
+                Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div style={{ color: '#ef4444', fontSize: 15, marginBottom: 12, padding: '8px 12px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: 8 }}>
+                Failed to send message. Please try again.
+              </div>
+            )}
+            {/* Form Layout */}
+            <form 
+              id="contact-form"
+              onSubmit={handleSubmit} 
+              className="about-form-responsive" 
+              style={{ display: 'flex', flexDirection: 'row', gap: 18, alignItems: 'flex-start', paddingTop: 50 }}
+            >
               {/* Left column: 4 stacked fields */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, flex: 1, minWidth: 0 }}>
-                <input type="text" placeholder="Your name" style={inputStyle} />
-                <input type="email" placeholder="Your email" style={inputStyle} />
-                <select style={inputStyle} defaultValue="">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  style={inputStyle}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                  style={inputStyle}
+                />
+                <select
+                  name="budget"
+                  required
+                  style={inputStyle}
+                  defaultValue=""
+                >
                   <option value="" disabled>Budget range</option>
                   <option value="<$5k">&lt;$5k</option>
                   <option value="$5k-$20k">$5k-$20k</option>
                   <option value=">$20k">&gt;$20k</option>
                 </select>
-                <select style={inputStyle} defaultValue="">
+                <select
+                  name="category"
+                  required
+                  style={inputStyle}
+                  defaultValue=""
+                >
                   <option value="" disabled>Service category</option>
                   <option value="AI">AI</option>
                   <option value="Web">Web</option>
@@ -51,12 +142,43 @@ export default function About() {
                   <option value="Other">Other</option>
                 </select>
               </div>
-              {/* Right column: textarea, height matches 4 fields */}
+              {/* Right column: textarea */}
               <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                <textarea placeholder="Enter your project details" style={{ ...inputStyle, minHeight: 196, height: 196, resize: 'vertical', width: '100%' }} />
+                <textarea
+                  name="message"
+                  placeholder="Enter your project details"
+                  required
+                  style={{ ...inputStyle, minHeight: 196, height: 196, resize: 'vertical', width: '100%' }}
+                />
               </div>
             </form>
-            <Button style={{ background: '#3490fa', color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: 17, padding: '0.7rem 0', marginTop: 18, width: 140 }}>Submit</Button>
+            <Button 
+              type="submit"
+              form="contact-form"
+              disabled={isLoading}
+              style={{ 
+                background: isLoading ? '#2470cc' : '#3490fa', 
+                color: '#fff', 
+                borderRadius: 8, 
+                fontWeight: 600, 
+                fontSize: 17, 
+                padding: '0.7rem 0', 
+                marginTop: 18, 
+                width: 140,
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8
+              }}
+            >
+              {isLoading ? (
+                <>
+                  <span style={{ width: 16, height: 16, border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                  Sending...
+                </>
+              ) : 'Submit'}
+            </Button>
           </div>
           {/* Right: Image */}
           <TiltFx>
@@ -146,6 +268,9 @@ export default function About() {
 
         {/* Add responsive styles for mobile */}
         <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
           @media (max-width: 700px) {
             .about-form-responsive {
               flex-direction: column !important;

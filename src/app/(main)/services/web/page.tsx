@@ -1,85 +1,135 @@
+"use client";
 import Image from 'next/image';
+import React from 'react';
 
 export default function WebServicePage() {
+  // Add responsive state management with new breakpoint
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsSmallScreen(window.innerWidth <= 815);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+
   return (
-    <main style={{ width: '100%', minHeight: '100vh', background: 'linear-gradient(180deg, #0a2240 0%, #0e2d56 100%)', color: '#fff', overflowX: 'hidden', fontFamily: 'Poppins, sans-serif', position: 'relative' }}>
-      {/* Top vignette overlay */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: 180, pointerEvents: 'none', zIndex: 1, background: 'linear-gradient(180deg, rgba(10,34,64,0.85) 60%, rgba(10,34,64,0) 100%)' }} />
-
-      {/* Background image above arch and nav bar */}
+    <main style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      background: '#0a192f',
+      color: '#fff', 
+      overflowX: 'hidden', 
+      fontFamily: 'Poppins, sans-serif', 
+      position: 'relative', 
+      marginTop: -70,
+      marginBottom: -120
+    }}>
+      {/* HERO SECTION */}
       <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
         width: '100%',
-        height: 420,
-        zIndex: 0,
+        minHeight: isSmallScreen ? 580 : 780,
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        background: 'url("/images/services.webp") center/cover no-repeat',
+        backgroundPosition: 'center 0px',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
         overflow: 'hidden',
-        pointerEvents: 'none',
+        marginBottom: 0,
       }}>
-        <Image
-          src="/images/vr-hp.webp"
-          alt="VR Hero"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'top', opacity: 0.45 }}
-          priority
-        />
-        {/* dark overlay for image */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(180deg, #0a2240 60%, rgba(10,34,64,0.1) 100%)', zIndex: 1 }} />
-      </div>
-
-      {/* Hero Section with arch */}
-      <section style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: 0, paddingBottom: 80, position: 'relative', background: 'none', zIndex: 2 }}>
-        {/* Arch structure */}
+        {/* Overlay */}
         <div style={{
           position: 'absolute',
-          top: 120,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '90%',
-          maxWidth: 1200,
-          height: 420,
-          background: 'linear-gradient(180deg, #13305a 80%, #18325a 100%)',
-          borderBottomLeftRadius: 600,
-          borderBottomRightRadius: 600,
-          borderTopLeftRadius: 600,
-          borderTopRightRadius: 600,
-          zIndex: 2,
-          boxShadow: '0 12px 48px 0 #0a2240, 0 8px 32px 0 rgba(0,0,0,0.18)',
-        }} />
-        {/* Hero content inside arch */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          maxWidth: 1200,
+          top: 0,
+          left: 0,
           width: '100%',
-          padding: '0 0',
-          gap: 64,
+          height: '100%',
+          background: 'rgba(10,34,64,0.65)',
+          zIndex: 1,
+        }} />
+        {/* Bottom Blur Gradient */}
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          height: 180,
+          background: 'linear-gradient(180deg, rgba(10,25,47,0) 0%, #0a192f 100%)',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }} />
+        <h1 style={{
           position: 'relative',
-          marginTop: 180,
           zIndex: 3,
+          color: '#fff',
+          fontSize: isSmallScreen ? 36 : 60,
+          fontWeight: 400,
+          textAlign: 'left',
+          letterSpacing: 1,
+          width: '80%',
+          maxWidth: 1200,
+          marginLeft: isSmallScreen ? '5%' : '8%',
+          paddingTop: isSmallScreen ? 100 : 0
         }}>
-          {/* Blurred blue ellipse background behind character */}
-          <div style={{ position: 'absolute', left: 0, top: 60, width: 400, height: 400, zIndex: 0, filter: 'blur(80px)', background: 'radial-gradient(ellipse at 60% 40%, #b3cfff 0%, #0a2240 80%)', opacity: 0.55 }} />
+          Web & Mobile App<br /> Development
+        </h1>
+      </div>
+
+      {/* New Hero Content Section */}
+      <section style={{
+        background: '#0a192f', 
+        width: '100%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        paddingTop: isSmallScreen ? 40 : 80, 
+        paddingBottom: isSmallScreen ? 40 : 80
+      }}>
+        <div style={{ 
+          width: isSmallScreen ? '92%' : '80%', 
+          maxWidth: 1200, 
+          display: 'flex', 
+          flexDirection: isSmallScreen ? 'column' : 'row', 
+          alignItems: isSmallScreen ? 'center' : 'flex-start',
+          justifyContent: 'space-between', 
+          gap: isSmallScreen ? 32 : 40 
+        }}>
           {/* Left: Character and blue box */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '0 0 340px', position: 'relative', zIndex: 2 }}>
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            flex: isSmallScreen ? 'none' : '0 0 340px',
+            position: 'relative', 
+            zIndex: 2,
+            marginBottom: isSmallScreen ? 20 : 0
+          }}>
             <div style={{ position: 'relative', zIndex: 2, marginBottom: 0 }}>
               <Image
                 src="/images/boy.webp"
                 alt="3D Boy with Tablet"
-                width={260}
-                height={260}
-                style={{ borderRadius: 40, display: 'block', boxShadow: '0 12px 48px 0 #b3cfff, 0 8px 32px 0 rgba(0,0,0,0.25)' }}
+                width={isSmallScreen ? 200 : 260}
+                height={isSmallScreen ? 200 : 260}
+                style={{ borderRadius: 40, display: 'block' }}
                 priority
               />
             </div>
             {/* Light blue box under image */}
             <div style={{
-              width: 240,
-              height: 90,
+              width: isSmallScreen ? 180 : 240,
+              height: isSmallScreen ? 60 : 90,
               background: 'linear-gradient(90deg, #b3cfff 0%, #e0eaff 100%)',
-              borderRadius: 36,
+              borderRadius: isSmallScreen ? 24 : 36,
               marginTop: -28,
               zIndex: 1,
               boxShadow: '0 4px 24px 0 rgba(179,207,255,0.25)',
@@ -88,48 +138,88 @@ export default function WebServicePage() {
               justifyContent: 'center',
               fontWeight: 700,
               color: '#0a2240',
-              fontSize: 22,
+              fontSize: isSmallScreen ? 16 : 22,
               letterSpacing: 1,
               border: '2px solid #e0eaff',
             }}>
               Web & Mobile
             </div>
           </div>
+
           {/* Right: Hero Text */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', gap: 32, minWidth: 340, zIndex: 2 }}>
-            <h1 style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.1, marginBottom: 12, color: '#fff', letterSpacing: 0.5 }}>
-              Web & Mobile App <br />Development
-            </h1>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24, width: '100%' }}>
-              <div>
-                <span style={{ fontWeight: 700, fontSize: 24, color: '#a9c8ff', display: 'block', marginBottom: 2 }}>Mobile App Development <span style={{ fontSize: 15, color: '#b3cfff' }}>(iOS & Android)</span></span>
-                <span style={{ fontSize: 18, color: '#e0eaff', display: 'block', marginTop: 2 }}>Native and cross-platform apps built for performance.</span>
-              </div>
-              <div>
-                <span style={{ fontWeight: 700, fontSize: 24, color: '#a9c8ff', display: 'block', marginBottom: 2 }}>Progressive Web Apps (PWAs)</span>
-                <span style={{ fontSize: 18, color: '#e0eaff', display: 'block', marginTop: 2 }}>Responsive, lightweight web apps that work across all devices</span>
-              </div>
-              <div>
-                <span style={{ fontWeight: 700, fontSize: 24, color: '#a9c8ff', display: 'block', marginBottom: 2 }}>Custom Web Applications</span>
-                <span style={{ fontSize: 18, color: '#e0eaff', display: 'block', marginTop: 2 }}>Tailored portals, dashboards, and platforms that scale with your needs.</span>
-              </div>
-              <div>
-                <span style={{ fontWeight: 700, fontSize: 24, color: '#a9c8ff', display: 'block', marginBottom: 2 }}>UI/UX Design & Prototyping</span>
-                <span style={{ fontSize: 18, color: '#e0eaff', display: 'block', marginTop: 2 }}>Engaging interfaces designed for usability and conversion.</span>
-              </div>
+          <div style={{ 
+            flex: 1, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: isSmallScreen ? 'center' : 'flex-start', 
+            justifyContent: 'center', 
+            gap: isSmallScreen ? 20 : 32, 
+            minWidth: isSmallScreen ? 'auto' : 340, 
+            zIndex: 2, 
+            paddingTop: isSmallScreen ? 0 : 100,
+            textAlign: isSmallScreen ? 'center' : 'left'
+          }}>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: isSmallScreen ? 24 : 24, 
+              width: '100%' 
+            }}>
+              {[
+                {
+                  title: 'Mobile App Development',
+                  subtitle: '(iOS & Android)',
+                  desc: 'Native and cross-platform apps built for performance.'
+                },
+                {
+                  title: 'Progressive Web Apps (PWAs)',
+                  desc: 'Responsive, lightweight web apps that work across all devices'
+                },
+                {
+                  title: 'Custom Web Applications',
+                  desc: 'Tailored portals, dashboards, and platforms that scale with your needs.'
+                },
+                {
+                  title: 'UI/UX Design & Prototyping',
+                  desc: 'Engaging interfaces designed for usability and conversion.'
+                }
+              ].map((item, idx) => (
+                <div key={idx}>
+                  <span style={{ 
+                    fontWeight: 500, 
+                    fontSize: isSmallScreen ? 24 : 38, 
+                    color: '#a9c8ff', 
+                    display: 'block', 
+                    marginBottom: isSmallScreen ? 4 : 2,
+                    lineHeight: isSmallScreen ? 1.3 : 'normal'
+                  }}>
+                    {item.title} 
+                    {item.subtitle && <span style={{ fontSize: isSmallScreen ? 13 : 15, color: '#b3cfff' }}>{item.subtitle}</span>}
+                  </span>
+                  <span style={{ 
+                    fontSize: isSmallScreen ? 16 : 28, 
+                    color: '#e0eaff', 
+                    display: 'block', 
+                    marginTop: isSmallScreen ? 4 : 2,
+                    lineHeight: isSmallScreen ? 1.5 : 'normal'
+                  }}>
+                    {item.desc}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Webflow Development Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
+      <section style={{background: '#0a192f', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 0, paddingTop: 120, paddingBottom: 50}}>
         {/* Section Title */}
         <div style={{
           width: '80%',
           maxWidth: 900,
           margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
+          background: 'rgba(24,50,90,0.25)',
           borderRadius: 32,
           padding: '18px 0',
           display: 'flex',
@@ -139,7 +229,7 @@ export default function WebServicePage() {
           <h2 style={{
             color: '#a9c8ff',
             fontSize: 36,
-            fontWeight: 600,
+            fontWeight: 400,
             textAlign: 'center',
             margin: 0,
             letterSpacing: 1,
@@ -151,35 +241,52 @@ export default function WebServicePage() {
         <div style={{
           width: '80%',
           maxWidth: 900,
-          background: '#18325a',
+          background: 'transparent',
           borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           padding: 40,
           gap: 40,
+          backdropFilter: 'blur(12px)',
         }}>
           {/* Image left */}
           <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{
               borderRadius: 24,
               overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
+              position: 'relative',
               width: 320,
               height: 320,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
+              {/* Background layer for displacement effect */}
+              <div style={{
+                position: 'absolute',
+                top: 12,
+                left: -12,
+                width: '100%',
+                height: '100%',
+                background: '#a9c8ff',
+                borderRadius: 64,
+                opacity: 0.3,
+              }} />
               <Image
                 src="/images/web-des.webp"
                 alt="Webflow Screenshot"
                 width={300}
                 height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
+                style={{ 
+                  borderRadius: 20, 
+                  width: 300, 
+                  height: 300, 
+                  objectFit: 'cover',
+                  position: 'relative',
+                  zIndex: 1,
+                  background: '#fff',
+                }}
               />
             </div>
           </div>
@@ -196,17 +303,30 @@ export default function WebServicePage() {
                 'Fast, secure, and SEO-ready',
                 'No-code handover for marketing teams',
               ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
+                <li key={idx} style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  fontSize: isMobile ? 16 : 20, 
+                  color: '#e0eaff', 
+                  fontWeight: 400,
+                  lineHeight: 1.5
+                }}>
                   <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
+                    flexShrink: 0,
+                    display: 'block',
+                    width: 16,
+                    height: 16,
+                    borderRadius: '100%',
                     background: '#a9c8ff',
                     marginRight: 16,
+                    marginTop: 8,
                     boxShadow: '0 2px 8px 0 #a9c8ff55',
                   }} />
-                  {text}
+                  <span style={{
+                    flex: 1,
+                  }}>
+                    {text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -215,13 +335,13 @@ export default function WebServicePage() {
       </section>
 
       {/* WordPress Development Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
+      <section style={{background: '#0a192f', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 32, paddingBottom: 48 }}>
         {/* Section Title */}
         <div style={{
           width: '80%',
           maxWidth: 900,
           margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
+          background: 'rgba(24,50,90,0.25)',
           borderRadius: 32,
           padding: '18px 0',
           display: 'flex',
@@ -231,7 +351,7 @@ export default function WebServicePage() {
           <h2 style={{
             color: '#a9c8ff',
             fontSize: 36,
-            fontWeight: 600,
+            fontWeight: 400,
             textAlign: 'center',
             margin: 0,
             letterSpacing: 1,
@@ -243,14 +363,14 @@ export default function WebServicePage() {
         <div style={{
           width: '80%',
           maxWidth: 900,
-          background: '#18325a',
+          background: 'transparent',
           borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           padding: 40,
           gap: 40,
+          backdropFilter: 'blur(12px)',
         }}>
           {/* Content left */}
           <div style={{ flex: 1, color: '#fff', fontSize: 22, display: 'flex', flexDirection: 'column', gap: 18, minWidth: 320 }}>
@@ -264,17 +384,30 @@ export default function WebServicePage() {
                 'SEO optimization & plugin setup',
                 'Blog and content management systemEasy backend management',
               ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
+                <li key={idx} style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  fontSize: isMobile ? 16 : 20, 
+                  color: '#e0eaff', 
+                  fontWeight: 400,
+                  lineHeight: 1.5
+                }}>
                   <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
+                    flexShrink: 0,
+                    display: 'block',
+                    width: 16,
+                    height: 16,
+                    borderRadius: '100%',
                     background: '#a9c8ff',
                     marginRight: 16,
+                    marginTop: 8,
                     boxShadow: '0 2px 8px 0 #a9c8ff55',
                   }} />
-                  {text}
+                  <span style={{
+                    flex: 1,
+                  }}>
+                    {text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -284,21 +417,38 @@ export default function WebServicePage() {
             <div style={{
               borderRadius: 24,
               overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
+              position: 'relative',
               width: 320,
               height: 320,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
+              {/* Background layer for displacement effect */}
+              <div style={{
+                position: 'absolute',
+                top: 12,
+                left: -12,
+                width: '100%',
+                height: '100%',
+                background: '#a9c8ff',
+                borderRadius: 64,
+                opacity: 0.3,
+              }} />
               <Image
                 src="/images/web.webp"
                 alt="WordPress Screenshot"
                 width={300}
                 height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
+                style={{ 
+                  borderRadius: 20, 
+                  width: 300, 
+                  height: 300, 
+                  objectFit: 'cover',
+                  position: 'relative',
+                  zIndex: 1,
+                  background: '#fff',
+                }}
               />
             </div>
           </div>
@@ -306,13 +456,13 @@ export default function WebServicePage() {
       </section>
 
       {/* Custom-Coded Websites Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
+      <section style={{background: '#0a192f', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, paddingTop: 32, paddingBottom: 48 }}>
         {/* Section Title */}
         <div style={{
           width: '80%',
           maxWidth: 900,
           margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
+          background: 'rgba(24,50,90,0.25)',
           borderRadius: 32,
           padding: '18px 0',
           display: 'flex',
@@ -322,7 +472,7 @@ export default function WebServicePage() {
           <h2 style={{
             color: '#a9c8ff',
             fontSize: 36,
-            fontWeight: 600,
+            fontWeight: 400,
             textAlign: 'center',
             margin: 0,
             letterSpacing: 1,
@@ -334,35 +484,52 @@ export default function WebServicePage() {
         <div style={{
           width: '80%',
           maxWidth: 900,
-          background: '#18325a',
+          background: 'transparent',
           borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           padding: 40,
           gap: 40,
+          backdropFilter: 'blur(12px)',
         }}>
           {/* Image left */}
           <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{
               borderRadius: 24,
               overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
+              position: 'relative',
               width: 320,
               height: 320,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
+              {/* Background layer for displacement effect */}
+              <div style={{
+                position: 'absolute',
+                top: 12,
+                left: -12,
+                width: '100%',
+                height: '100%',
+                background: '#a9c8ff',
+                borderRadius: 64,
+                opacity: 0.3,
+              }} />
               <Image
                 src="/images/web-des.webp"
                 alt="Custom Code Screenshot"
                 width={300}
                 height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
+                style={{ 
+                  borderRadius: 20, 
+                  width: 300, 
+                  height: 300, 
+                  objectFit: 'cover',
+                  position: 'relative',
+                  zIndex: 1,
+                  background: '#fff',
+                }}
               />
             </div>
           </div>
@@ -379,17 +546,30 @@ export default function WebServicePage() {
                 'Optimized for speed and scalability',
                 'Highly flexible UI/UX',
               ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
+                <li key={idx} style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  fontSize: isMobile ? 16 : 20, 
+                  color: '#e0eaff', 
+                  fontWeight: 400,
+                  lineHeight: 1.5
+                }}>
                   <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
+                    flexShrink: 0,
+                    display: 'block',
+                    width: 16,
+                    height: 16,
+                    borderRadius: '100%',
                     background: '#a9c8ff',
                     marginRight: 16,
+                    marginTop: 8,
                     boxShadow: '0 2px 8px 0 #a9c8ff55',
                   }} />
-                  {text}
+                  <span style={{
+                    flex: 1,
+                  }}>
+                    {text}
+                  </span>
                 </li>
               ))}
             </ul>
