@@ -267,7 +267,7 @@ export default function WhoWeAre() {
           font-size: 1rem;
         }
         .about-leadership-box {
-          max-width: 1000px;
+          max-width: 1200px;
           background: rgba(21, 58, 91, 0.85);
           border-radius: 12px;
           padding: 2rem;

@@ -458,8 +458,8 @@ export default function Home() {
           }}>
             <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Education</div>
             <div style={{ margin: '0 0 12px 0' }}>
-              {/* Education Icon */}
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#1976d2"/><path d="M19 11L29 16L19 21L9 16L19 11Z" fill="#fff"/><path d="M19 21V27" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+              {/* Education Image */}
+              <img src="/images/edu1.jpeg" alt="Education" style={{ height: 80, width: 'auto', borderRadius: 16, marginBottom: 12, objectFit: 'cover' }} />
             </div>
             <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Transforming learning with\nsmart, interactive, and engaging educational tools.`}
