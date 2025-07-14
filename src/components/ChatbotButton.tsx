@@ -3,19 +3,13 @@ import { Button } from "@once-ui-system/core";
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 
+type Message = { from: 'user' | 'bot'; text: string };
+
 export default function ChatbotButton() {
   const [open, setOpen] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    { from: "bot", text: "Hi there! 👋 How can I help you today?" },
-    { from: "user", text: "I want to know more about your AI services." },
-    { from: "bot", text: "Absolutely! We offer custom AI solutions for businesses. Would you like details or a demo?" },
-    { from: "user", text: "Show me a demo." },
-    { from: "bot", text: "Here's a quick demo: Our AI can automate tasks, analyze data, and provide insights in real time! 🚀" },
-    { from: "user", text: "How do I get started?" },
-    { from: "bot", text: "Just let us know your requirements, and our team will reach out to you with a tailored solution!" },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const chatBodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,14 +18,64 @@ export default function ChatbotButton() {
     }
   }, [open, messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim() === "") return;
     setMessages([...messages, { from: "user", text: input }]);
     setInput("");
-    // Simulate bot response
-    setTimeout(() => {
-      setMessages(msgs => [...msgs, { from: "bot", text: "Thank you for your message! Our team will get back to you soon." }]);
-    }, 900);
+    // Show loading bot message
+    setMessages(msgs => [...msgs, { from: "bot", text: "..." }]);
+
+    // Call the API route
+    const response = await fetch("/api/chatbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input }),
+    });
+
+    if (!response.body) {
+      setMessages(msgs => [
+        ...msgs.slice(0, -1),
+        { from: "bot", text: "Sorry, I couldn't get a response. Please try again later." }
+      ]);
+      return;
+    }
+
+    // Stream the response
+    const reader = response.body.getReader();
+    let botText = "";
+    let done = false;
+    const decoder = new TextDecoder();
+    // Remove the loading message
+    setMessages(msgs => msgs.slice(0, -1));
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      if (value) {
+        const chunk = decoder.decode(value);
+        // Split by newlines in case multiple SSE events are in one chunk
+        const lines = chunk.split('\n');
+        for (const line of lines) {
+          if (line.startsWith('data:')) {
+            try {
+              const json = JSON.parse(line.replace('data: ', '').trim());
+              const content = json.choices?.[0]?.delta?.content;
+              if (content) {
+                botText += content;
+                setMessages(msgs => {
+                  if (msgs.length && msgs[msgs.length - 1].from === "bot") {
+                    return [...msgs.slice(0, -1), { from: "bot", text: botText }];
+                  } else {
+                    return [...msgs, { from: "bot", text: botText }];
+                  }
+                });
+              }
+            } catch (e) {
+              // Ignore lines that aren't valid JSON
+            }
+          }
+        }
+      }
+    }
   };
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

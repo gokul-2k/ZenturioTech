@@ -102,7 +102,8 @@ export default function Home() {
             wrap="balance"
             marginBottom="16"
             style={{ 
-              textAlign: 'center', 
+              textAlign: 'center',
+              transform: 'translateX(1vw)',
               fontWeight: '600',
               width: '100%',
               maxWidth: '100vw',
@@ -112,7 +113,7 @@ export default function Home() {
             }}
             className="hero-subtext"
           >
-            Leading the way in AI, Web & Mobile Development
+            Leading the way in AI
           </Text>
         </Column>
 

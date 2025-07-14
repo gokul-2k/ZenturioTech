@@ -223,7 +223,7 @@ export default function Header() {
             background: 'rgba(32, 32, 32, 0.27)',
             backdropFilter: 'blur(16px)',
             borderRadius: '2rem',
-            padding: '0.5rem 2.4rem',
+            padding: '0.5rem 0.2rem',
             boxShadow: '0 2px 24px 0 rgba(0,0,0,0.13)',
             minWidth: 420,
             position: 'absolute',
@@ -666,28 +666,8 @@ export default function Header() {
           onClick={e => {
             if (pathname !== '/trending') {
               e.preventDefault();
-              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
-              // Step 1: Set glider to current position
-              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
-              const dock = mobileDockRef.current;
-              if (currentEl && dock) {
-                const dockRect = dock.getBoundingClientRect();
-                const selRect = currentEl.getBoundingClientRect();
-                setMobileGliderStyle({
-                  left: selRect.left - dockRect.left,
-                  width: selRect.width
-                });
-              }
-              // Step 2: Animate to new position
-              setTimeout(() => {
-                setPendingPath('/trending');
-                setIsAnimating(true);
-                mobileNavTimeoutRef.current = setTimeout(() => {
-                  setPendingPath(null);
-                  setIsAnimating(false);
-                  router.push('/trending');
-                }, 350);
-              }, 10);
+              setIsAnimating(true);
+              router.push('/trending');
             }
           }}
         ><HiOutlineFire style={{ fontSize: 28 }} /></Link>
