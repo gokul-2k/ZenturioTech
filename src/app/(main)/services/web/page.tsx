@@ -86,7 +86,7 @@ export default function WebServicePage() {
             }} />
             {/* Character image */}
             <img
-              src="/images/boy.webp"
+              src="/images/fullboy.png"
               alt="3D Boy with Tablet"
               style={{ width: 260, height: 500, position: 'relative', zIndex: 2 }}
             />

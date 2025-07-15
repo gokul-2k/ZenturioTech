@@ -16,12 +16,12 @@ const cards = [
   {
     title: "Virtual Reality Training Simulations",
     desc: "Safe, repeatable, and scalable training environments.",
-    img: "/images/4.jpeg",
+    img: "/images/vr_training.jpg",
   },
   {
     title: "AR for Marketing & Retail",
     desc: 'Let users "try before they buy" with AR product previews',
-    img: "/images/2.jpeg",
+    img: "/images/ar_marketing.jpg",
   },
 ];
 

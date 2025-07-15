@@ -18,6 +18,56 @@ export default function ChatbotButton() {
     }
   }, [open, messages]);
 
+  // Auto-greet when chat opens and no messages
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      // Show loading bot message
+      setMessages([{ from: "bot", text: "..." }]);
+      (async () => {
+        const response = await fetch("/api/chatbot", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: "Hello" }),
+        });
+        if (!response.body) {
+          setMessages([{ from: "bot", text: "Sorry, I couldn't get a response. Please try again later." }]);
+          return;
+        }
+        const reader = response.body.getReader();
+        let botText = "";
+        let done = false;
+        const decoder = new TextDecoder();
+        setMessages([]); // Remove loading
+        while (!done) {
+          const { value, done: doneReading } = await reader.read();
+          done = doneReading;
+          if (value) {
+            const chunk = decoder.decode(value);
+            const lines = chunk.split('\n');
+            for (const line of lines) {
+              if (line.startsWith('data:')) {
+                try {
+                  const json = JSON.parse(line.replace('data: ', '').trim());
+                  const content = json.choices?.[0]?.delta?.content;
+                  if (content) {
+                    botText += content;
+                    setMessages(msgs => {
+                      if (msgs.length && msgs[msgs.length - 1].from === "bot") {
+                        return [...msgs.slice(0, -1), { from: "bot", text: botText }];
+                      } else {
+                        return [...msgs, { from: "bot", text: botText }];
+                      }
+                    });
+                  }
+                } catch (e) {}
+              }
+            }
+          }
+        }
+      })();
+    }
+  }, [open]);
+
   const handleSend = async () => {
     if (input.trim() === "") return;
     setMessages([...messages, { from: "user", text: input }]);

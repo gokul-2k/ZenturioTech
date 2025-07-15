@@ -457,13 +457,13 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Education</div>
-            <div style={{ margin: '0 0 12px 0' }}>
-              {/* Education Image */}
-              <img src="/images/edu1.jpeg" alt="Education" style={{ height: 80, width: 'auto', borderRadius: 16, marginBottom: 12, objectFit: 'cover' }} />
+            <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Education</div>
+            <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              {/* Education Icon */}
+              <img src="/images/edu1.jpeg" alt="Education" style={{ height: 54, width: 54, marginBottom: 10 }} />
             </div>
-            <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming learning with\nsmart, interactive, and engaging educational tools.`}
+            <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
+              {`Transforming learning with smart, interactive, and engaging educational tools.`}
             </div>
           </div>
           {/* Card 2: Health Care */}
@@ -484,13 +484,13 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Health Care</div>
-            <div style={{ margin: '0 0 12px 0' }}>
+            <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Health Care</div>
+            <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Health Care Icon */}
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#38bdf8"/><path d="M19 12V26" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M12 19H26" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
+              <img src="/images/health.png" alt="Health Care" style={{ height: 54, width: 54, marginBottom: 10 }} />
             </div>
-            <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Innovative healthcare solutions for\nbetter patient outcomes and\nstreamlined operations.`}
+            <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
+              {`Innovative healthcare solutions for better patient outcomes and streamlined operations.`}
             </div>
           </div>
           {/* Card 3: Real Estate */}
@@ -511,13 +511,13 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Real Estate</div>
-            <div style={{ margin: '0 0 12px 0' }}>
+            <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Real Estate</div>
+            <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Real Estate Icon */}
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#67e8f9"/><path d="M12 24V16L19 11L26 16V24" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><rect x="16" y="20" width="6" height="4" fill="#fff"/></svg>
+              <img src="/images/real_estate.png" alt="Real Estate" style={{ height: 54, width: 54, marginBottom: 10 }} />
             </div>
-            <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming property management\nand real estate experiences.`}
+            <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
+              {`Transforming property management and real estate experiences.`}
             </div>
           </div>
           {/* Card 4: Government */}
@@ -538,13 +538,13 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Government</div>
-            <div style={{ margin: '0 0 12px 0' }}>
+            <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Government</div>
+            <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Government Icon */}
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#bae6fd"/><path d="M10 24H28M12 20V24M26 20V24M19 14V24" stroke="#072549" strokeWidth="2" strokeLinejoin="round"/><rect x="16" y="10" width="6" height="4" fill="#072549"/></svg>
+              <img src="/images/gov.png" alt="Government" style={{ height: 54, width: 54, marginBottom: 10 }} />
             </div>
-            <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Empowering public services\nwith digital transformation.`}
+            <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
+              {`Empowering public services with advanced technological solutions.`}
             </div>
           </div>
           {/* Card 5: Corporate */}
@@ -565,13 +565,13 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{ fontWeight: 500, fontSize: '1.1rem', marginBottom: 8, textAlign: 'center',paddingBottom: 20,paddingTop: 20 }}>Corporate</div>
-            <div style={{ margin: '0 0 12px 0' }}>
+            <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Corporate</div>
+            <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Corporate Icon */}
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect width="38" height="38" rx="8" fill="#1976d2"/><rect x="12" y="14" width="14" height="10" fill="#fff"/><rect x="16" y="18" width="6" height="6" fill="#1976d2"/></svg>
+              <img src="/images/corporate.png" alt="Corporate" style={{ height: 54, width: 54, marginBottom: 10 }} />
             </div>
-            <div style={{ fontSize: '0.98rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming business operations\nwith intelligent solutions.`}
+            <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
+              {`Transforming business operations with intelligent solutions.`}
             </div>
           </div>
         </div>

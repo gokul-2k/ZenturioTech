@@ -84,7 +84,7 @@ export default function WhoWeAre() {
           <div className="team-floating-layout">
             <div className="team-member" style={{ top: '120px', left: '0px' }}>
               <div className="team-img team-img-d-inverted">
-                <Image src="/images/5.jpeg" alt="Team Member 1" width={180} height={180} />
+                <Image src="/images/bhargav.jpeg" alt="Team Member 1" width={180} height={180} />
               </div>
               <div className="team-info">
                 <div className="team-name">Bhargav</div>
@@ -93,7 +93,7 @@ export default function WhoWeAre() {
             </div>
             <div className="team-member" style={{ top: '0px', left: '180px' }}>
               <div className="team-img team-img-d-up">
-                <Image src="/images/2.jpeg" alt="Team Member 2" width={180} height={180} />
+                <Image src="/images/leksmigirishan.jpeg" alt="Team Member 2" width={180} height={180} />
               </div>
               <div className="team-info">
                 <div className="team-name">Lekshmi</div>
@@ -102,7 +102,7 @@ export default function WhoWeAre() {
             </div>
             <div className="team-member" style={{ top: '120px', left: '360px' }}>
               <div className="team-img team-img-d-inverted">
-                <Image src="/images/3.jpeg" alt="Team Member 3" width={180} height={180} />
+                <Image src="/images/Ajisha2.jpeg" alt="Team Member 3" width={180} height={180} />
               </div>
               <div className="team-info">
                 <div className="team-name">Ajisha</div>
@@ -111,25 +111,25 @@ export default function WhoWeAre() {
             </div>
             <div className="team-member" style={{ top: '0px', left: '540px' }}>
               <div className="team-img team-img-circle">
-                <Image src="/images/4.jpeg" alt="Team Member 4" width={180} height={180} />
+                <Image src="/images/divya1.jpeg" alt="Team Member 4" width={180} height={180} />
               </div>
               <div className="team-info">
-                <div className="team-name">Rahul</div>
-                <div className="team-role">Business Development</div>
+                <div className="team-name">Divya</div>
+                <div className="team-role">HR Executive</div>
               </div>
             </div>
             <div className="team-member" style={{ top: '120px', left: '720px' }}>
               <div className="team-img team-img-d-normal">
-                <Image src="/images/4.jpeg" alt="Team Member 5" width={180} height={180} />
+                <Image src="/images/Mrudul.jpeg" alt="Team Member 5" width={180} height={180} />
               </div>
               <div className="team-info">
-                <div className="team-name">Arshad</div>
-                <div className="team-role">Software Engineer</div>
+                <div className="team-name">Mrudul</div>
+                <div className="team-role">Business Developer</div>
               </div>
             </div>
             <div className="team-member" style={{ top: '240px', left: '180px' }}>
               <div className="team-img team-img-circle">
-                <Image src="/images/3.jpeg" alt="Team Member 6" width={180} height={180} />
+                <Image src="/images/aditya.jpeg" alt="Team Member 6" width={180} height={180} />
               </div>
               <div className="team-info">
                 <div className="team-name">Aditya Menon</div>
