@@ -193,80 +193,210 @@ export default function Home() {
           justifyContent: 'center',
           alignItems: 'stretch',
           width: '100%',
-          maxWidth: 1500,
+          maxWidth: 2000,
           margin: '0 auto',
           zIndex: 4,
+          padding: '0 1rem',
         }}>
-          {/* Card 1 */}
           <div style={{
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            flex: '1 1 340px',
-            minWidth: 340,
-            maxWidth: 700,
-            height: 200,
-            background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
-            borderRadius: '1.5rem',
-            boxShadow: '0 4px 32px 0 rgba(3, 56, 121, 0.18)',
-            padding: '2.5rem 2rem 2rem 2rem',
-            color: '#fff',
-            position: 'relative',
-            overflow: 'hidden',
-            marginBottom: 0,
+            flexWrap: 'wrap',
+            gap: '2.5rem',
+            justifyContent: 'center',
+            width: '100%',
+            maxWidth: 1500,
           }}>
-            <img src="/images/ai-h.webp" alt="AI" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Artificial <br /> Intelligence</h2>
-              <Link
-                href="/services/ai"
-                aria-label="Explore Artificial Intelligence Services"
-                style={{
-                  marginTop: 8,
-                  padding: '0.7rem 1.6rem',
-                  fontSize: '1.08rem',
-                  fontWeight: 600,
-                  border: 'none',
-                  borderRadius: '1.1rem',
-                  background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
-                  color: '#0a2240',
-                  cursor: 'pointer',
-                  boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
-                  transition: 'background 0.2s, color 0.2s',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  textDecoration: 'none',
-                }}
-              >
-                Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
-              </Link>
+            {/* Card 1 */}
+            <div className="service-card" style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              flex: '1 1 340px',
+              minWidth: 340,
+              maxWidth: 700,
+              height: 200,
+              background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
+              borderRadius: '1.5rem',
+              boxShadow: '0 4px 32px 0 rgba(3, 56, 121, 0.18)',
+              padding: '2.5rem 2rem 2rem 2rem',
+              color: '#fff',
+              position: 'relative',
+              overflow: 'hidden',
+              marginBottom: 0,
+              width: 'calc(50% - 1.25rem)',
+            }}>
+              <img 
+                className="service-card-image ai-card-image"
+                src="/images/ai-h.webp" 
+                alt="AI" 
+                style={{ 
+                  height: 180, 
+                  width: 'auto', 
+                  marginRight: 24, 
+                  borderRadius: 16, 
+                  objectFit: 'cover' 
+                }} 
+              />
+              <div className="service-card-content" style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                flex: 1, 
+                alignItems: 'flex-start', 
+                justifyContent: 'center', 
+                height: '100%' 
+              }}>
+                <h2 className="service-card-title" style={{ 
+                  fontSize: '1.5rem', 
+                  fontWeight: 700, 
+                  marginBottom: 12
+                }}>Artificial <br /> Intelligence</h2>
+                <Link
+                  href="/services/ai"
+                  aria-label="Explore Artificial Intelligence Services"
+                  className="service-card-button"
+                  style={{
+                    marginTop: 8,
+                    padding: '0.7rem 1.6rem',
+                    fontSize: '1.08rem',
+                    fontWeight: 600,
+                    border: 'none',
+                    borderRadius: '1.1rem',
+                    background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
+                    color: '#0a2240',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
+                    transition: 'background 0.2s, color 0.2s',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    textDecoration: 'none',
+                  }}
+                >
+                  Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
+                </Link>
+              </div>
+            </div>
+            {/* Card 2 */}
+            <div className="service-card" style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              flex: '1 1 340px',
+              minWidth: 340,
+              maxWidth: 700,
+              height: 200,
+              background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
+              borderRadius: '1.5rem',
+              boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
+              padding: '2.5rem 2rem 2rem 2rem',
+              color: '#fff',
+              position: 'relative',
+              overflow: 'hidden',
+              marginBottom: 0,
+              width: 'calc(50% - 1.25rem)',
+            }}>
+              <img 
+                className="service-card-image"
+                src="/images/web-h.webp" 
+                alt="Web" 
+                style={{ 
+                  height: 180, 
+                  width: 'auto', 
+                  marginRight: 24, 
+                  borderRadius: 16, 
+                  objectFit: 'cover' 
+                }} 
+              />
+              <div className="service-card-content" style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                flex: 1, 
+                alignItems: 'flex-start', 
+                justifyContent: 'center', 
+                height: '100%' 
+              }}>
+                <h2 className="service-card-title" style={{ 
+                  fontSize: '1.5rem', 
+                  fontWeight: 700, 
+                  marginBottom: 12 
+                }}>Web & Mobile App <br /> Development</h2>
+                <Link
+                  href="/services/web"
+                  aria-label="Explore Web and Mobile App Development Services"
+                  className="service-card-button"
+                  style={{
+                    marginTop: 8,
+                    padding: '0.7rem 1.6rem',
+                    fontSize: '1.08rem',
+                    fontWeight: 600,
+                    border: 'none',
+                    borderRadius: '1.1rem',
+                    background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
+                    color: '#0a2240',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
+                    transition: 'background 0.2s, color 0.2s',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    textDecoration: 'none',
+                  }}
+                >
+                  Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
+                </Link>
+              </div>
             </div>
           </div>
-          {/* Card 2 */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            flex: '1 1 340px',
-            minWidth: 340,
+
+          {/* AR/VR Box Section */}
+          <div className="service-card vr-card" style={{
+            width: '100%',
             maxWidth: 700,
-            height: 200,
+            margin: '0 auto',
             background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
             borderRadius: '1.5rem',
             boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
             padding: '2.5rem 2rem 2rem 2rem',
             color: '#fff',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
             position: 'relative',
             overflow: 'hidden',
-            marginBottom: 0,
+            zIndex: 4,
+            height: 200,
+            flex: '0 0 auto',
           }}>
-            <img src="/images/web-h.webp" alt="Web" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Web & Mobile App <br /> Development</h2>
+            <img 
+              className="service-card-image"
+              src="/images/vr-h.webp" 
+              alt="VR" 
+              style={{ 
+                height: 180, 
+                width: 'auto', 
+                marginRight: 24, 
+                borderRadius: 16, 
+                objectFit: 'cover' 
+              }} 
+            />
+            <div className="service-card-content" style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              flex: 1, 
+              alignItems: 'flex-start', 
+              justifyContent: 'center', 
+              height: '100%' 
+            }}>
+              <h2 className="service-card-title" style={{ 
+                fontSize: '1.5rem', 
+                fontWeight: 700, 
+                marginBottom: 12 
+              }}>Augmented Reality (AR) <br /> Virtual Reality (VR)</h2>
               <Link
-                href="/services/web"
-                aria-label="Explore Web and Mobile App Development Services"
+                href="/services/vr"
+                aria-label="Explore Augmented Reality and Virtual Reality Services"
+                className="service-card-button"
                 style={{
                   marginTop: 8,
                   padding: '0.7rem 1.6rem',
@@ -291,56 +421,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* AR/VR Box Section - now below the two cards */}
-        <div style={{
-          width: '100%',
-          maxWidth: 700,
-          margin: '2.5rem auto 0',
-          background: 'linear-gradient(135deg,rgb(6, 51, 105) 0%,rgb(32, 99, 170) 100%)',
-          borderRadius: '1.5rem',
-          boxShadow: '0 4px 32px 0 rgba(7,37,73,0.18)',
-          padding: '2.5rem 2rem 2rem 2rem',
-          color: '#fff',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          position: 'relative',
-          overflow: 'hidden',
-          zIndex: 4,
-          height: 200,
-        }}>
-          <img src="/images/vr-h.webp" alt="VR" style={{ height: 180, width: 'auto', marginRight: 24, borderRadius: 16, objectFit: 'cover' }} />
-          <div style={{ display: 'flex', flexDirection: 'column', flex: 1, alignItems: 'flex-start', justifyContent: 'center', height: '100%' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 12 }}>Augmented Reality (AR) <br /> Virtual Reality (VR)</h2>
-            <Link
-              href="/services/vr"
-              aria-label="Explore Augmented Reality and Virtual Reality Services"
-              style={{
-                marginTop: 8,
-                padding: '0.7rem 1.6rem',
-                fontSize: '1.08rem',
-                fontWeight: 600,
-                border: 'none',
-                borderRadius: '1.1rem',
-                background: 'linear-gradient(90deg, #67e8f9 0%, #38bdf8 100%)',
-                color: '#0a2240',
-                cursor: 'pointer',
-                boxShadow: '0 2px 12px 0 rgba(46,166,255,0.13)',
-                transition: 'background 0.2s, color 0.2s',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                textDecoration: 'none',
-              }}
-            >
-              Explore More <span style={{ fontSize: '1.2em', marginLeft: 4 }}>{'>>'}</span>
-            </Link>
-          </div>
-        </div>
-
         {/* Bottom Circular Arch Gradient - copy of the top arch */}
         <div
+          className="bottom-arch-container"
           style={{
             position: 'relative',
             width: '100%',
@@ -354,6 +437,7 @@ export default function Home() {
           }}
         >
           <div
+            className="bottom-arch"
             style={{
               position: 'absolute',
               bottom: '-30px',
@@ -381,7 +465,13 @@ export default function Home() {
         </div>
 
         {/* Gradient Text Below Cards */}
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '-5rem 0 0 0', zIndex: 4 }}>
+        <div className="accelerating-text-container" style={{ 
+          width: '100%', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          margin: '-5rem 0 0 0', 
+          zIndex: 4 
+        }}>
           <span
             style={{
               fontSize: 'clamp(1.5rem, 4vw, 2rem)',
@@ -415,7 +505,7 @@ export default function Home() {
               display: 'inline-block',
               whiteSpace: 'pre-line',
               opacity: 0.92,
-              maxWidth: 900,
+              maxWidth: 1000,
             }}
           >
             {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasin imapct\neverywhere we go.`}
@@ -610,6 +700,87 @@ export default function Home() {
           </svg>
         </Button>
       </Column>
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          a[href^="/services/"] {
+            padding: 0.5rem 1.2rem !important;
+            font-size: 0.95rem !important;
+          }
+          a[href^="/services/"] > span {
+            font-size: 1.1em !important;
+          }
+          .service-card {
+            padding: 1.5rem 1.2rem !important;
+            min-width: 300px !important;
+            height: 180px !important;
+            width: 100% !important;
+          }
+          .service-card.vr-card {
+            margin-top: 1.5rem !important;
+          }
+          .service-card-image {
+            height: 140px !important;
+            margin-right: 16px !important;
+          }
+          .ai-card-image {
+            height: 120px !important;
+            margin-right: 12px !important;
+          }
+          .service-card-title {
+            font-size: 1.2rem !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            font-weight: 600 !important;
+          }
+          .service-card-content {
+            gap: 6px !important;
+          }
+          .service-card-button {
+            padding: 0.5rem 1.2rem !important;
+            font-size: 0.95rem !important;
+            font-weight: 500 !important;
+          }
+          /* Container gap adjustment for mobile */
+          div[style*="gap: '2.5rem'"] {
+            gap: 1.5rem !important;
+          }
+          /* Reduce text thickness for all text in service cards */
+          .service-card h2 br {
+            display: none !important;
+          }
+          .service-card h2 {
+            font-weight: 600 !important;
+          }
+          .service-card-button span {
+            font-weight: 500 !important;
+          }
+          /* Move up Accelerating text in mobile */
+          .accelerating-text-container {
+            margin-top: -8rem !important;
+          }
+          /* Move up Accelerating text and arch in mobile */
+          .accelerating-text-container {
+            margin-top: -12rem !important;
+          }
+          .bottom-arch-container {
+            margin-top: 20rem !important;
+          }
+          .bottom-arch {
+            bottom: 10rem !important;
+          }
+        }
+        
+        @media (min-width: 769px) {
+          .service-card {
+            width: calc(50% - 1.25rem);
+          }
+          .service-card.vr-card {
+            width: 100%;
+            max-width: 700px;
+            margin: 2.5rem auto 0;
+          }
+        }
+      `}</style>
     </div>
   );
 }
