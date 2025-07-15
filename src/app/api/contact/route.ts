@@ -1,8 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
-// Initialize SendGrid with API key
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || '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');
+// Create a transporter using Gmail SMTP
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'exploradar@gmail.com',
+    // Create an app password in your Google Account settings
+    // Go to Security > 2-Step Verification > App passwords
+    // Select "Mail" and your device, then use the generated password
+    pass: process.env.GMAIL_APP_PASSWORD || ''
+  }
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,18 +26,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create email message for Zenturiotech
-    const msgToCompany = {
-      to: 'exploradar@gmail.com', // Company email
-      from: 'contact@zenturiotech.com', // Company sender email
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+
+    // Create email content
+    const mailOptions = {
+      from: 'exploradar@gmail.com',
+      to: 'exploradar@gmail.com',
       subject: 'New Project Inquiry from Zenturiotech Website',
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Budget: ${budget}
-        Category: ${category}
-        Message: ${message}
-      `,
       html: `
         <h2>New Project Inquiry</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -37,66 +48,30 @@ export async function POST(request: NextRequest) {
         <p><strong>Category:</strong> ${category}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
+      `
     };
 
-    // Create confirmation email for the user
-    const msgToUser = {
-      to: email, // User's email address
-      from: 'contact@zenturiotech.com',
-      subject: 'Thank you for contacting Zenturiotech',
-      text: `
-        Dear ${name},
+    try {
+      // Send email
+      await transporter.sendMail(mailOptions);
 
-        Thank you for reaching out to Zenturiotech. We have received your project inquiry and our team will review it shortly.
-
-        Here's a copy of your message:
-
-        Category: ${category}
-        Budget: ${budget}
-        Message: ${message}
-
-        We will get back to you as soon as possible.
-
-        Best regards,
-        The Zenturiotech Team
-      `,
-      html: `
-        <h2>Thank you for contacting Zenturiotech</h2>
-        <p>Dear ${name},</p>
-        <p>Thank you for reaching out to Zenturiotech. We have received your project inquiry and our team will review it shortly.</p>
-        <h3>Here's a copy of your message:</h3>
-        <p><strong>Category:</strong> ${category}</p>
-        <p><strong>Budget:</strong> ${budget}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <p>We will get back to you as soon as possible.</p>
-        <br>
-        <p>Best regards,<br>The Zenturiotech Team</p>
-      `,
-    };
-
-    // Send both emails
-    await Promise.all([
-      sgMail.send(msgToCompany),
-      sgMail.send(msgToUser)
-    ]);
-
-    return NextResponse.json(
-      { message: 'Email sent successfully' },
-      { status: 200 }
-    );
-
-  } catch (error: any) {
-    console.error('SendGrid error:', error);
-    
-    if (error.response) {
-      console.error('SendGrid response error:', error.response.body);
+      return NextResponse.json(
+        { message: 'Form submitted successfully' },
+        { status: 200 }
+      );
+    } catch (emailError: any) {
+      console.error('Email sending error:', emailError);
+      return NextResponse.json(
+        { error: 'Failed to send email. Please try again later.' },
+        { status: 500 }
+      );
     }
 
+  } catch (error: any) {
+    console.error('Request processing error:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
+      { error: 'Invalid request format' },
+      { status: 400 }
     );
   }
 } 
