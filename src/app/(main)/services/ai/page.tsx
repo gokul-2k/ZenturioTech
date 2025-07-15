@@ -11,7 +11,7 @@ const services = [
   {
     title: "LLM & Agentic AI Integration",
     desc: "Build systems that can reason, adapt, and learn continuously",
-    img: "/images/llm.jpg",
+    img: "/images/llm2.webp",
   },
   {
     title: "Computer Vision Applications",
