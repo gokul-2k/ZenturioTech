@@ -430,7 +430,7 @@ export default function Header() {
                 }, 10);
               }
             }}
-          ><HiOutlineFire className="nav-icon" /> <span>What's Trending</span></Link>
+          ><HiOutlineFire className="nav-icon" /> <span>Blog</span></Link>
           <Link href="/about" className={`nav-link nav-link-flex${pathname === '/about' ? ' selected' : ''}`} data-path="/about"
             onClick={e => {
               if (pathname !== '/about') {
@@ -666,7 +666,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <Link href="/trending" aria-label="What's Trending" className={`nav-link-mobile${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
+        <Link href="/trending" aria-label="Blog" className={`nav-link-mobile${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
           onClick={e => {
             if (pathname !== '/trending') {
               e.preventDefault();

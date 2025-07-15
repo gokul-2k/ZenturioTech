@@ -1,6 +1,19 @@
-import { Column, Flex, Button } from "@once-ui-system/core";
+import { Column, Flex } from "@once-ui-system/core";
+import JobCard from "@/components/JobCard";
+import ViewMoreButton from "@/components/ViewMoreButton";
 
 export default function Careers() {
+  const jobListings = [
+    {
+      title: "Technical Trainer",
+      description: "Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team."
+    },
+    {
+      title: "Ui/UX Intern",
+      description: "Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team."
+    }
+  ];
+
   return (
     <>
     <div style={{ minHeight: "100vh", width: "100%", background: "transparent" }}>
@@ -69,7 +82,6 @@ export default function Careers() {
 
       {/* HERO SECTION 2 - Two Girls as Background, Glass Card Overlay */}
       <div style={{
-        
         width: "100%",
         maxWidth: 1200,
         margin: "0 auto 2.5rem auto",
@@ -150,52 +162,17 @@ export default function Careers() {
         </div>
         {/* Job Cards */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-          {/* Card 1 */}
-          <div style={{
-            background: "#0a2c52",
-            border: "1.5px solid #1976d2",
-            padding: "1.5rem 2rem 1.5rem 1.5rem",
-            color: "#fff",
-            display: "flex",
-            flexDirection: "column",
-            gap: 8,
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 28, fontWeight: 600, color: "#1da1f2" }}>
-              <span style={{ fontSize: 18, color: "#60a5fa", marginRight: 8, marginTop: 2 }}>●</span> Technical Trainer
-            </div>
-            <div style={{ fontSize: 16, opacity: 0.93, marginBottom: 8 }}>
-              Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team.
-            </div>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button style={{ background: "#1976d2", color: "#fff", borderRadius: 8, fontWeight: 500, fontSize: 14, padding: "0.5rem 1.2rem" }}>View Openings</Button>
-            </div>
-          </div>
-          {/* Card 2 */}
-          <div style={{
-            background: "#0a2c52",
-            border: "1.5px solid #1976d2",
-            padding: "1.5rem 2rem 1.5rem 1.5rem",
-            color: "#fff",
-            display: "flex",
-            flexDirection: "column",
-            gap: 8,
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 28, fontWeight: 600, color: "#1da1f2" }}>
-              <span style={{ fontSize: 16, color: "#60a5fa", marginRight: 8, marginTop: 2 }}>●</span> Ui/UX Intern
-            </div>
-            <div style={{ fontSize: 16, opacity: 0.93, marginBottom: 8 }}>
-              Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team.
-            </div>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button style={{ background: "#1976d2", color: "#fff", borderRadius: 8, fontWeight: 500, fontSize: 14, padding: "0.5rem 1.2rem" }}>View Openings</Button>
-            </div>
-          </div>
+          {jobListings.map((job, index) => (
+            <JobCard 
+              key={index}
+              title={job.title}
+              description={job.description}
+            />
+          ))}
         </div>
         {/* View More Button */}
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 24 }}>
-          <Button style={{ background: "transparent", color: "#60a5fa", borderRadius: 8, fontWeight: 500, fontSize: 15, padding: "0.7rem 2.2rem"}}>
-            View More &gt;&gt;
-          </Button>
+          <ViewMoreButton />
         </div>
       </div>
     </div>
