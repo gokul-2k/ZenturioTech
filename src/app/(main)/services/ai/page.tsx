@@ -11,7 +11,7 @@ const services = [
   {
     title: "LLM & Agentic AI Integration",
     desc: "Build systems that can reason, adapt, and learn continuously",
-    img: "/images/boy.webp",
+    img: "/images/llm.jpg",
   },
   {
     title: "Computer Vision Applications",
@@ -26,7 +26,7 @@ const services = [
   {
     title: "Custom AI Development",
     desc: "End-to-end AI solutions designed for your business workflow.",
-    img: "/images/kid-robo.webp",
+    img: "/images/custom.avif",
   }
 ];
 
@@ -55,7 +55,7 @@ export default function AIPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'url("/images/service.webp") center/cover no-repeat',
+        background: 'url("/images/aiwp.avif") center/cover no-repeat',
         backgroundPosition: 'center 0px',
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
