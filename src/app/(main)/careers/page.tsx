@@ -1,16 +1,15 @@
 import { Column, Flex } from "@once-ui-system/core";
 import JobCard from "@/components/JobCard";
 import ViewMoreButton from "@/components/ViewMoreButton";
-
 export default function Careers() {
   const jobListings = [
     {
-      title: "Technical Trainer",
-      description: "Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team."
+      title: "AI Research Engineer (PhD / PhD Pursuing)",
+      description: "ZenturioTech is seeking a highly motivated AI Research Engineer with a strong research background, ideally holding or currently pursuing a PhD in Artificial Intelligence, Machine Learning, or related disciplines. This role involves cutting-edge research, development and optimization of AI models for real-time, embedded and edge platforms. You will work on advanced AI projects that integrate deep learning with hardware platforms such as NVIDIA Jetson, STM32 and other embedded devices."
     },
     {
-      title: "Ui/UX Intern",
-      description: "Are you passionate about sharing knowledge and enhancing the skills of others? Join our Knowledge Management and Talent Development team at Zenturiotech as a Trainer. As a Trainer, you will play a crucial role in delivering comprehensive training programs to both new hires and existing employees, focusing on Technical and Functional aspects. You will have the opportunity to stay updated with the latest technologies, be a knowledge champion within the organization, and contribute to the overall growth of our team."
+      title: "Junior AI Engineer",
+      description: "ZenturioTech is looking for a passionate and self-driven Junior AI Engineer to support the development and optimization of AI models for real-time embedded platforms. This is an excellent opportunity to work hands-on with cutting-edge AI frameworks and edge devices while learning from experienced professionals."
     }
   ];
 
