@@ -10,7 +10,17 @@ export default function ChatbotButton() {
   const [isPressed, setIsPressed] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
   const chatBodyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (open && chatBodyRef.current) {
@@ -154,8 +164,8 @@ export default function ChatbotButton() {
       <div
         style={{
           position: "fixed",
-          bottom: 130,
-          right: 48,
+          bottom: isMobile ? 100 : 130,
+          right: isMobile ? 16 : 48,
           width: 370,
           maxWidth: '95vw',
           height: 650,
@@ -308,41 +318,47 @@ export default function ChatbotButton() {
       {/* Chat Window rendered in portal */}
       {open && typeof window !== 'undefined' && createPortal(chatWindow, document.body)}
       {/* Floating Chat Button with click animation */}
-      <Button
-        id="chat-float"
-        style={{
-          position: "fixed",
-          bottom: "90px",
-          right: "48px",
-          zIndex: 1000,
-          width: 80,
-          height: 80,
-          minWidth: 80,
-          minHeight: 80,
-          borderRadius: "50%",
-          background: "rgba(25, 118, 210, 0.34)",
-          boxShadow: "0 4px 24px 0 rgba(7,37,73,0.25)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 0,
-          transition: 'transform 0.12s cubic-bezier(.4,2,.6,1)',
-          transform: isPressed ? 'scale(0.92)' : 'scale(1)',
-        }}
-        aria-label="Open chat"
-        data-border="rounded"
-        weight="default"
-        onMouseDown={() => setIsPressed(true)}
-        onMouseUp={() => setIsPressed(false)}
-        onMouseLeave={() => setIsPressed(false)}
-        onClick={() => setOpen(true)}
-      >
-        <img
-          src="/images/chat.png"
-          alt="Open chat"
-          style={{ width: 78, height: 78, objectFit: 'contain', display: 'block' }}
-        />
-      </Button>
+      {!open && (
+        <Button
+          onClick={() => setOpen(true)}
+          onMouseDown={() => setIsPressed(true)}
+          onMouseUp={() => setIsPressed(false)}
+          onMouseLeave={() => setIsPressed(false)}
+          style={{
+            position: "fixed",
+            bottom: isMobile ? 90 : 90,
+            right: isMobile ? 24 : 48,
+            width: isMobile ? 48 : 80,
+            height: isMobile ? 48 : 80,
+            borderRadius: "50%",
+            background: "linear-gradient(90deg, #1976d2 0%, #2ea6ff 100%)",
+            boxShadow: isPressed
+              ? "0 2px 8px 0 rgba(25,118,210,0.18)"
+              : "0 8px 28px 0 rgba(25,118,210,0.28)",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "all 0.2s ease",
+            transform: isPressed ? "scale(0.94)" : "scale(1)",
+            zIndex: 2147483646,
+          }}
+        >
+          <img
+            src="/images/chat.png"
+            alt="Chat"
+            style={{
+              width: isMobile ? 42 : 78,
+              height: isMobile ? 42 : 78,
+              objectFit: "contain",
+              transition: "all 0.2s ease",
+              transform: isPressed ? "scale(0.94)" : "scale(1)",
+            }}
+          />
+        </Button>
+      )}
     </>
   );
 } 

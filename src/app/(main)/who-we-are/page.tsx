@@ -102,7 +102,7 @@ export default function WhoWeAre() {
             </div>
             <div className="team-member" style={{ top: '120px', left: '360px' }}>
               <div className="team-img team-img-d-inverted">
-                <Image src="/images/Ajisha2.jpeg" alt="Team Member 3" width={180} height={180} />
+                <Image src="/images/Ajisha2.webp" alt="Team Member 3" width={180} height={180} />
               </div>
               <div className="team-info">
                 <div className="team-name">Ajisha</div>

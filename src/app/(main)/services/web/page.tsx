@@ -1,391 +1,371 @@
+'use client';
 import Image from 'next/image';
+import React from 'react';
+
+const services = [
+  {
+    title: 'Mobile App Development',
+    subtitle: '(iOS & Android)',
+    description: 'Native and cross-platform apps built for performance.'
+  },
+  {
+    title: 'Progressive Web Apps (PWAs)',
+    description: 'Responsive, lightweight web apps that work across all devices'
+  },
+  {
+    title: 'Custom Web Applications',
+    description: 'Tailored portals, dashboards, and platforms that scale with your needs.'
+  },
+  {
+    title: 'UI/UX Design & Prototyping',
+    description: 'Engaging interfaces designed for usability and conversion.'
+  }
+];
+
+const developmentSections = [
+  {
+    title: 'Webflow Development',
+    description: 'Get modern, responsive, and lightning-fast websites using Webflow — ideal for businesses that value design freedom and CMS flexibility.',
+    features: [
+      'Pixel-perfect design implementation',
+      'Custom animations & interactions',
+      'CMS for dynamic content',
+      'Fast, secure, and SEO-ready',
+      'No-code handover for marketing teams',
+    ],
+    image: '/images/web-des.webp'
+  },
+  {
+    title: 'WordPress Development',
+    description: 'Power your business with custom WordPress websites — the world\'s most popular CMS platform.',
+    features: [
+      'Custom theme development',
+      'WooCommerce integration',
+      'SEO optimization & plugin setup',
+      'Blog and content management system',
+      'Easy backend management',
+    ],
+    image: '/images/web.webp'
+  },
+  {
+    title: 'Custom-Coded Websites',
+    description: 'For businesses with unique needs or complex functionality, we offer fully custom-coded websites using the latest frameworks and technologies.',
+    features: [
+      'HTML5, CSS3, JavaScript, Bootstrap',
+      'React.js / Next.js web apps',
+      'API integration & backend development',
+      'Optimized for speed and scalability',
+      'Highly flexible UI/UX',
+    ],
+    image: '/images/web-des.webp'
+  }
+];
 
 export default function WebServicePage() {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+  
+  React.useEffect(() => {
+    const check = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
-    <main style={{ width: '100%', minHeight: '100vh', background: 'linear-gradient(180deg, #0a2240 0%, #0e2d56 100%)', color: '#fff', overflowX: 'hidden', fontFamily: 'Poppins, sans-serif', position: 'relative' }}>
-      {/* Top vignette overlay */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: 180, pointerEvents: 'none', zIndex: 1, background: 'linear-gradient(180deg, rgba(10,34,64,0.85) 60%, rgba(10,34,64,0) 100%)' }} />
-
-      {/* Main heading below logo */}
-      <h1 style={{
-        fontSize: 48,
-        fontWeight: 700,
-        lineHeight: 1.1,
-        margin: '48px 0 0 0',
-        color: '#fff',
-        letterSpacing: 0.5,
-        textAlign: 'left',
-        paddingLeft: 64,
-        zIndex: 10,
-        position: 'relative',
-        marginTop: 150,
-      }}>
-        Web & Mobile App Development
-      </h1>
-
-      {/* Background image above arch and nav bar */}
+    <main style={{
+      width: '100%',
+      minHeight: '100vh',
+      background: '#0a2240',
+      color: '#fff',
+      overflowX: 'hidden',
+      fontFamily: 'Poppins, sans-serif',
+      position: 'relative',
+      marginTop: -70,
+    }}>
+      {/* Hero Section with Background */}
       <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
         width: '100%',
-        height: 520,
-        zIndex: 0,
+        minHeight: 780,
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         overflow: 'hidden',
-        pointerEvents: 'none',
       }}>
+        {/* Background Image */}
         <Image
           src="/images/vr-hp.webp"
           alt="VR Hero"
           fill
-          style={{ objectFit: 'cover', objectPosition: 'top', opacity: 0.45 }}
+          style={{ 
+            objectFit: 'cover',
+            objectPosition: '50% 0',
+            opacity: 0.45
+          }}
           priority
         />
-        {/* Downward faded overlay at the bottom of the hero image */}
+        
+        {/* Gradient Overlay */}
         <div style={{
           position: 'absolute',
           left: 0,
           bottom: 0,
           width: '100%',
           height: '40%',
-          background: 'linear-gradient(180deg, rgba(10,34,64,0) 0%, #0a2240 100%)',
+          background: 'linear-gradient(180deg, rgba(10,34,64,0) 0%, #102c4c 100%)',
           zIndex: 2,
-          pointerEvents: 'none',
+          pointerEvents: 'none'
         }} />
+
+        {/* Main Heading */}
+        <h1 style={{
+          position: 'relative',
+          zIndex: 3,
+          color: '#fff',
+          fontSize: isMobile ? 42 : 68,
+          fontWeight: 600,
+          textAlign: 'center',
+          letterSpacing: 1,
+          marginTop: 450
+        }}>
+          Web & Mobile App Development
+        </h1>
       </div>
 
-      {/* Hero Section with arch */}
-      <section style={{ width: '100%', minHeight: 320, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingTop: 0, paddingBottom: 0, position: 'relative', background: 'none', zIndex: 2 }}>
-        {/* Only hero background or heading if needed */}
-      </section>
-
-      {/* Content Section: Character + Service Descriptions */}
-      <section style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', marginTop: 200, marginBottom: 64, zIndex: 4, position: 'relative' }}>
+      {/* Services Section */}
+      <section style={{
+        maxWidth: isTablet ? 800 : 1200,
+        margin: '0 auto',
+        padding: '60px 20px',
+        marginTop: isMobile ? -80 : 80,
+        position: 'relative',
+        zIndex: 4
+      }}>
         <div style={{
           display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          maxWidth: 1200,
-          width: '100%',
-          gap: 48,
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'center' : 'flex-start',
+          gap: isMobile ? '30px' : '48px'
         }}>
-          {/* Left: Character on blue rounded rectangle */}
-          <div style={{ position: 'relative', width: 340, minWidth: 260, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', height: 420 }}>
-            {/* Rounded blue rectangle */}
+          {/* Character Container */}
+          <div style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: isMobile ? '240px' : '340px',
+            height: isMobile ? '340px' : '420px',
+            order: isMobile ? 1 : 0
+          }}>
             <div style={{
               position: 'absolute',
-              left: 0,
-              bottom: 0,
-              width: 280,
-              height: 200,
+              left: '50%',
+              bottom: isMobile ? '30px' : 0,
+              width: isMobile ? '180px' : '280px',
+              height: isMobile ? '140px' : '200px',
               background: '#b3cfff',
-              borderRadius: 80,
-              zIndex: 1,
+              borderRadius: isMobile ? '30px' : '80px',
               boxShadow: '0 4px 24px 0 rgba(179,207,255,0.25)',
+              transform: 'translateX(-50%)',
+              zIndex: 1
             }} />
-            {/* Character image */}
             <img
               src="/images/fullboy.png"
               alt="3D Boy with Tablet"
-              style={{ width: 260, height: 500, position: 'relative', zIndex: 2 }}
+              style={{
+                position: 'relative',
+                width: isMobile ? '180px' : '260px',
+                height: isMobile ? '340px' : '500px',
+                objectFit: isMobile ? 'contain' : 'cover',
+                zIndex: 2
+              }}
             />
           </div>
-          {/* Right: Service Descriptions */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 40, minWidth: 340, maxWidth: 700, marginBottom: 40 }}>
-            <div>
-              <span style={{ fontWeight: 700, fontSize: 32, color: '#8cb6f7', display: 'block', marginBottom: 2, fontFamily: 'inherit' }}>Mobile App Development <span style={{ fontSize: 22, color: '#a9b8c9', fontWeight: 400 }}>(iOS & Android)</span></span>
-              <span style={{ fontSize: 24, color: '#fff', display: 'block', marginTop: 8, fontFamily: 'inherit' }}>Native and cross-platform apps built for performance.</span>
-            </div>
-            <div>
-              <span style={{ fontWeight: 700, fontSize: 32, color: '#7fa8e7', display: 'block', marginBottom: 2, fontFamily: 'inherit' }}>Progressive Web Apps (PWAs)</span>
-              <span style={{ fontSize: 24, color: '#fff', display: 'block', marginTop: 8, fontFamily: 'inherit' }}>Responsive, lightweight web apps that work across all devices</span>
-            </div>
-            <div>
-              <span style={{ fontWeight: 700, fontSize: 32, color: '#8cb6f7', display: 'block', marginBottom: 2, fontFamily: 'inherit' }}>Custom Web Applications</span>
-              <span style={{ fontSize: 24, color: '#fff', display: 'block', marginTop: 8, fontFamily: 'inherit' }}>Tailored portals, dashboards, and platforms that scale with your needs.</span>
-            </div>
-            <div>
-              <span style={{ fontWeight: 700, fontSize: 32, color: '#7fa8e7', display: 'block', marginBottom: 2, fontFamily: 'inherit' }}>UI/UX Design & Prototyping</span>
-              <span style={{ fontSize: 24, color: '#fff', display: 'block', marginTop: 8, fontFamily: 'inherit' }}>Engaging  interfaces designed for usability and conversion.</span>
-            </div>
+
+          {/* Services List */}
+          <div style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: isMobile ? '100%' : 700,
+            gap: isMobile ? '30px' : '40px',
+            order: isMobile ? 2 : 0
+          }}>
+            {services.map((service, index) => (
+              <div key={index} style={{
+                textAlign: isMobile ? 'center' : 'left'
+              }}>
+                <span style={{
+                  display: 'block',
+                  fontSize: isMobile ? '22px' : '32px',
+                  color: '#8cb6f7',
+                  fontWeight: 700,
+                  marginBottom: '2px'
+                }}>
+                  {service.title}
+                  {service.subtitle && (
+                    <span style={{
+                      fontSize: isMobile ? '18px' : '22px',
+                      color: '#a9b8c9',
+                      fontWeight: 400
+                    }}> {service.subtitle}</span>
+                  )}
+                </span>
+                <span style={{
+                  display: 'block',
+                  fontSize: isMobile ? '16px' : '24px',
+                  color: '#fff',
+                  marginTop: '8px',
+                  padding: isMobile ? '0 10px' : 0
+                }}>
+                  {service.description}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Webflow Development Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
-        {/* Section Title */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
-          borderRadius: 32,
-          padding: '18px 0',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <h2 style={{
-            color: '#a9c8ff',
-            fontSize: 36,
-            fontWeight: 600,
-            textAlign: 'center',
-            margin: 0,
-            letterSpacing: 1,
+      {/* Development Sections */}
+      <section style={{
+        maxWidth: isTablet ? 800 : 1200,
+        margin: '0 auto',
+        padding: isMobile ? '24px 16px' : '32px 0 48px'
+      }}>
+        {developmentSections.map((section, index) => (
+          <div key={index} style={{
+            width: '100%',
+            marginBottom: 40
           }}>
-            Webflow Development
-          </h2>
-        </div>
-        {/* Card/Box */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          background: '#18325a',
-          borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          padding: 40,
-          gap: 40,
-        }}>
-          {/* Image left */}
-          <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Section Title */}
             <div style={{
-              borderRadius: 24,
-              overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
-              width: 320,
-              height: 320,
+              width: isMobile ? '100%' : '80%',
+              maxWidth: 900,
+              margin: '0 auto 32px',
+              background: '#0a2240',
+              borderRadius: 32,
+              padding: isMobile ? '14px 0' : '18px 0',
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
+              alignItems: 'center'
             }}>
-              <Image
-                src="/images/web-des.webp"
-                alt="Webflow Screenshot"
-                width={300}
-                height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
-              />
+              <h2 style={{
+                color: '#a9c8ff',
+                fontSize: isMobile ? '24px' : '36px',
+                fontWeight: 600,
+                textAlign: 'center',
+                margin: 0,
+                letterSpacing: 1
+              }}>
+                {section.title}
+              </h2>
             </div>
-          </div>
-          {/* Content right */}
-          <div style={{ flex: 1, color: '#fff', fontSize: 22, display: 'flex', flexDirection: 'column', gap: 18, minWidth: 320 }}>
-            <p style={{ fontSize: 22, lineHeight: 1.5, marginBottom: 8, color: '#e0eaff' }}>
-              Get modern, responsive, and lightning-fast websites using Webflow — ideal for businesses that value design freedom and CMS flexibility.
-            </p>
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                'Pixel-perfect design implementation',
-                'Custom animations & interactions',
-                'CMS for dynamic content',
-                'Fast, secure, and SEO-ready',
-                'No-code handover for marketing teams',
-              ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
-                    background: '#a9c8ff',
-                    marginRight: 16,
-                    boxShadow: '0 2px 8px 0 #a9c8ff55',
-                  }} />
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
 
-      {/* WordPress Development Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
-        {/* Section Title */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
-          borderRadius: 32,
-          padding: '18px 0',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <h2 style={{
-            color: '#a9c8ff',
-            fontSize: 36,
-            fontWeight: 600,
-            textAlign: 'center',
-            margin: 0,
-            letterSpacing: 1,
-          }}>
-            WordPress Development
-          </h2>
-        </div>
-        {/* Card/Box */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          background: '#18325a',
-          borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          padding: 40,
-          gap: 40,
-        }}>
-          {/* Content left */}
-          <div style={{ flex: 1, color: '#fff', fontSize: 22, display: 'flex', flexDirection: 'column', gap: 18, minWidth: 320 }}>
-            <p style={{ fontSize: 22, lineHeight: 1.5, marginBottom: 8, color: '#e0eaff' }}>
-              Power your business with custom WordPress websites — the world's most popular CMS platform.
-            </p>
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                'Custom theme development',
-                'WooCommerce integration',
-                'SEO optimization & plugin setup',
-                'Blog and content management systemEasy backend management',
-              ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
-                    background: '#a9c8ff',
-                    marginRight: 16,
-                    boxShadow: '0 2px 8px 0 #a9c8ff55',
-                  }} />
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* Image right */}
-          <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Section Card */}
             <div style={{
-              borderRadius: 24,
-              overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
-              width: 320,
-              height: 320,
+              width: isMobile ? '100%' : '80%',
+              maxWidth: 900,
+              background: '#0a2240',
+              borderRadius: 32,
+              boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
               display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
               alignItems: 'center',
-              justifyContent: 'center',
+              padding: isMobile ? '24px' : '40px',
+              gap: isMobile ? '24px' : '40px',
+              margin: '0 auto'
             }}>
-              <Image
-                src="/images/web.webp"
-                alt="WordPress Screenshot"
-                width={300}
-                height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+              {/* Image */}
+              <div style={{
+                width: isMobile ? '100%' : 'auto',
+                maxWidth: isMobile ? '260px' : '320px',
+                height: isMobile ? '260px' : '320px',
+                borderRadius: 24,
+                overflow: 'hidden',
+                boxShadow: '0 4px 24px 0 #b3cfff',
+                border: '4px solid #b3cfff',
+                background: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <Image
+                  src={section.image}
+                  alt={`${section.title} Screenshot`}
+                  width={300}
+                  height={300}
+                  style={{
+                    borderRadius: 20,
+                    width: isMobile ? '220px' : '300px',
+                    height: isMobile ? '220px' : '300px',
+                    objectFit: 'cover'
+                  }}
+                />
+              </div>
 
-      {/* Custom-Coded Websites Section - Redesigned */}
-      <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40, background: '#13305a', paddingTop: 32, paddingBottom: 48 }}>
-        {/* Section Title */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          margin: '0 auto 32px auto',
-          background: 'rgba(24,50,90,0.85)',
-          borderRadius: 32,
-          padding: '18px 0',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <h2 style={{
-            color: '#a9c8ff',
-            fontSize: 36,
-            fontWeight: 600,
-            textAlign: 'center',
-            margin: 0,
-            letterSpacing: 1,
-          }}>
-            Custom-Coded Websites
-          </h2>
-        </div>
-        {/* Card/Box */}
-        <div style={{
-          width: '80%',
-          maxWidth: 900,
-          background: '#18325a',
-          borderRadius: 32,
-          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          padding: 40,
-          gap: 40,
-        }}>
-          {/* Image left */}
-          <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{
-              borderRadius: 24,
-              overflow: 'hidden',
-              boxShadow: '0 4px 24px 0 #b3cfff',
-              border: '4px solid #b3cfff',
-              background: '#fff',
-              width: 320,
-              height: 320,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <Image
-                src="/images/web-des.webp"
-                alt="Custom Code Screenshot"
-                width={300}
-                height={300}
-                style={{ borderRadius: 20, width: 300, height: 300, objectFit: 'cover' }}
-              />
+              {/* Content */}
+              <div style={{
+                flex: 1,
+                color: '#fff',
+                textAlign: isMobile ? 'center' : 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: isMobile ? '16px' : '18px'
+              }}>
+                <p style={{
+                  fontSize: isMobile ? '16px' : '22px',
+                  lineHeight: 1.5,
+                  marginBottom: isMobile ? '16px' : '8px',
+                  color: '#e0eaff'
+                }}>
+                  {section.description}
+                </p>
+                <ul style={{
+                  margin: 0,
+                  padding: 0,
+                  listStyle: 'none',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '16px',
+                  alignItems: isMobile ? 'flex-start' : 'flex-start',
+                  width: '100%',
+                  maxWidth: isMobile ? '280px' : 'none',
+                  marginLeft: isMobile ? 'auto' : 0,
+                  marginRight: isMobile ? 'auto' : 0
+                }}>
+                  {section.features.map((feature, idx) => (
+                    <li key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      fontSize: isMobile ? '15px' : '20px',
+                      color: '#e0eaff',
+                      fontWeight: 400,
+                      gap: isMobile ? '12px' : '16px',
+                      textAlign: 'left'
+                    }}>
+                      <span style={{
+                        display: 'inline-block',
+                        width: isMobile ? '12px' : '18px',
+                        height: isMobile ? '12px' : '18px',
+                        minWidth: isMobile ? '12px' : '18px',
+                        borderRadius: '50%',
+                        background: '#a9c8ff',
+                        marginRight: isMobile ? '12px' : '16px',
+                        boxShadow: '0 2px 8px 0 #a9c8ff55',
+                        flexShrink: 0
+                      }} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-          {/* Content right */}
-          <div style={{ flex: 1, color: '#fff', fontSize: 22, display: 'flex', flexDirection: 'column', gap: 18, minWidth: 320 }}>
-            <p style={{ fontSize: 22, lineHeight: 1.5, marginBottom: 8, color: '#e0eaff' }}>
-              For businesses with unique needs or complex functionality, we offer fully custom-coded websites using the latest frameworks and technologies.
-            </p>
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                'HTML5, CSS3, JavaScript, Bootstrap',
-                'React.js / Next.js web apps',
-                'API integration & backend development',
-                'Optimized for speed and scalability',
-                'Highly flexible UI/UX',
-              ].map((text, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', fontSize: 20, color: '#e0eaff', fontWeight: 400 }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
-                    background: '#a9c8ff',
-                    marginRight: 16,
-                    boxShadow: '0 2px 8px 0 #a9c8ff55',
-                  }} />
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        ))}
       </section>
     </main>
   );

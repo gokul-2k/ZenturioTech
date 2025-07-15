@@ -768,10 +768,80 @@ export default function Trending() {
             border-radius: 0.9rem !important;
           }
           .trending-text {
-            padding-top: 24px !important;
+            padding: 18px 12px 12px 16px !important;
+            padding-right: 140px !important;
+            max-width: 100% !important;
+          }
+          .trending-text > div:first-child {
+            font-size: 17px !important;
+            margin-bottom: 6px !important;
+            line-height: 1.2 !important;
+          }
+          .trending-text > div:last-child {
+            font-size: 13px !important;
+            opacity: 0.9 !important;
+            line-height: 1.3 !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 3 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
           }
           .trending-card {
             margin-left: 10px !important;
+            height: 180px !important;
+            min-width: 280px !important;
+            max-width: 100% !important;
+          }
+          .trending-card img {
+            width: 120px !important;
+            height: 140px !important;
+            right: 8px !important;
+          }
+          .trending-card > div:first-child {
+            background: linear-gradient(120deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.04) 60%, rgba(255,255,255,0.01) 100%) !important;
+          }
+
+          /* Specific styles for upcoming blog cards */
+          [style*="Upcoming Blogs"] {
+            font-size: 24px !important;
+            margin-bottom: 12px !important;
+          }
+          [style*="Upcoming Blogs"] + div {
+            gap: 1.5rem !important;
+          }
+          [style*="Upcoming Blogs"] + div > div {
+            height: 180px !important;
+            min-width: 280px !important;
+          }
+          [style*="Upcoming Blogs"] + div > div > div[style*="padding"] {
+            padding: 18px 12px 12px 16px !important;
+            padding-right: 140px !important;
+          }
+          [style*="Upcoming Blogs"] + div > div > div[style*="padding"] > div:first-of-type {
+            font-size: 16px !important;
+            margin-bottom: 6px !important;
+            line-height: 1.2 !important;
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
+            font-weight: 600 !important;
+          }
+          [style*="Upcoming Blogs"] + div > div > div[style*="padding"] > div:last-of-type {
+            font-size: 12px !important;
+            line-height: 1.3 !important;
+            margin: 0 !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            opacity: 0.9 !important;
+          }
+          [style*="Upcoming Blogs"] + div > div > img {
+            width: 120px !important;
+            height: 140px !important;
+            right: 8px !important;
+            bottom: 8px !important;
           }
         }
       `}</style>
