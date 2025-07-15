@@ -95,6 +95,9 @@ export default function Header() {
   const mobileServicesDropdownRef = useRef<HTMLDivElement>(null);
   const [keepDropdownOpen, setKeepDropdownOpen] = useState(false);
 
+  // Responsive width for dock centering
+  const isCenteredDock = typeof window !== 'undefined' && window.innerWidth <= 1450 && window.innerWidth >= 1071;
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -196,17 +199,9 @@ export default function Header() {
   return (
     <>
       {/* Logo - sticky in normal document flow, scrolls up with content */}
-      <div className="zenturio-header-logo" style={{
-        width: '100vw',
-        background: 'transparent',
-        paddingLeft: '80px',
-        paddingTop: '50px',
-        height: 68,
-        position: 'relative',
-        zIndex: 10,
-      }}>
+      <div className="zenturio-header-logo">
         <Link href="/">
-          <img src="/images/zen-white.png" alt="Logo" style={{ height: 38 }} />
+          <img src="/images/zen-white.png" alt="Logo" style={{ height: 38, display: 'block' }} />
         </Link>
       </div>
       {/* Navigation Dock - fixed and animated */}
@@ -217,7 +212,7 @@ export default function Header() {
           as="nav"
           gap="0"
           align="center"
-          className="nav-dock-desktop nav-dock-glass"
+          className={`nav-dock-desktop nav-dock-glass${!showDock ? ' nav-dock-hidden' : ''}`}
           ref={dockRef}
           style={{
             background: 'rgba(32, 32, 32, 0.27)',
@@ -225,12 +220,21 @@ export default function Header() {
             borderRadius: '2rem',
             padding: '0.5rem 0.2rem',
             boxShadow: '0 2px 24px 0 rgba(0,0,0,0.13)',
-            minWidth: 420,
             position: 'absolute',
-            top: 36,
-            right: '5vw',
-            transform: showDock ? 'translateY(0)' : 'translateY(-300%)',
-            transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
+            top: isCenteredDock ? 110 : 36,
+            right: isCenteredDock ? undefined : '5vw',
+            left: isCenteredDock ? '50%' : undefined,
+            transform: isCenteredDock 
+              ? `translateX(-50%) translateY(${showDock ? '0' : '-300%'})` 
+              : `translateY(${showDock ? '0' : '-300%'})`,
+            minWidth: isCenteredDock ? 600 : 420,
+            maxWidth: isCenteredDock ? 930 : undefined,
+            width: isCenteredDock ? 'auto' : undefined,
+            whiteSpace: isCenteredDock ? 'nowrap' : undefined,
+            justifyContent: isCenteredDock ? 'center' : undefined,
+            paddingLeft: isCenteredDock ? '2rem' : undefined,
+            paddingRight: isCenteredDock ? '2rem' : undefined,
+            transition: 'transform 0.35s cubic-bezier(.4,0,.2,1), right 0.35s cubic-bezier(.4,0,.2,1)',
             pointerEvents: showDock ? 'auto' : 'none',
             overflow: 'visible !important',
           }}
@@ -787,13 +791,12 @@ export default function Header() {
             backdrop-filter: blur(18px) saturate(180%);
             border-radius: 2rem;
             box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
-            padding: 0.7rem 1.1rem;
+            padding: 0.7rem 0.5rem;
             z-index: 100;
-            gap: 18px;
+            gap: 15px;
             border: 1.5px solid rgba(255,255,255,0.13);
             max-width: 95vw;
             min-width: unset;
-            position: fixed;
             overflow: visible !important;
           }
           .nav-dock-mobile a {
@@ -808,7 +811,11 @@ export default function Header() {
             transition: color 0.18s, background 0.18s;
           }
           .zenturio-header-logo {
-            padding-top: 60px !important;
+            padding-left: 0 !important;
+            justify-content: center !important;
+          }
+          .zenturio-header-logo img {
+            margin: 0 auto !important;
           }
           .nav-glider-mobile {
             border-radius: 2rem;
@@ -833,7 +840,23 @@ export default function Header() {
             display: block !important;
           }
           .nav-dock-desktop {
-            top: 110px !important; /* or increase as needed */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(var(--nav-transform-y, 0)) !important;
+            top: 110px !important;
+            min-width: 600px !important;
+            max-width: 930px !important;
+            width: auto !important;
+            white-space: nowrap !important;
+            justify-content: center !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+          }
+          .nav-dock-desktop.nav-dock-hidden {
+            --nav-transform-y: -300%;
+          }
+          .nav-dock-desktop .nav-link {
+            white-space: nowrap !important;
           }
         }
         .nav-glider {
@@ -879,6 +902,27 @@ export default function Header() {
         @keyframes fadeInDropdownMobile {
           from { opacity: 0; transform: translate(-50%, 20px); }
           to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .zenturio-header-logo {
+          width: 100vw;
+          background: transparent;
+          padding-left: 80px;
+          padding-top: 50px;
+          height: 68px;
+          position: relative;
+          z-index: 10;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        @media (max-width: 1200px) {
+          .zenturio-header-logo {
+            padding-left: 0 !important;
+            justify-content: center !important;
+          }
+          .zenturio-header-logo img {
+            margin: 0 auto !important;
+          }
         }
       `}</style>
     </>
