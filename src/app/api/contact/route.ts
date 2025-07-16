@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import sgMail from '@sendgrid/mail';
 
-// Create a transporter using Gmail SMTP
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'exploradar@gmail.com',
-    // Create an app password in your Google Account settings
-    // Go to Security > 2-Step Verification > App passwords
-    // Select "Mail" and your device, then use the generated password
-    pass: process.env.GMAIL_APP_PASSWORD || ''
-  }
-});
+// Initialize SendGrid with API key (REPLACE THIS WITH YOUR ACTUAL API KEY)
+sgMail.setApiKey('SEND_GRID_API_KEY');
 
 export async function POST(request: NextRequest) {
   try {
@@ -36,9 +27,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Create email content
-    const mailOptions = {
-      from: 'exploradar@gmail.com',
-      to: 'exploradar@gmail.com',
+    const msg = {
+      to: 'contact@zenturiotech.com',
+      from: 'contact@zenturiotech.com',
       subject: 'New Project Inquiry from Zenturiotech Website',
       html: `
         <h2>New Project Inquiry</h2>
@@ -52,8 +43,8 @@ export async function POST(request: NextRequest) {
     };
 
     try {
-      // Send email
-      await transporter.sendMail(mailOptions);
+      // Send email using SendGrid
+      await sgMail.send(msg);
 
       return NextResponse.json(
         { message: 'Form submitted successfully' },
