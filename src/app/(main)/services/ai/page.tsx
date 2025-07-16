@@ -88,7 +88,7 @@ export default function AIPage() {
           position: 'relative',
           zIndex: 3,
           color: '#fff',
-          fontSize: 68,
+          fontSize: isMobile ? 32 : isTablet ? 48 : 68,
           fontWeight: 600,
           textAlign: 'center',
           letterSpacing: 1,

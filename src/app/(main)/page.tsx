@@ -550,7 +550,7 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Education</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Education Icon */}
-              <img src="/images/edu1.jpeg" alt="Education" style={{ height: 54, width: 54, marginBottom: 10 }} />
+              <img src="/images/ed.png" alt="Education" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Transforming learning with smart, interactive, and engaging educational tools.`}
@@ -577,7 +577,7 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Health Care</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Health Care Icon */}
-              <img src="/images/health.png" alt="Health Care" style={{ height: 54, width: 54, marginBottom: 10 }} />
+              <img src="/images/hea.png" alt="Health Care" style={{ height: 54, width: 54, marginBottom: -4 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Innovative healthcare solutions for better patient outcomes and streamlined operations.`}
@@ -604,7 +604,7 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Real Estate</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Real Estate Icon */}
-              <img src="/images/real_estate.png" alt="Real Estate" style={{ height: 54, width: 54, marginBottom: 10 }} />
+              <img src="/images/rea.png" alt="Real Estate" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Transforming property management and real estate experiences.`}
@@ -631,7 +631,7 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Government</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Government Icon */}
-              <img src="/images/gov.png" alt="Government" style={{ height: 54, width: 54, marginBottom: 10 }} />
+              <img src="/images/gove.png" alt="Government" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Empowering public services with advanced technological solutions.`}
@@ -658,7 +658,7 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Corporate</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Corporate Icon */}
-              <img src="/images/corporate.png" alt="Corporate" style={{ height: 54, width: 54, marginBottom: 10 }} />
+              <img src="/images/corp.png" alt="Corporate" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
               {`Transforming business operations with intelligent solutions.`}
