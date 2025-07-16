@@ -33,7 +33,7 @@ const developmentSections = [
       'Fast, secure, and SEO-ready',
       'No-code handover for marketing teams',
     ],
-    image: '/images/web-des.webp'
+    image: '/images/web1.jpeg'
   },
   {
     title: 'WordPress Development',
@@ -57,7 +57,7 @@ const developmentSections = [
       'Optimized for speed and scalability',
       'Highly flexible UI/UX',
     ],
-    image: '/images/web-des.webp'
+    image: '/images/web2.jpeg'
   }
 ];
 
@@ -126,11 +126,11 @@ export default function WebServicePage() {
           position: 'relative',
           zIndex: 3,
           color: '#fff',
-          fontSize: isMobile ? 42 : 68,
+          fontSize: isMobile ? 32 : isTablet ? 48 : 68,
           fontWeight: 600,
           textAlign: 'center',
           letterSpacing: 1,
-          marginTop: 450
+          marginTop: 30
         }}>
           Web & Mobile App Development
         </h1>
