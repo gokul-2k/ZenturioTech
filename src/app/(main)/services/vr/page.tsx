@@ -100,11 +100,12 @@ export default function VRServicePage() {
           zIndex: 2,
           pointerEvents: 'none',
         }} />
+        {/* HERO SECTION h1 font size */}
         <h1 style={{
           position: 'relative',
           zIndex: 3,
           color: '#fff',
-          fontSize: 68,
+          fontSize: isMobile ? 32 : isTablet ? 48 : 68,
           fontWeight: 600,
           textAlign: 'center',
           letterSpacing: 1,
@@ -117,8 +118,8 @@ export default function VRServicePage() {
       <div style={{ 
         maxWidth: isTablet ? 800 : 1200, 
         margin: "0 auto", 
-        padding: '60px 20px', 
-        marginTop: 110 
+        padding: isMobile ? '32px 8px' : isTablet ? '48px 16px' : '60px 20px', 
+        marginTop: isMobile ? 40 : 110 
       }}>
         {cards.map((card, idx) => {
           const isLeft = idx % 2 === 0;
@@ -151,15 +152,15 @@ export default function VRServicePage() {
                 <Image
                   src={card.img}
                   alt={card.title}
-                  width={isMobile ? 280 : 350}
-                  height={isMobile ? 320 : 400}
+                  width={isMobile ? 200 : isTablet ? 260 : 350}
+                  height={isMobile ? 180 : isTablet ? 240 : 400}
                   style={{
                     borderRadius: 40,
                     objectFit: 'cover',
-                    width: isMobile ? 280 : 350,
-                    height: isMobile ? 320 : 400,
+                    width: isMobile ? 200 : isTablet ? 260 : 350,
+                    height: isMobile ? 180 : isTablet ? 240 : 400,
                     display: 'block',
-                    border: '8px solid #4bb6ff',
+                    border: '6px solid #4bb6ff',
                     boxSizing: 'border-box',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
                   }}
@@ -173,32 +174,34 @@ export default function VRServicePage() {
                   background: 'rgba(10, 44, 82, 0.44)',
                   borderRadius: 36,
                   boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
-                  padding: isMobile ? '32px 24px' : '48px 64px',
+                  padding: isMobile ? '24px 12px' : isTablet ? '36px 32px' : '48px 64px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: isMobile ? 'center' : 'flex-start',
-                  minHeight: isMobile ? 200 : 320,
-                  paddingLeft: isMobile ? 24 : isLeft ? 140 : 64,
-                  paddingRight: isMobile ? 24 : isLeft ? 64 : 140,
+                  minHeight: isMobile ? 120 : isTablet ? 180 : 320,
+                  paddingLeft: isMobile ? 12 : isLeft ? (isTablet ? 60 : 140) : 32,
+                  paddingRight: isMobile ? 12 : isLeft ? 32 : (isTablet ? 60 : 140),
                   textAlign: isMobile ? 'center' : 'left',
                   backdropFilter: 'blur(20px)',
                 }}
               >
+                {/* Card title */}
                 <div
                   style={{
-                    fontSize: isMobile ? 24 : 36,
+                    fontSize: isMobile ? 18 : isTablet ? 28 : 36,
                     fontWeight: 500,
-                    marginBottom: 16,
+                    marginBottom: 12,
                     color: '#8ecaff',
                     lineHeight: 1.2,
                   }}
                 >
                   {card.title}
                 </div>
+                {/* Card desc */}
                 <div
                   style={{
-                    fontSize: isMobile ? 17 : 30,
+                    fontSize: isMobile ? 14 : isTablet ? 20 : 30,
                     color: '#e0e6ed',
                     fontWeight: 400,
                     lineHeight: 1.5,
@@ -214,38 +217,40 @@ export default function VRServicePage() {
       </div>
       {/* Applications Section */}
       <div style={{ maxWidth: 1100, margin: '0 auto', marginTop: 64 }}>
+        {/* Applications Section h2 */}
         <h2 style={{
           color: '#3ba3ff',
-          fontSize: isMobile ? 28 : 38,
+          fontSize: isMobile ? 20 : isTablet ? 32 : 38,
           fontWeight: 700,
           textAlign: 'center',
-          marginBottom: 40,
+          marginBottom: isMobile ? 24 : 40,
           letterSpacing: 1,
         }}>
           Applications
         </h2>
+        {/* Applications Section container */}
         <div style={{
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
           flexWrap: isMobile ? 'nowrap' : 'wrap',
           justifyContent: 'center',
           alignItems: isMobile ? 'center' : 'stretch',
-          gap: 24,
-          marginBottom: 100,
+          gap: isMobile ? 12 : 24,
+          marginBottom: isMobile ? 40 : 100,
         }}>
           {/* Desktop layout: 2x2 + 1 center, Mobile: stacked */}
           {isMobile ? (
             applications.map((app, i) => (
               <div key={i} style={{
                 background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
-                borderRadius: 32,
-                padding: '18px 12px',
+                borderRadius: 24,
+                padding: isMobile ? '12px 8px' : '18px 12px',
                 color: '#fff',
                 fontWeight: 600,
-                fontSize: 16,
+                fontSize: isMobile ? 13 : 16,
                 minWidth: 0,
-                width: '90vw',
-                maxWidth: 400,
+                width: isMobile ? '92vw' : '90vw',
+                maxWidth: isMobile ? 320 : 400,
                 textAlign: 'center',
                 boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 margin: '0 auto',
