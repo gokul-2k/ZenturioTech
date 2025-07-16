@@ -24,7 +24,7 @@ export default function Footer() {
       <div style={{ minWidth: 200, flex: '1 1 220px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12}}>
         <Image src="/images/zen.png" alt="Logo" width={216} height={30} style={{ marginBottom: 8, }} />
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Address</div>
-        <div style={{ color: '#222', fontWeight: 300, marginBottom: 8 }}>Technopark, Trivandrum</div>
+        <div style={{ color: '#222', fontWeight: 300, marginBottom: 8 }}>STPI Building,Technopark, Trivandrum</div>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Follow us on</div>
         <div style={{ display: 'flex', gap: 12 }}>
           {/* Facebook */}
@@ -32,11 +32,11 @@ export default function Footer() {
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M17 2.1h-2.2c-2.2 0-3.7 1.3-3.7 3.5v1.4H8.1c-.2 0-.3.1-.3.3v2.2c0 .2.1.3.3.3h2.1v7.6c0 .2.1.3.3.3h2.3c.2 0 .3-.1.3-.3v-7.6h2.1c.2 0 .3-.1.3-.3l.1-2.2c0-.2-.1-.3-.3-.3h-2.2V6c0-.6.2-.9.9-.9h1.3c.2 0 .3-.1.3-.3V2.4c0-.2-.1-.3-.3-.3z" fill="#fff"/></svg>
           </a>
           {/* Instagram */}
-          <a href="#" aria-label="Instagram" style={{ color: '#fff' }}>
+          <a href="https://www.instagram.com/zenturiotech/" aria-label="Instagram" style={{ color: '#fff' }} target="_blank" rel="noopener noreferrer">
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="5" fill="#fff"/><circle cx="12" cy="12" r="4" fill="#1976d2"/><circle cx="17" cy="7" r="1.2" fill="#1976d2"/></svg>
           </a>
           {/* LinkedIn */}
-          <a href="#" aria-label="LinkedIn" style={{ color: '#fff' }}>
+          <a href="https://www.linkedin.com/company/zenturiotech" aria-label="LinkedIn" style={{ color: '#fff' }}>
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#fff"/><rect x="6" y="10" width="2" height="7" fill="#1976d2"/><rect x="11" y="10" width="2" height="7" fill="#1976d2"/><circle cx="7" cy="7" r="1" fill="#1976d2"/><rect x="13" y="13" width="2" height="4" fill="#1976d2"/><rect x="16" y="10" width="2" height="7" fill="#1976d2"/></svg>
           </a>
           {/* X (Twitter) */}
@@ -61,16 +61,28 @@ export default function Footer() {
       <div style={{ minWidth: 160, flex: '1 1 180px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Company</div>
         <div style={{ color: '#072549', fontWeight: 300, opacity: 0.92 }}>
-          Who we are <br />What we do<br />Careers
+          <a href="/who-we-are" style={{ color: '#000' }}>Who we are</a> <br />
+          <a href="/careers" style={{ color: '#000' }}>Careers</a>
+        </div>
+      </div>
+      <div style={{ minWidth: 160, flex: '1 1 180px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
+        <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Services</div>
+        <div style={{ color: '#072549', fontWeight: 300, opacity: 0.92 }}>
+          <a href="/services/ai" style={{ color: '#000' }}>AI</a><br />
+          <a href="/services/vr" style={{ color: '#000' }}>VR</a><br />
+          <a href="/services/web" style={{ color: '#000' }}>Web Development</a>
         </div>
       </div>
       {/* Section 4: Quick Links */}
       <div style={{ minWidth: 160, flex: '1 1 180px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Quick Links</div>
         <div style={{ color: '#072549', fontWeight: 300, opacity: 0.92 }}>
-          Contact US<br />Blog<br />Case Study<br />What's Trending
+          <a href="/about" style={{ color: '#000' }}>Contact US</a><br />
+          <a href="/trending" style={{ color: '#000' }}>Blog</a><br />
         </div>
       </div>
+      {/* Section 5: Services */}
+      
     </footer>
   );
 }

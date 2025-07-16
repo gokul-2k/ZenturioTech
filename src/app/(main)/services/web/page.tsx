@@ -98,7 +98,7 @@ export default function WebServicePage() {
       }}>
         {/* Background Image */}
         <Image
-          src="/images/vr-hp.webp"
+          src="/images/webbg.jpeg"
           alt="VR Hero"
           fill
           style={{ 

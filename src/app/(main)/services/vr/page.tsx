@@ -71,7 +71,7 @@ export default function VRServicePage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'url("/images/service.webp") center/cover no-repeat',
+        background: 'url("/images/arvr.jpeg") center/cover no-repeat',
         backgroundPosition: 'center 0px',
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,

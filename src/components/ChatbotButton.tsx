@@ -197,7 +197,7 @@ export default function ChatbotButton() {
             boxShadow: '0 2px 12px 0 rgba(25,118,210,0.08)',
           }}
         >
-          <span style={{letterSpacing:1}}>💬 Zenturio Chat</span>
+          <span style={{letterSpacing:1}}>Zenturio</span>
           <button
             onClick={() => setOpen(false)}
             aria-label="Close chat"
