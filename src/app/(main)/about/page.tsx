@@ -44,7 +44,6 @@ export default function About() {
         console.log('Form submitted successfully');
         setSubmitStatus('success');
         form.reset();
-        alert("Thank you! Your message has been sent successfully.");
       } else {
         const errorData = await response.json();
         console.log('Form submission failed:', errorData);
@@ -53,7 +52,6 @@ export default function About() {
     } catch (error) {
       console.error('Failed to submit form:', error);
       setSubmitStatus('error');
-      alert("Sorry, there was an error sending your message. Please try again.");
     } finally {
       setIsLoading(false);
     }
