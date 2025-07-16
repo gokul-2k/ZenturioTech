@@ -4,24 +4,24 @@ import React from "react";
 
 const cards = [
   {
-    title: "AI Chatbots & Virtual Assistants",
-    desc: "Automate customer service with human like, 24/7 support.",
-    img: "/images/ai.webp",
-  },
-  {
-    title: "LLM & Agentic AI Integration",
-    desc: "Build systems that can reason, adapt, and learn continuously",
-    img: "/images/robo.webp",
-  },
-  {
-    title: "Virtual Reality Training Simulations",
-    desc: "Safe, repeatable, and scalable training environments.",
+    title: "Virtual Reality Traing Simulations",
+    desc: "Safe,repeatable and scalable training environments.",
     img: "/images/vr_training.jpg",
   },
   {
     title: "AR for Marketing & Retail",
     desc: 'Let users "try before they buy" with AR product previews',
     img: "/images/ar_marketing.jpg",
+  },
+  {
+    title: "3D interactive Environments",
+    desc: "Gamified,explorable spaces for education and exhibitions",
+    img: "/images/hi.png",
+  },
+  {
+    title: "Mixed Reality Apps ",
+    desc: "Combine the best of both VR and AR for multi-dimensional user experiences",
+    img: "/images/mr.jpeg",
   },
 ];
 
