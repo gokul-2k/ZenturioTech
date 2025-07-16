@@ -551,7 +551,7 @@ export default function Trending() {
                         padding: '0.5rem 1.1rem',
                         boxShadow: '0 2px 8px 0 rgba(25,118,210,0.13)',
                         zIndex: 2,
-                      }} className="trending-badge">Trending #4</span>
+                      }} className="trending-badge">Blog #4</span>
                       {/* Text at left bottom */}
                       <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
                         <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Immersive Tech Solutions</div>
