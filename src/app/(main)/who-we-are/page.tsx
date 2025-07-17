@@ -230,7 +230,7 @@ export default function WhoWeAre() {
             {/* Team Member 3 */}
             <div className="team-member" style={{ ...teamMemberStyle, top: '120px', left: '360px' }}>
               <div className="team-img" style={{ ...teamImgBaseStyle, borderRadius: '90px 0 0 90px / 50% 0 0 50%' }}>
-                <Image src="/images/Ajisha5.jpeg" alt="Team Member 3" width={180} height={180} style={{
+                <Image src="/images/ajisha2.webp" alt="Team Member 3" width={180} height={180} style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
