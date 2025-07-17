@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
 
 // Initialize SendGrid with API key (REPLACE THIS WITH YOUR ACTUAL API KEY)
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+const apiKey = process.env.SENDGRID_API_KEY;
+if (!apiKey) {
+  throw new Error('Missing SENDGRID_API_KEY');
+}
+sgMail.setApiKey(apiKey);
 
 export async function POST(request: NextRequest) {
   try {
