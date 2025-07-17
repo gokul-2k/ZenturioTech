@@ -214,11 +214,11 @@ export default function AIPage() {
           flexWrap: 'wrap',
           padding: '0 20px'
         }}>
-          <IndustryCard icon="🎓" title="Education" />
-          <IndustryCard icon="🏥" title="Health Care" />
-          <IndustryCard icon="🏢" title="Real Estate" />
-          <IndustryCard icon="🏛" title="E-Commerce" />
-          <IndustryCard icon="🚚" title="Logistics" />
+          <IndustryCard icon="/images/ed.png" title="Education" />
+          <IndustryCard icon="/images/hea.png" title="Health Care" />
+          <IndustryCard icon="/images/rea.png" title="Real Estate" />
+          <IndustryCard icon="/images/com2.png" title="E-Commerce" />
+          <IndustryCard icon="/images/log5.png" title="Logistics" />
         </div>
       </div>
     </div>
@@ -226,6 +226,7 @@ export default function AIPage() {
 }
 
 function IndustryCard({ icon, title }: { icon: string, title: string }) {
+  const isImage = icon.endsWith('.png') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
   return (
     <div style={{
       background: 'linear-gradient(135deg, #0a2240 0%, #2ea6ff 100%)',
@@ -241,7 +242,11 @@ function IndustryCard({ icon, title }: { icon: string, title: string }) {
       gap: 12,
       boxShadow: '0 4px 24px 0 rgba(46,166,255,0.10)',
     }}>
-      <span style={{ fontSize: 36 }}>{icon}</span>
+      {isImage ? (
+        <Image src={icon} alt={title + ' icon'} width={64} height={64} style={{ objectFit: 'contain', marginBottom: 8 }} />
+      ) : (
+        <span style={{ fontSize: 36 }}>{icon}</span>
+      )}
       <h3 style={{ 
         color: '#fff', 
         margin: 0,
