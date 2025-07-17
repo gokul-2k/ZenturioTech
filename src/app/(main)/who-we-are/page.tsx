@@ -251,7 +251,7 @@ export default function WhoWeAre() {
             {/* Team Member 4 */}
             <div className="team-member" style={{ ...teamMemberStyle, top: '0px', left: '540px' }}>
               <div className="team-img" style={{ ...teamImgBaseStyle, borderRadius: '50%' }}>
-                <Image src="/images/divya1.jpeg" alt="Team Member 4" width={180} height={180} style={{
+                <Image src="/images/1.jpeg" alt="Team Member 4" width={180} height={180} style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
@@ -264,8 +264,8 @@ export default function WhoWeAre() {
                 }} />
               </div>
               <div className="team-info" style={teamInfoStyle}>
-                <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 4 }}>Divya</div>
-                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>HR & Operations Head</div>
+                <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 2 }}>Sreelekshmi</div>
+                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>AI/ML Engineer</div>
               </div>
             </div>
 
@@ -314,7 +314,7 @@ export default function WhoWeAre() {
             {/* Team Member 7 */}
             <div className="team-member" style={{ ...teamMemberStyle, top: '240px', left: '540px' }}>
               <div className="team-img" style={{ ...teamImgBaseStyle, borderRadius: '0 0 50% 50% / 0 0 90px 90px' }}>
-                <Image src="/images/1.jpeg" alt="Team Member 7" width={180} height={180} style={{
+                <Image src="/images/divya1.jpeg" alt="Team Member 7" width={180} height={180} style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
@@ -327,8 +327,8 @@ export default function WhoWeAre() {
                 }} />
               </div>
               <div className="team-info" style={teamInfoStyle}>
-                <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 4 }}>Sreelekshmi</div>
-                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>AI/ML Engineer</div>
+                <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 4 }}>Divya</div>
+                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>HR & Operations Head</div>
               </div>
             </div>
           </div>
@@ -363,14 +363,14 @@ export default function WhoWeAre() {
           width: min(900px, 100%);
           height: 420px;
           margin: 0 auto 2rem auto;
-          isolation: isolate;
+          isolation: isolate; 
           overflow: visible;
           padding: 0 90px;
         }
 
         .team-member {
           position: relative;
-          padding-bottom: 60px;
+          padding-bottom: 80px;
         }
 
         .team-info {
