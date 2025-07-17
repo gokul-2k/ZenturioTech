@@ -42,14 +42,11 @@ export default function WhoWeAre() {
   const teamInfoStyle = {
     textAlign: 'center' as const,
     color: '#fff',
-    opacity: 0,
-    transform: 'translateY(0px)',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'absolute' as const,
     width: '100%',
-    bottom: '0px',
     left: 0,
     zIndex: 3,
+    // No transform or opacity here; handled by CSS
   };
 
   return (
@@ -370,12 +367,13 @@ export default function WhoWeAre() {
 
         .team-member {
           position: relative;
-          padding-bottom: 80px;
+          padding-bottom: 60px;
         }
 
         .team-info {
+          top: 175px;
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(0px);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -472,7 +470,7 @@ export default function WhoWeAre() {
             position: static !important;
             opacity: 1 !important;
             transform: none !important;
-            margin-top: 0.8rem !important;
+            margin-top: 0.2rem !important;
           }
 
           .team-name, .team-role {
