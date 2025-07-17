@@ -265,7 +265,7 @@ export default function WhoWeAre() {
               </div>
               <div className="team-info" style={teamInfoStyle}>
                 <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 4 }}>Divya</div>
-                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>HR Executive</div>
+                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>HR & Operations Head</div>
               </div>
             </div>
 
