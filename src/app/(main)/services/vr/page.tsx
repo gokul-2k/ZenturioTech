@@ -4,7 +4,7 @@ import React from "react";
 
 const cards = [
   {
-    title: "Virtual Reality Traing Simulations",
+    title: "Virtual Reality Training Simulations",
     desc: "Safe,repeatable and scalable training environments.",
     img: "/images/vr_training.jpg",
   },
