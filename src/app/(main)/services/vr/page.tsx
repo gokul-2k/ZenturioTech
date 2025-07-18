@@ -216,7 +216,7 @@ export default function VRServicePage() {
         })}
       </div>
       {/* Applications Section */}
-      <div style={{ maxWidth: 1100, margin: '0 auto', marginTop: 64 }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', marginTop: -70 }}>
         {/* Applications Section h2 */}
         <h2 style={{
           color: '#3ba3ff',
