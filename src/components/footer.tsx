@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -16,8 +17,9 @@ export default function Footer() {
         fontSize: '1rem',
         boxShadow: '0 -2px 24px 0 rgba(103,232,249,0.08)',
         marginTop: '4rem',
-        paddingLeft: '10vw', // add left padding
-        paddingRight: '3vw', // add right padding for symmetry
+        paddingBottom: '100px',
+        paddingLeft: '10vw',
+        paddingRight: '3vw',
       }}
     >
       {/* Section 1: Logo & Address & Social */}
@@ -26,22 +28,32 @@ export default function Footer() {
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Address</div>
         <div style={{ color: '#222', fontWeight: 300, marginBottom: 8 }}>STPI Building,Technopark, Trivandrum</div>
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Follow us on</div>
-        <div style={{ display: 'flex', gap: 12 }}>
+        <div style={{ display: 'flex', gap: 16 }}>
           {/* Facebook */}
-          <a href="#" aria-label="Facebook" style={{ color: '#fff' }}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M17 2.1h-2.2c-2.2 0-3.7 1.3-3.7 3.5v1.4H8.1c-.2 0-.3.1-.3.3v2.2c0 .2.1.3.3.3h2.1v7.6c0 .2.1.3.3.3h2.3c.2 0 .3-.1.3-.3v-7.6h2.1c.2 0 .3-.1.3-.3l.1-2.2c0-.2-.1-.3-.3-.3h-2.2V6c0-.6.2-.9.9-.9h1.3c.2 0 .3-.1.3-.3V2.4c0-.2-.1-.3-.3-.3z" fill="#fff"/></svg>
+          <a href="https://www.facebook.com/profile.php?id=61563813914814#" 
+            aria-label="Facebook" 
+            className="social-icon-link">
+            <Image src="/images/f.png" alt="Facebook" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
           </a>
           {/* Instagram */}
-          <a href="https://www.instagram.com/zenturiotech/" aria-label="Instagram" style={{ color: '#fff' }} target="_blank" rel="noopener noreferrer">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="5" fill="#fff"/><circle cx="12" cy="12" r="4" fill="#1976d2"/><circle cx="17" cy="7" r="1.2" fill="#1976d2"/></svg>
+          <a href="https://www.instagram.com/zenturiotech/" 
+            aria-label="Instagram" 
+            className="social-icon-link"
+            target="_blank" 
+            rel="noopener noreferrer">
+            <Image src="/images/i.png" alt="Instagram" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
           </a>
           {/* LinkedIn */}
-          <a href="https://www.linkedin.com/company/zenturiotech" aria-label="LinkedIn" style={{ color: '#fff' }}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#fff"/><rect x="6" y="10" width="2" height="7" fill="#1976d2"/><rect x="11" y="10" width="2" height="7" fill="#1976d2"/><circle cx="7" cy="7" r="1" fill="#1976d2"/><rect x="13" y="13" width="2" height="4" fill="#1976d2"/><rect x="16" y="10" width="2" height="7" fill="#1976d2"/></svg>
+          <a href="https://www.linkedin.com/company/zenturiotech" 
+            aria-label="LinkedIn" 
+            className="social-icon-link">
+            <Image src="/images/l.png" alt="LinkedIn" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
           </a>
           {/* X (Twitter) */}
-          <a href="#" aria-label="X" style={{ color: '#fff' }}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#fff"/><path d="M7 7l10 10M17 7L7 17" stroke="#1976d2" strokeWidth="2"/></svg>
+          <a href="https://x.com/zenturiotech" 
+            aria-label="X" 
+            className="social-icon-link">
+            <Image src="/images/x.png" alt="X" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
           </a>
         </div>
       </div>
@@ -81,8 +93,18 @@ export default function Footer() {
           <a href="/trending" style={{ color: '#000' }}>Blog</a><br />
         </div>
       </div>
-      {/* Section 5: Services */}
-      
+
+      <style jsx global>{`
+        .social-icon-link {
+          opacity: 0.85;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          cursor: pointer;
+        }
+        .social-icon-link:hover {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      `}</style>
     </footer>
   );
 }

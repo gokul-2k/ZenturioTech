@@ -68,7 +68,7 @@ export default function Trending() {
               <div style={{ display: 'flex', gap: '2.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {/* Card 1 */}
                 {isDesktop ? (
-                  <Link href="/trending/ai-driven-innovations" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/smart-hospitals" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
                         flex: '1 1 360px',
@@ -121,8 +121,8 @@ export default function Trending() {
                         }} className="trending-badge">Blog #1</span>
                         {/* Text at left bottom */}
                         <div style={{ padding: '0 0 28px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI-Driven Innovations</div>
-                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Automate and optimize trades with advanced AI analytics.</div>
+                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Smart Hospitals</div>
+                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How AI Is Transforming Hospital Operations</div>
                         </div>
                         {/* Image at bottom right */}
                         <img src="/images/robo.webp" alt="AI-Driven Innovations" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -130,7 +130,7 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
                 ) : (
-                  <Link href="/trending/ai-driven-innovations" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/smart-hospitals" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div style={{
                       flex: '1 1 360px',
                       minWidth: 320,
@@ -182,17 +182,17 @@ export default function Trending() {
                       }} className="trending-badge">Blog #1</span>
                       {/* Text at left bottom */}
                       <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI-Driven Innovations</div>
-                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Automate and optimize trades with advanced AI analytics.</div>
+                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Smart Hospitals</div>
+                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How AI Is Transforming Hospital Operations</div>
                       </div>
                       {/* Image at bottom right */}
-                      <img src="/images/robo.webp" alt="AI-Driven Innovations" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                      <img src="/images/robo.webp" alt="Smart Hospitals" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                     </div>
                   </Link>
                 )}
                 {/* Card 2 */}
                 {isDesktop ? (
-                  <Link href="/trending/web-development-breakthroughs" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/mental-health" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
                         flex: '1 1 360px',
@@ -245,8 +245,8 @@ export default function Trending() {
                         }} className="trending-badge">Blog #2</span>
                         {/* Text at left bottom */}
                         <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Web Development Breakthroughs</div>
-                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The digital landscape is constantly evolving, with new web technologies.</div>
+                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Mental Health</div>
+                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>A Silent Revolution in Emotional Well-being</div>
                         </div>
                         {/* Image at bottom right */}
                         <img src="/images/web.webp" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -254,7 +254,7 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
                 ) : (
-                  <Link href="/trending/web-development-breakthroughs" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/mental-health" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div style={{
                       flex: '1 1 360px',
                       minWidth: 320,
@@ -306,8 +306,8 @@ export default function Trending() {
                       }} className="trending-badge">Blog #2</span>
                       {/* Text at left bottom */}
                       <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Web Development Breakthroughs</div>
-                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The digital landscape is constantly evolving, with new web technologies.</div>
+                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Mental Health</div>
+                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>A Silent Revolution in Emotional Well-being</div>
                       </div>
                       {/* Image at bottom right */}
                       <img src="/images/web.webp" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -316,7 +316,7 @@ export default function Trending() {
                 )}
                 {/* Card 3 */}
                 {isDesktop ? (
-                  <Link href="/trending/mobile-app-evolution" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/robotic-surgery" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
                         flex: '1 1 360px',
@@ -369,8 +369,8 @@ export default function Trending() {
                         }} className="trending-badge">Blog #3</span>
                         {/* Text at left bottom */}
                         <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Mobile App Evolution</div>
-                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The mobile app industry is witnessing an exciting evolution, with AI integration.</div>
+                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Robotic Surgery</div>
+                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How and Where Precision Meets Intelligence</div>
                         </div>
                         {/* Image at bottom right */}
                         <img src="/images/boy.webp" alt="Mobile App Evolution" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -378,7 +378,7 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
                 ) : (
-                  <Link href="/trending/mobile-app-evolution" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/robotic-surgery" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div style={{
                       flex: '1 1 360px',
                       minWidth: 320,
@@ -430,8 +430,8 @@ export default function Trending() {
                       }} className="trending-badge">Blog #3</span>
                       {/* Text at left bottom */}
                       <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Mobile App Evolution</div>
-                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The mobile app industry is witnessing an exciting evolution, with AI integration.</div>
+                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Robotic Surgery</div>
+                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How and Where Precision Meets Intelligence </div>
                       </div>
                       {/* Image at bottom right */}
                       <img src="/images/boy.webp" alt="Mobile App Evolution" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -440,7 +440,7 @@ export default function Trending() {
                 )}
                 {/* Card 4 */}
                 {isDesktop ? (
-                  <Link href="/trending/immersive-tech-solutions" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/medical-imaging" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
                         flex: '1 1 360px',
@@ -493,8 +493,8 @@ export default function Trending() {
                         }} className="trending-badge">Blog #4</span>
                         {/* Text at left bottom */}
                         <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Immersive Tech Solutions</div>
-                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The world of immersive technology, including AR, VR, and the metaverse.</div>
+                          <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Medical Imaging</div>
+                          <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Future of Faster,Quick,Smarter Diagnostics</div>
                         </div>
                         {/* Image at bottom right */}
                         <img src="/images/eva.webp" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -502,7 +502,7 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
                 ) : (
-                  <Link href="/trending/immersive-tech-solutions" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link href="/trending/medical-imaging" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div style={{
                       flex: '1 1 360px',
                       minWidth: 320,
@@ -554,8 +554,8 @@ export default function Trending() {
                       }} className="trending-badge">Blog #4</span>
                       {/* Text at left bottom */}
                       <div style={{ padding: '0 0 18px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }} className="trending-text">
-                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>Immersive Tech Solutions</div>
-                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>The world of immersive technology, including AR, VR, and the metaverse.</div>
+                        <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>AI in Medical Imaging</div>
+                        <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}> Future of Faster,Quick,Smarter Diagnostics</div>
                       </div>
                       {/* Image at bottom right */}
                       <img src="/images/eva.webp" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />

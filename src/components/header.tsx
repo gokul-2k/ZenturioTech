@@ -402,9 +402,12 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/trending" className={`nav-link nav-link-flex${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
+          <Link 
+            href="/trending" 
+            className={`nav-link nav-link-flex${pathname.startsWith('/trending') ? ' selected' : ''}`} 
+            data-path="/trending"
             onClick={e => {
-              if (pathname !== '/trending') {
+              if (!pathname.startsWith('/trending')) {
                 e.preventDefault();
                 if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
                 // Step 1: Set glider to current position
@@ -666,12 +669,36 @@ export default function Header() {
             </div>
           )}
         </div>
-        <Link href="/trending" aria-label="Blog" className={`nav-link-mobile${pathname === '/trending' ? ' selected' : ''}`} data-path="/trending"
+        <Link 
+          href="/trending" 
+          aria-label="Blog" 
+          className={`nav-link-mobile${pathname.startsWith('/trending') ? ' selected' : ''}`} 
+          data-path="/trending"
           onClick={e => {
-            if (pathname !== '/trending') {
+            if (!pathname.startsWith('/trending')) {
               e.preventDefault();
-              setIsAnimating(true);
-              router.push('/trending');
+              if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
+              // Step 1: Set glider to current position
+              const currentEl = document.querySelector(`.nav-link-mobile[data-path='${pathname}']`);
+              const dock = mobileDockRef.current;
+              if (currentEl && dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const selRect = currentEl.getBoundingClientRect();
+                setMobileGliderStyle({
+                  left: selRect.left - dockRect.left,
+                  width: selRect.width
+                });
+              }
+              // Step 2: Animate to new position
+              setTimeout(() => {
+                setPendingPath('/trending');
+                setIsAnimating(true);
+                mobileNavTimeoutRef.current = setTimeout(() => {
+                  setPendingPath(null);
+                  setIsAnimating(false);
+                  router.push('/trending');
+                }, 350);
+              }, 10);
             }
           }}
         ><HiOutlineFire style={{ fontSize: 28 }} /></Link>
