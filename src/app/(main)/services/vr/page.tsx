@@ -283,7 +283,7 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Healthcare Therapy & Simulation
+                  Healthcare Simulation
                 </div>
               </div>
               <div style={{ display: 'flex', gap: 32 }}>
@@ -298,7 +298,7 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Real Estate Virtual Tours
+                  Real Estate Interactive Walkthrough
                 </div>
                 <div style={{
                   background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
@@ -326,7 +326,8 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Education & Skill Development
+                  Tourism and Entertainment
+
                 </div>
               </div>
             </>
