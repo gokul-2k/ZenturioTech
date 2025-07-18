@@ -298,7 +298,8 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Real Estate Interactive Walkthrough
+                  Tourism and Entertainment
+
                 </div>
                 <div style={{
                   background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
@@ -326,7 +327,7 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Tourism and Entertainment
+                  Real Estate Interactive Walkthrough
 
                 </div>
               </div>
