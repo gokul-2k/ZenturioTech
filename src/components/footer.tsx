@@ -17,7 +17,7 @@ export default function Footer() {
         fontSize: '1rem',
         boxShadow: '0 -2px 24px 0 rgba(103,232,249,0.08)',
         marginTop: '4rem',
-        paddingBottom: '100px',
+        paddingBottom: '200px',
         paddingLeft: '10vw',
         paddingRight: '3vw',
       }}
@@ -94,6 +94,11 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* NVIDIA Logo at bottom center */}
+      <div className="nvidia-logo-footer">
+        <Image src="/images/nvidia-logo.png" alt="NVIDIA Logo" className="nvidia-logo-img" width={180} height={48} style={{ objectFit: 'contain' }} />
+      </div>
+
       <style jsx global>{`
         .social-icon-link {
           opacity: 0.85;
@@ -103,6 +108,34 @@ export default function Footer() {
         .social-icon-link:hover {
           opacity: 1;
           transform: scale(1.05);
+        }
+        .nvidia-logo-footer {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding-bottom: 16px;
+        }
+        .nvidia-logo-img {
+          width: 280px !important;
+          height: auto;
+          max-width: 90vw;
+        }
+        @media (max-width: 600px) {
+          .nvidia-logo-footer {
+            left: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 0;
+            padding-bottom: 8px;
+            margin-bottom: 90px;
+          }
+          .nvidia-logo-img {
+            width: 200px !important;
+            height: auto;
+          }
         }
       `}</style>
     </footer>
