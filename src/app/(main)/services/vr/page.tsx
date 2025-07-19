@@ -28,10 +28,10 @@ const cards = [
 
 const applications = [
   "Corporate & Industrial Training",
-  "Healthcare Therapy & Simulation",
+  "Healthcare Simulation",
   "Real Estate Virtual Tours",
   "Education & Skill Development",
-  "Education & Skill Development",
+  "Tourism and Entertainment ",
 ];
 
 // Responsive style helper
