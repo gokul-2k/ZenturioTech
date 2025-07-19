@@ -5,7 +5,7 @@ import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 const cards = [
   {
-    title: "Virtual Reality Traing Simulations",
+    title: "Virtual Reality Training Simulations",
     desc: "Safe,repeatable and scalable training environments.",
     img: "/images/vr_training.jpg",
   },
