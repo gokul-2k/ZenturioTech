@@ -1,0 +1,113 @@
+/* Custom midnight blue background override */
+:root[data-theme="dark"] {
+  /* Override the page background to navy blue */
+  --static-page: #072549; /* Your desired navy blue */
+  --static-surface: #0a2c52; /* Slightly lighter navy for surfaces */
+  --static-surface-strong: #0f3659; /* Even lighter for strong surfaces */
+  --static-page: var(--scheme-brand-200); /* Uses your custom navy */
+  /* Adjust neutral colors for navy blue */
+  --neutral-background-weak: rgba(255, 255, 255, 0.03);
+  --neutral-background-medium: rgba(255, 255, 255, 0.06);
+  --neutral-background-strong: rgba(255, 255, 255, 0.09);
+  
+  /* Enhance the brand colors for better contrast on navy */
+  --brand-background-weak: rgba(59, 130, 246, 0.12);
+  --brand-background-medium: rgba(59, 130, 246, 0.22);
+  --brand-background-strong: rgba(59, 130, 246, 0.32);
+  
+}
+
+
+:root {
+  /* Your custom navy blue brand colors */
+  --scheme-brand-200: #072549;   /* Your main navy */
+  --scheme-brand-600: #00d4ff;   /* Bright cyan for accents */
+  
+  /* Custom cursor color */
+  --scheme-brand-600-30: rgba(0, 212, 255, 0.3);
+  --scheme-brand-600-10: rgba(0, 212, 255, 0.1);
+}
+/* Apply midnight blue to body and html */
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  background-color: #072549 !important;
+}
+
+/* Ensure the main content area uses midnight blue */
+.once-ui-column[data-background="page"] {
+  background-color: #072549 !important;
+}
+
+html[data-theme="dark"] .once-ui-background[data-mask="true"],
+body[data-theme="dark"] .once-ui-background[data-mask="true"],
+.once-ui-background[data-mask="true"] {
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 0, 0, 0.15) 0%,       /* BRIGHT RED - you WILL see this */
+    rgba(255, 0, 0, 0.08) 40%,
+    transparent 70%
+  ) !important;
+}
+
+/* Optional: Add a subtle texture or pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fix the cursor effect - make it more subtle and use a contrasting color */
+.once-ui-background[data-mask="true"] {
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.08) 0%,    /* Light blue instead of navy */
+    rgba(59, 130, 246, 0.04) 40%,   /* Fade to lighter blue */
+    transparent 70%                  /* Complete transparency earlier */
+  ) !important;
+}
+
+/* Mobile cursor effect - even more subtle */
+@media (max-width: 600px) {
+  body::before {
+    background: none !important;
+  }
+  
+  .once-ui-background[data-mask="true"] {
+    background: radial-gradient(
+      150px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(59, 130, 246, 0.06) 0%,   /* Very subtle blue glow */
+      rgba(59, 130, 246, 0.02) 40%,
+      transparent 70%
+    ) !important;
+  }
+}
+
+/* Gradient text with better colors for navy background */
+.gradient-text {
+  background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: brightness(1.2);
+}
+
+/* Additional fix: Ensure no other elements override the background */
+main, 
+.once-ui-container,
+.once-ui-layout {
+  background: transparent !important;
+}
+
+/* Make sure the cursor effect doesn't completely fill the background */
+.once-ui-background {
+  background-color: transparent !important;
+}
