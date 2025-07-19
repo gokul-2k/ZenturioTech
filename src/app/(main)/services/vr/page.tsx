@@ -319,7 +319,7 @@ export default function VRServicePage() {
                   textAlign: 'center',
                   boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
                 }}>
-                  Tourism and Entertainment
+                  Tourism and Entertainment 
                 </div>
               </div>
             </>
