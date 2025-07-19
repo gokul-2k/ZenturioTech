@@ -625,7 +625,7 @@ export default function Trending() {
                       <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 0, color: '#fff' }}>The Future of Quantum Computing</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' ,marginBottom:-10 }}>How quantum tech will change the digital world.</div>
                     </div>
-                    <img src="/images/ai.webp" alt="Quantum Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                    <img src="/images/quantum-min.webp" alt="Quantum Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                   </div>
                   {/* Upcoming Blog Card 2 */}
                   <div style={{
@@ -667,7 +667,7 @@ export default function Trending() {
                       <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 9, color: '#fff' }}>Green Tech Innovations</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Sustainable solutions for a better planet.</div>
                     </div>
-                    <img src="/images/service.webp" alt="Green Tech" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                    <img src="/images/green-min.webp" alt="Green Tech" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                   </div>
                   {/* Upcoming Blog Card 3 */}
                   <div style={{
@@ -709,7 +709,7 @@ export default function Trending() {
                       <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 4, color: '#fff' }}>The Rise of Edge Computing</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Decentralizing data for speed and security.</div>
                     </div>
-                    <img src="/images/vr.webp" alt="Edge Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                    <img src="/images/edge-min.webp" alt="Edge Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                   </div>
                 </div>
               </div>

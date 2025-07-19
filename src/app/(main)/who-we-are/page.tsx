@@ -153,7 +153,7 @@ export default function WhoWeAre() {
           flexDirection: 'column',
           alignItems: 'center',
           padding: '0px 24px 0 24px',
-          marginTop: -60,
+          marginTop: -70,
           position: 'relative',
           maxWidth: 1400,
           margin: '0 auto',

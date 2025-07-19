@@ -508,7 +508,7 @@ export default function Home() {
               maxWidth: 1000,
             }}
           >
-            {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasin imapct\neverywhere we go.`}
+            {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasting imapct\neverywhere we go.`}
           </span>
         </div>
 
