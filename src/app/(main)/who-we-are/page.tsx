@@ -133,7 +133,6 @@ export default function WhoWeAre() {
             fontSize: '1.05rem',
             fontWeight: 300,
             lineHeight: 1.7,
-            marginBottom: '2rem',
             padding: '0 24px',
             boxSizing: 'border-box',
           }}>
@@ -153,7 +152,7 @@ export default function WhoWeAre() {
           flexDirection: 'column',
           alignItems: 'center',
           padding: '0px 24px 0 24px',
-          marginTop: -70,
+          marginTop: -50,
           position: 'relative',
           maxWidth: 1400,
           margin: '0 auto',
