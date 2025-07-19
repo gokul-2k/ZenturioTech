@@ -349,7 +349,7 @@ export default function WhoWeAre() {
               At ZenturioTech, we believe in the power of holistic leadership and growth. Our team is a collective of visionary individuals, each driven by a shared commitment to innovation and excellence. Together, we are more than just a team; we are a network connected by a common vision.
             </p>
             <p style={{ textAlign: 'justify', marginBottom: '1.2rem' }}>
-              Every member of our team acts with the autonomy and initiative of a leader, bringing unique perspectives and skills to the table. This delegated leadership ensures that our projects benefit from diverse insights and collaborative energy, allowing us to deliver groundbreaking solutions with passion and precision.
+              Every member of our team acts with the autonomy and initiative of a leader, bringing more unique perspectives and skills to the table. This delegated leadership ensures that our projects benefit from diverse insights and collaborative energy, allowing us to deliver groundbreaking solutions with passion and precision.
             </p>
           </div>
         </div>

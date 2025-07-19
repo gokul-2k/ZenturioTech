@@ -170,6 +170,13 @@ export default function Careers() {
               key={index}
               title={job.title}
               description={job.description}
+              link={
+                index === 0
+                  ? "https://technopark.in/job-details/21700?job=AI%20Research%20Engineer"
+                  : index === 1
+                  ? "https://technopark.in/job-details/21293?job=Junior%20AI%20Engineer"
+                  : undefined
+              }
             />
           ))}
         </div>

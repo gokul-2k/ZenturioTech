@@ -5,11 +5,13 @@ import { Button } from "@once-ui-system/core";
 interface JobCardProps {
   title: string;
   description: string;
+  link?: string; // Add optional link prop
 }
 
-export default function JobCard({ title, description }: JobCardProps) {
+export default function JobCard({ title, description, link }: JobCardProps) {
   const handleOpenJobSearch = () => {
-    window.open('https://technopark.in/job-search?search=zenturiotech&type=', '_blank');
+    const url = link || 'https://technopark.in/job-search?search=zenturiotech&type=';
+    window.open(url, '_blank');
   };
 
   return (
