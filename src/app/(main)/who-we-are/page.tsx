@@ -166,7 +166,7 @@ export default function WhoWeAre() {
             alignSelf: 'flex-start',
             textAlign: 'left',
             position: 'relative',
-            left: 48,
+            left: 10,
           }}>
             Our <span style={{ color: '#5B8DF6' }}>People</span>
           </h2>
@@ -177,7 +177,7 @@ export default function WhoWeAre() {
             fontSize: '1.5rem',
             alignSelf: 'flex-start',
             position: 'relative',
-            left: 48,
+            left: 10,
           }}>
             Core Team
           </div>
