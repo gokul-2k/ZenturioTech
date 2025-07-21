@@ -1,7 +1,8 @@
 "use client"
 import React from "react";
-
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 export default function WebDevelopmentBreakthroughsHero() {
+  const { isMobile, isTablet } = useDeviceDetect();
   return (
     <div>
       {/* Hero Section with background image and heading */}
@@ -165,7 +166,7 @@ export default function WebDevelopmentBreakthroughsHero() {
           <div style={{
             maxWidth: '1100px',
             margin: '0 auto',
-            padding: '0 clamp(24px, 8vw, 120px)'
+            padding: '0 clamp(24px, 8vw, 0px)'
           }}>
             <h2 style={{
               color: '#111',
@@ -225,7 +226,8 @@ export default function WebDevelopmentBreakthroughsHero() {
                     color: '#111',
                     margin: '0',
                     lineHeight: 1.6,
-                    textAlign: 'justify'
+                    textAlign: 'justify',
+                    paddingLeft: isMobile ? '0' : '100px'
                   }}>
                     {item.content}
                   </p>

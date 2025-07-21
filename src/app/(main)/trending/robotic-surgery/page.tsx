@@ -150,7 +150,7 @@ export default function MobileAppEvolutionHero() {
           <div style={{
             maxWidth: '1100px',
             margin: '0 auto',
-            padding: '0 clamp(24px, 8vw, 120px)'
+            padding: '0 clamp(24px, 8vw, 0px)'
           }}>
             <h2 style={{
               color: '#111',
