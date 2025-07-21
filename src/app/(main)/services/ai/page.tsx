@@ -6,27 +6,27 @@ import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 const services = [
   {
     title: "AI Chatbots & Virtual Assistants",
-    desc: "Automate customer service with human like, 24/7 support.",
+    desc: "24/7 support that listens, understands, and responds - just like a human, only faster.",
     img: "/images/robo.webp",
   },
   {
     title: "LLM & Agentic AI Integration",
-    desc: "Build systems that can reason, adapt, and learn continuously",
+    desc: "Create adaptive systems that reason, plan and self-improve- the next leap in automation.",
     img: "/images/llmog.png",
   },
   {
     title: "Computer Vision Applications",
-    desc: "Enable real-time image recognition, defect detection, and object tracking",
+    desc: "From real-time object detection to visual inspection -see what machines can truly do.",
     img: "/images/eva.webp",
   },
   {
     title: "Predictive Analytics & Machine Learning",
-    desc: "Make data-driven decisions using custom ML models.",
+    desc: "Turn your data into foresight. Build models that anticipate, personalize and optimize.",
     img: "/images/pred.webp",
   },
   {
-    title: "Custom AI Development",
-    desc: "End-to-end AI solutions designed for your business workflow.",
+    title: "ML Ops & AI Lifecycle Management",
+    desc: "Deploy, monitor, and scale AI effortlessly -from proof of concept to production.",
     img: "/images/custom.avif",
   }
 ];
