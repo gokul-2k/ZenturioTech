@@ -661,7 +661,7 @@ export default function Header() {
                 closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
               />
               <DropdownItem 
-                label="Web & App" 
+                label="Web/Mobile" 
                 path="/services/web" 
                 closeDesktopDropdown={() => setServicesDropdownOpen(false)}
                 closeMobileDropdown={() => setMobileServicesDropdownOpen(false)}
