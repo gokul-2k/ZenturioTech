@@ -141,7 +141,7 @@ export default function Careers() {
           marginLeft: "auto",
           marginRight: 40,
           width: 520,
-          height: 350,
+          height: isMobile ? 500 : 350,
           maxWidth: "90%",
           background: "rgba(255, 255, 255, 0.77)",
           borderRadius: "4rem",
