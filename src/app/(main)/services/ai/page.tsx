@@ -26,8 +26,8 @@ const services = [
   },
   {
     title: "ML Ops & AI Lifecycle Management",
-    desc: "Deploy, monitor, and scale AI effortlessly -from proof of concept to production.",
-    img: "/images/custom.avif",
+    desc: "Deploy, monitor and scale AI effortlessly -from proof of concept to production.",
+    img: "/images/mlops.jpeg",
   }
 ];
 
@@ -39,7 +39,7 @@ export default function AIPage() {
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
-        minHeight: 780,
+        minHeight: isMobile ? 600 : 700,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
@@ -73,25 +73,52 @@ export default function AIPage() {
           zIndex: 2,
           pointerEvents: 'none',
         }} />
-        <h1 style={{
+        <div style={{
           position: 'relative',
           zIndex: 3,
           color: '#fff',
-          fontSize: isMobile ? 32 : isTablet ? 48 : 68,
-          fontWeight: 600,
           textAlign: 'center',
-          letterSpacing: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 20px',
         }}>
-          Artificial Intelligence
-        </h1>
+          <h1 style={{
+            fontSize: isMobile ? 32 : isTablet ? 48 : 68,
+            fontWeight: 600,
+            letterSpacing: 1,
+            marginBottom: isMobile ? 16 : 24,
+          }}>
+            Artificial Intelligence
+          </h1>
+          <h2 style={{
+            fontSize: isMobile ? 18 : 24,
+            fontWeight: 700,
+            color: '#4bb6ff',
+            marginBottom: 16,
+            lineHeight: 1.3,
+            maxWidth: 900,
+          }}>
+            Unleashing Intelligence. Powering Possibilities.
+          </h2>
+          <p style={{
+            fontSize: isMobile ? 14 : 18,
+            color: '#e0e6ed',
+            lineHeight: 1.6,
+            maxWidth: 700,
+            margin: '0 auto',
+          }}>
+            At ZenturioTech, we build future-ready AI solutions that think, learn and evolve - transforming the way businesses operate, serve and scale.
+          </p>
+        </div>
       </div>
 
       {/* Services Section */}
       <div style={{ 
         maxWidth: isTablet ? 800 : 1200, 
         margin: "0 auto", 
-        padding: '60px 20px', 
-        marginTop: 110 
+        padding: isMobile ? '40px 20px' : '60px 20px', 
+        marginTop: isMobile ? 40 : 60,
       }}>
         {services.map((service, idx) => {
           const isLeft = idx % 2 === 0;
@@ -203,18 +230,18 @@ export default function AIPage() {
           flexWrap: 'wrap',
           padding: '0 20px'
         }}>
-          <IndustryCard icon="/images/ed.png" title="Education" />
-          <IndustryCard icon="/images/hea.png" title="Health Care" />
-          <IndustryCard icon="/images/rea.png" title="Real Estate" />
-          <IndustryCard icon="/images/com2.png" title="E-Commerce" />
-          <IndustryCard icon="/images/log5.png" title="Logistics" />
+          <IndustryCard icon="/images/ed.png" title="Education" isMobile={isMobile} />
+          <IndustryCard icon="/images/hea.png" title="Health Care" isMobile={isMobile} />
+          <IndustryCard icon="/images/rea.png" title="Real Estate" isMobile={isMobile} />
+          <IndustryCard icon="/images/com2.png" title="E-Commerce" isMobile={isMobile} />
+          <IndustryCard icon="/images/log5.png" title="Logistics" isMobile={isMobile} />
         </div>
       </div>
     </div>
   );
 }
 
-function IndustryCard({ icon, title }: { icon: string, title: string }) {
+function IndustryCard({ icon, title, isMobile }: { icon: string, title: string, isMobile: boolean }) {
   const isImage = icon.endsWith('.png') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
   return (
     <div style={{
@@ -222,7 +249,7 @@ function IndustryCard({ icon, title }: { icon: string, title: string }) {
       backdropFilter: 'blur(20px)',
       borderRadius: 16,
       padding: '24px',
-      width: 200,
+      width: isMobile ? 'calc(50% - 12px)' : 200,
       aspectRatio: '1',
       display: 'flex',
       flexDirection: 'column',
@@ -232,15 +259,16 @@ function IndustryCard({ icon, title }: { icon: string, title: string }) {
       boxShadow: '0 4px 24px 0 rgba(46,166,255,0.10)',
     }}>
       {isImage ? (
-        <Image src={icon} alt={title + ' icon'} width={64} height={64} style={{ objectFit: 'contain', marginBottom: 8 }} />
+        <Image src={icon} alt={title + ' icon'} width={isMobile ? 48 : 64} height={isMobile ? 48 : 64} style={{ objectFit: 'contain', marginBottom: 8 }} />
       ) : (
-        <span style={{ fontSize: 36 }}>{icon}</span>
+        <span style={{ fontSize: isMobile ? 28 : 36 }}>{icon}</span>
       )}
       <h3 style={{ 
         color: '#fff', 
         margin: 0,
-        fontSize: 18,
-        fontWeight: 500
+        fontSize: isMobile ? 16 : 18,
+        fontWeight: 500,
+        textAlign: 'center',
       }}>{title}</h3>
     </div>
   );

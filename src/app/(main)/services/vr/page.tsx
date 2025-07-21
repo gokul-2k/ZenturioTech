@@ -6,23 +6,28 @@ import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 const cards = [
   {
     title: "Virtual Reality Training Simulations",
-    desc: "Safe,repeatable and scalable training environments.",
+    desc: "Safe, repeatable and scalable environments for hands-on learning without real-world risks.",
     img: "/images/vr_training.jpg",
   },
   {
     title: "AR for Marketing & Retail",
-    desc: 'Let users "try before they buy" with AR product previews',
+    desc: 'Let customers "try before they buy" with interactive product previews in their own space.',
     img: "/images/ar_marketing.jpg",
   },
   {
     title: "3D interactive Environments",
-    desc: "Gamified,explorable spaces for education and exhibitions",
+    desc: "Gamified, explorable virtual worlds built for education, exhibitions, and storytelling.",
     img: "/images/hi.png",
   },
   {
     title: "Mixed Reality Apps ",
-    desc: "Combine the best of both VR and AR for multi-dimensional user experiences",
+    desc: "Seamlessly blend VR and AR for hybrid experiences that engage across dimensions.",
     img: "/images/mr.jpeg",
+  },
+  {
+    title: "Metaverse Experiences",
+    desc: "Design immersive metaverse spaces for events, collaboration, learning, or branded engagement - where communities can connect beyond screens.",
+    img: "/images/metaverse.jpeg",
   },
 ];
 
@@ -55,7 +60,7 @@ export default function VRServicePage() {
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
-        minHeight: 780,
+        minHeight: isMobile ? 600 : 700,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
@@ -89,18 +94,44 @@ export default function VRServicePage() {
           zIndex: 2,
           pointerEvents: 'none',
         }} />
-        {/* HERO SECTION h1 font size */}
-        <h1 style={{
+        <div style={{
           position: 'relative',
           zIndex: 3,
           color: '#fff',
-          fontSize: isMobile ? 32 : isTablet ? 48 : 68,
-          fontWeight: 600,
           textAlign: 'center',
-          letterSpacing: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 20px',
         }}>
-          Virtual Reality
-        </h1>
+          <h1 style={{
+            fontSize: isMobile ? 32 : isTablet ? 48 : 68,
+            fontWeight: 600,
+            letterSpacing: 1,
+            marginBottom: isMobile ? 16 : 24,
+          }}>
+            Virtual Reality & Augmented Reality
+          </h1>
+          <h2 style={{
+            fontSize: isMobile ? 18 : 24,
+            fontWeight: 700,
+            color: '#4bb6ff',
+            marginBottom: 16,
+            lineHeight: 1.3,
+            maxWidth: 900,
+          }}>
+            Immersive Tech. Real Impact.
+          </h2>
+          <p style={{
+            fontSize: isMobile ? 14 : 18,
+            color: '#e0e6ed',
+            lineHeight: 1.6,
+            maxWidth: 700,
+            margin: '0 auto',
+          }}>
+            ZenturioTech brings imagination to life through immersive Virtual and Augmented Reality solutions - transforming how people learn, explore and engage.
+          </p>
+        </div>
       </div>
 
       {/* Cards Section */}
@@ -108,7 +139,7 @@ export default function VRServicePage() {
         maxWidth: isTablet ? 800 : 1200, 
         margin: "0 auto", 
         padding: isMobile ? '32px 8px' : isTablet ? '48px 16px' : '60px 20px', 
-        marginTop: isMobile ? 40 : 110 
+        marginTop: isMobile ? 40 : 60, 
       }}>
         {cards.map((card, idx) => {
           const isLeft = idx % 2 === 0;
