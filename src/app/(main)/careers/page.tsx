@@ -113,7 +113,7 @@ export default function Careers() {
           overflow: "hidden",
         }}>
           <img
-            src="/images/2girls.jpg"
+            src="/images/updatedgirls.png"
             alt="Teamwork"
             style={{
               width: "100%",
