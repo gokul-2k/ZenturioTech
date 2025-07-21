@@ -74,10 +74,13 @@ export default function Careers() {
           {/* Text Content */}
           <div className="careers-hero-text" style={{ color: "#fff", maxWidth: 800, fontSize: 17, lineHeight: 1.7, wordBreak: "break-word", whiteSpace: "pre-line", marginLeft: 0 ,marginRight: 50}}>
             <div style={{ fontSize: 35, fontWeight: 500, marginBottom: 12, color: "#fff" }}>
-              Why work at <span style={{ color: "#60a5fa" }}>Zenturiotech</span>
+              Why work at <span style={{ color: "#60a5fa" }}>Zenturiotech?</span>
             </div>
             <div style={{ fontSize: 20, opacity: 0.97, lineHeight: 1.7, textAlign: "justify" }}>
-              With an outstanding team driving us forward, we're confident in our path and committed to offering the best opportunities for learning, growth, and innovation. Collaborating with some of the world's top service providers, we foster a culture that's diverse, dynamic, and driven by purpose. If you're looking for a workplace with energy, and big ambitions you're in the right place.
+            At ZenturioTech, we’re building more than products- we’re building a movement. A movement led by passion, powered by a go-getter attitude and sustained by a team that thrives on purpose, creativity and impact.
+            </div>
+            <div style={{ fontSize: 20, opacity: 0.97, lineHeight: 1.7, textAlign: "justify" }}>
+            Here, every challenge is an opportunity and every voice truly matters. We believe in problem-solvers over titles and in cultivating a growth mindset that fuels both personal and professional evolution.
             </div>
           </div>
         </div>
@@ -137,7 +140,7 @@ export default function Careers() {
           zIndex: 2,
           marginLeft: "auto",
           marginRight: 40,
-          width: 420,
+          width: 520,
           height: 350,
           maxWidth: "90%",
           background: "rgba(255, 255, 255, 0.77)",
@@ -146,14 +149,26 @@ export default function Careers() {
           padding: "2.2rem 2.2rem 2.2rem 2.2rem",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "left",
           justifyContent: "center",
         }}>
           <div style={{ fontSize: 26, fontWeight: 600, marginBottom: 10, color: "#222", textAlign: "center" }}>
-            What can you <span style={{ color: "#60a5fa" }}>Expect</span>
+            What makes us different? <span style={{ color: "#60a5fa" }}>Expect</span>
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "center" }}>
-            Environment of collaboration, inclusion and celebration. A chance to design a clear, growing career path. Learning with a team of go-getters. A variety of benefit programs and competitive compensation. Exposure to international work opportunities.
+          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          •Self-motivated individuals who take ownership
+          </div>
+          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          •Collaborative spirits who believe in the power of team
+          </div>
+          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          •Courageous thinkers who speak up and stand out
+          </div>
+          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          With global collaborations, cutting-edge projects and a culture that celebrates ideas, ZenturioTech is where your ambition meets its playground.
+          </div>
+          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          Bring your energy. Find your voice. Shape the future with us.
           </div>
         </div>
       </div>
