@@ -181,19 +181,8 @@ export default function WhoWeAre() {
             position: 'relative',
             left: 10,
           }}>
-            Our <span style={{ color: '#5B8DF6' }}>People</span>
+             Meet the Minds Behind the <span style={{ color: '#5B8DF6' }}>Magic</span>
           </h2>
-          <div style={{
-            color: '#fff',
-            fontWeight: 600,
-            marginBottom: '2rem',
-            fontSize: '1.5rem',
-            alignSelf: 'flex-start',
-            position: 'relative',
-            left: 10,
-          }}>
-            Core Team
-          </div>
 
           {/* Team Layout */}
           <div className="team-floating-layout">
