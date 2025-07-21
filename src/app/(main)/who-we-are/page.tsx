@@ -136,25 +136,10 @@ export default function WhoWeAre() {
             padding: '0 24px',
             boxSizing: 'border-box',
           }}>
-            <p style={{ marginBottom: '1.2rem' }}>
-              At ZenturioTech, we don’t just build software -we engineer digital revolutions.
+            <p style={{ marginBottom: '1.2rem', textAlign: 'justify' }}>
+              At ZenturioTech, we don’t just build software - we engineer digital revolutions. Fueled by curiosity and driven by innovation, we turn bold ideas into breakthrough solutions. From AI-powered platforms to immersive web and mobile applications, our work is where creativity meets cutting-edge technology. We believe great tech isn't just functional - it's intuitive, beautiful and unforgettable. That’s why we blend sleek design with smart engineering to craft experiences that captivate and convert. With a team that thrives on curiosity and collaboration, we stay ahead of the curve - so our clients do too. Whether you're a startup dreaming big or an enterprise ready to evolve, we’re here to power your vision with precision, passion and a touch of magic. ZenturioTech - where innovation comes alive. Let’s build the extraordinary, together.
             </p>
-            <p style={{ marginBottom: '0.3rem' }}>
-              Fueled by curiosity and driven by innovation, we turn bold ideas into breakthrough solutions. From AI-powered platforms to immersive web and mobile applications, our work is where creativity meets cutting-edge technology.
-            </p>
-            <p style={{ marginBottom: '0.3rem' }}>
-              We believe great tech isn't just functional - it's intuitive, beautiful and unforgettable. That’s why we blend sleek design with smart engineering to craft experiences that captivate and convert.
-            </p>
-            <p style={{ marginBottom: '0.3rem' }}>
-              With a team that thrives on curiosity and collaboration, we stay ahead of the curve - so our clients do too. Whether you're a startup dreaming big or an enterprise ready to evolve, we’re here to power your vision with precision, passion and a touch of magic.
-            </p>
-            <p style={{ marginBottom: '0.3rem' }}>
-              ZenturioTech-  where innovation comes alive.
-              Let’s build the extraordinary, together.
-            </p>
-            <p style={{ marginBottom: '0.3rem' }}>
-              Remove Our People & core team replace with Meet the Minds Behind the Magic
-            </p>
+         
           </div>
         </div>
 
@@ -348,23 +333,7 @@ export default function WhoWeAre() {
             marginTop: '5rem',
           }}>
             <p style={{ textAlign: 'justify', marginBottom: '1.2rem' }}>
-              At ZenturioTech, we’re not just a team - we’re a tribe of trailblazers.
-            </p>
-            <p style={{ textAlign: 'justify', marginBottom: '1.2rem' }}>
-              Driven by passion, powered by purpose and united by a shared vision, our people are the heart of everything we do. Every individual here leads with intention -not by title, but by mindset. We champion a culture where initiative is instinctive, voices are valued and collaboration sparks creation.
-            </p>
-            <p style={{ textAlign: 'justify', marginBottom: '1.2rem' }}>
-            We’re go-getters with grit, problem-solvers with purpose and dreamers who deliver. Whether it’s cracking code or breaking barriers, we bring energy, empathy  and excellence into every project we touch.
-            </p>
-            <p style={{ textAlign: 'justify', marginBottom: '0.2rem' }}>
-            What sets us apart?
-            </p>
-            <p style={{ textAlign: 'justify', marginBottom: '1.2rem' }}>
-            It’s our unshakable belief that leadership is not a position - it’s a practice. Everyone here is empowered to lead, create, question and grow.
-            </p>
-            <p style={{ textAlign: 'justify', marginBottom: '0.2rem' }}>
-            Together, we don’t just build software.
-            We build momentum. We build the future.
+              At ZenturioTech, we’re not just a team - we’re a tribe of trailblazers. Driven by passion, powered by purpose and united by a shared vision, our people are the heart of everything we do. Every individual here leads with intention - not by title, but by mindset. We champion a culture where initiative is instinctive, voices are valued and collaboration sparks creation. We’re go-getters with grit, problem-solvers with purpose and dreamers who deliver. Whether it’s cracking code or breaking barriers, we bring energy, empathy and excellence into every project we touch. What sets us apart? It’s our unshakable belief that leadership is not a position - it’s a practice. Everyone here is empowered to lead, create, question and grow. Together, we don’t just build software. We build momentum. We build the future.
             </p>
           </div>
         </div>
