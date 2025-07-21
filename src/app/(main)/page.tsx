@@ -101,6 +101,7 @@ export default function Home() {
             onBackground="neutral-weak"
             wrap="balance"
             marginBottom="16"
+            marginTop="24"
             style={{ 
               textAlign: 'center',
               transform: 'translateX(1vw)',
@@ -488,7 +489,7 @@ export default function Home() {
               padding: '0.5rem 0',
             }}
           >
-            Accelerating Growth Across Industries
+            Intelligence That Understands You
           </span>
         </div>
 
@@ -508,7 +509,7 @@ export default function Home() {
               maxWidth: 1000,
             }}
           >
-            {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasting imapct\neverywhere we go.`}
+            {`We begin with your vision  \n and shape it into reality with the power of AI.`}
           </span>
         </div>
 
@@ -553,7 +554,7 @@ export default function Home() {
               <img src="/images/ed.png" alt="Education" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming learning with smart, interactive, and engaging educational tools.`}
+              {`Smarter Learning Starts Here: AI-Powered Tools for a New Age of Education.`}
             </div>
           </div>
           {/* Card 2: Health Care */}
@@ -580,7 +581,7 @@ export default function Home() {
               <img src="/images/hea.png" alt="Health Care" style={{ height: 54, width: 54, marginBottom: -4 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Innovative healthcare solutions for better patient outcomes and streamlined operations.`}
+              {`Transforming Healthcare with Intelligence: Smarter Decisions, Better Outcomes.`}
             </div>
           </div>
           {/* Card 3: Real Estate */}
@@ -604,10 +605,10 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 10, textAlign: 'center' }}>Real Estate</div>
             <div style={{ margin: '0 0 12px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
               {/* Real Estate Icon */}
-              <img src="/images/rea.png" alt="Real Estate" style={{ height: 54, width: 54, marginBottom: 0 }} />
+              <img src="/images/rea.png" alt="Oil, Gas & Energy" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming property management and real estate experiences.`}
+              {`Revolutionizing Energy with AI: Predictive Maintenance. Real-Time Monitoring. Intelligent Automation.`}
             </div>
           </div>
           {/* Card 4: Government */}
@@ -634,7 +635,7 @@ export default function Home() {
               <img src="/images/gove.png" alt="Government" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Empowering public services with advanced technological solutions.`}
+              {`Empowering Governance with AI: Smarter Services, Stronger Societies.`}
             </div>
           </div>
           {/* Card 5: Corporate */}
@@ -661,7 +662,7 @@ export default function Home() {
               <img src="/images/corp.png" alt="Corporate" style={{ height: 54, width: 54, marginBottom: 0 }} />
             </div>
             <div style={{ fontSize: '1rem', textAlign: 'center', opacity: 0.93, whiteSpace: 'pre-line' }}>
-              {`Transforming business operations with intelligent solutions.`}
+              {`Smarter Workflows. Better Decisions. AI That Works for Business.`}
             </div>
           </div>
         </div>
