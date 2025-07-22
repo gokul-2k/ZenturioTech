@@ -7,7 +7,7 @@ const services = [
   {
     title: "AI Chatbots & Virtual Assistants",
     desc: "24/7 support that listens, understands, and responds - just like a human, only faster.",
-    img: "/images/robo.webp",
+    img: "/images/chatbot.jpeg",
   },
   {
     title: "LLM & Agentic AI Integration",
