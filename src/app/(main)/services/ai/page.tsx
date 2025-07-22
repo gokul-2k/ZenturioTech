@@ -17,7 +17,7 @@ const services = [
   {
     title: "Computer Vision Applications",
     desc: "From real-time object detection to visual inspection -see what machines can truly do.",
-    img: "/images/eva.webp",
+    img: "/images/cv.jpeg",
   },
   {
     title: "Predictive Analytics & Machine Learning",
