@@ -165,8 +165,9 @@ export default function WhoWeAre() {
             textAlign: 'left',
             position: 'relative',
             left: 10,
+            marginBottom: 30,
           }}>
-             Meet the Minds Behind the <span style={{ color: '#5B8DF6' }}>Magic</span>
+             Meet the Minds Behind the <span style={{ color: '#5B8DF6' }}> Magic</span>
           </h2>
 
           {/* Team Layout */}
@@ -272,7 +273,7 @@ export default function WhoWeAre() {
               </div>
               <div className="team-info" style={teamInfoStyle}>
                 <div className="team-name" style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: 4 }}>Mrudul</div>
-                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>Business Developer</div>
+                <div className="team-role" style={{ fontWeight: 'bold', fontSize: '1rem' }}>Global Business Development Lead</div>
               </div>
             </div>
 
