@@ -120,7 +120,7 @@ export default function Trending() {
                           <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How AI Is Transforming Hospital Operations</div>
                         </div>
                         {/* Image at bottom right */}
-                        <img src="/images/robo.webp" alt="AI-Driven Innovations" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                        <img src="/images/hosbot1.png" alt="AI-Driven Innovations" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                       </div>
                     </TiltFx>
                   </Link>
@@ -181,7 +181,7 @@ export default function Trending() {
                         <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How AI Is Transforming Hospital Operations</div>
                       </div>
                       {/* Image at bottom right */}
-                      <img src="/images/robo.webp" alt="Smart Hospitals" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                      <img src="/images/hosbot1.png" alt="Smart Hospitals" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                     </div>
                   </Link>
                 )}
@@ -244,7 +244,7 @@ export default function Trending() {
                           <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>A Silent Revolution in Emotional Well-being</div>
                         </div>
                         {/* Image at bottom right */}
-                        <img src="/images/web.webp" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                        <img src="/images/mental1.png" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                       </div>
                     </TiltFx>
                   </Link>
@@ -305,7 +305,7 @@ export default function Trending() {
                         <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>A Silent Revolution in Emotional Well-being</div>
                       </div>
                       {/* Image at bottom right */}
-                      <img src="/images/web.webp" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                      <img src="/images/mental1.png" alt="Web Development Breakthroughs" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                     </div>
                   </Link>
                 )}
@@ -429,7 +429,7 @@ export default function Trending() {
                         <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>How and Where Precision Meets Intelligence </div>
                       </div>
                       {/* Image at bottom right */}
-                      <img src="/images/boy.webp" alt="Mobile App Evolution" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                      <img src="/images/hospitalbg.png" alt="Mobile App Evolution" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                     </div>
                   </Link>
                 )}
@@ -492,7 +492,7 @@ export default function Trending() {
                           <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Future of Faster,Quick,Smarter Diagnostics</div>
                         </div>
                         {/* Image at bottom right */}
-                        <img src="/images/eva.webp" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                        <img src="/images/imaging.png" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                       </div>
                     </TiltFx>
                   </Link>
@@ -553,7 +553,7 @@ export default function Trending() {
                         <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}> Future of Faster,Quick,Smarter Diagnostics</div>
                       </div>
                       {/* Image at bottom right */}
-                      <img src="/images/eva.webp" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
+                      <img src="/images/imaging.png" alt="Immersive Tech Solutions" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
                     </div>
                   </Link>
                 )}
