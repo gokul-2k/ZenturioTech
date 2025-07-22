@@ -239,7 +239,7 @@ export default function VRServicePage() {
       <div style={{ 
         maxWidth: 1100, 
         margin: '0 auto', 
-        marginTop: isMobile ? -80 : 64 
+        marginTop: isMobile ? -80 : -60 
       }}>
         {/* Applications Section h2 */}
         <h2 style={{

@@ -6,6 +6,12 @@ import { createPortal } from "react-dom";
 type Message = { from: 'user' | 'bot'; text: string };
 
 export default function ChatbotButton() {
+  // Add an enabled flag - set to false to hide the button
+  const CHATBOT_ENABLED = false;
+
+  // If chatbot is disabled, return null to hide the component
+  if (!CHATBOT_ENABLED) return null;
+
   const [open, setOpen] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const [input, setInput] = useState("");
