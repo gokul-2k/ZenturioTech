@@ -233,7 +233,7 @@ export default function AIPage() {
           <IndustryCard icon="/images/ed.png" title="Education" isMobile={isMobile} />
           <IndustryCard icon="/images/hea.png" title="Health Care" isMobile={isMobile} />
           <IndustryCard icon="/images/rea.png" title="Real Estate" isMobile={isMobile} />
-          <IndustryCard icon="/images/com2.png" title="E-Commerce" isMobile={isMobile} />
+          <IndustryCard icon="/images/gencart1.png" title="E-Commerce" isMobile={isMobile} />
           <IndustryCard icon="/images/log5.png" title="Logistics" isMobile={isMobile} />
         </div>
       </div>
