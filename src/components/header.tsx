@@ -330,6 +330,7 @@ export default function Header() {
               onClick={(e) => {
                 setKeepDropdownOpen(true);
                 setServicesDropdownOpen(true);
+                /* Navigation code kept for future use
                 if (pathname !== '/services') {
                   if (navTimeoutRef.current) clearTimeout(navTimeoutRef.current);
                   // Step 1: Set glider to current position
@@ -354,6 +355,7 @@ export default function Header() {
                     }, 350);
                   }, 10);
                 }
+                */
               }}
               aria-haspopup="true"
               aria-expanded={servicesDropdownOpen}
@@ -594,8 +596,9 @@ export default function Header() {
               width: 'auto',
               height: 'auto'
             }}
-            onClick={(e) => {
+            onClick={() => {
               setMobileServicesDropdownOpen(v => !v);
+              /* Mobile navigation code kept for future use
               if (pathname !== '/services') {
                 if (mobileNavTimeoutRef.current) clearTimeout(mobileNavTimeoutRef.current);
                 // Step 1: Set glider to current position
@@ -620,6 +623,7 @@ export default function Header() {
                   }, 350);
                 }, 10);
               }
+              */
             }}
             aria-haspopup="true"
             aria-expanded={mobileServicesDropdownOpen}
