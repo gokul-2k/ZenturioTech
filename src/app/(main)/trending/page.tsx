@@ -634,8 +634,8 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
 
-                  {/* Blog Card 6 */}
-                  <Link href="/trending/ai-cybersecurity" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
+                  {/* Blog Card 6 - Updated from Cybersecurity to Education */}
+                  <Link href="/trending/ai-education" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
                     <TiltFx>
                       <div style={{
                         flex: '1 1 360px',
@@ -670,8 +670,8 @@ export default function Trending() {
                           mixBlendMode: 'lighten',
                         }} />
                         <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
-                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Cybersecurity</div>
-                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Protecting digital assets with intelligent threat detection and automated response systems</div>
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Education</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Transforming learning experiences with personalized AI-driven education solutions</div>
                         </div>
                       </div>
                     </TiltFx>
@@ -713,8 +713,8 @@ export default function Trending() {
                           mixBlendMode: 'lighten',
                         }} />
                         <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
-                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Personalized Medicine</div>
-                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Tailoring treatments to individual patients through genetic analysis and AI-driven insights</div>
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>Real-World Applications of Agentic AI</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Transforming Industries Beyond Automation</div>
                         </div>
                       </div>
                     </TiltFx>
@@ -756,8 +756,8 @@ export default function Trending() {
                           mixBlendMode: 'lighten',
                         }} />
                         <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
-                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Medical Diagnostics</div>
-                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Enhancing disease detection and diagnosis through advanced AI algorithms and pattern recognition</div>
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>NLP: The Future of Human-AI Interaction</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>It’s mastering the art of understanding emotions, intentions and context with remarkable precision.</div>
                         </div>
                       </div>
                     </TiltFx>

@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 
-export default function AiMedicalDiagnosticsPage() {
+export default function AiEducationPage() {
   return (
     <>
       {/* Hero Section */}
@@ -70,14 +70,14 @@ export default function AiMedicalDiagnosticsPage() {
                 letterSpacing: '0.5px',
                 paddingTop: '200px'
               }}>
-                <span>NLP: The Future of Human-AI Interaction</span><br />
+                <span>The Future of Learning</span><br />
                 <span style={{
                   color: '#fff',
                   fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
                   fontWeight: 400,
                   display: 'block',
                   marginTop: '10px'
-                }}>Understanding the Evolution of Natural Language Processing</span>
+                }}>How Artificial Intelligence is Transforming Education</span>
               </h1>
               <div style={{
                 color: '#bcd1f7',
@@ -90,7 +90,7 @@ export default function AiMedicalDiagnosticsPage() {
                   fontSize: 'clamp(0.8rem, 1.5vw, 0.98rem)',
                   color: '#bcd1f7',
                   marginTop: '5px'
-                }}>Content Writer & AI Technology Analyst</span>
+                }}>Content Writer & Education Technology Analyst</span>
               </div>
             </div>
           </div>
@@ -112,36 +112,15 @@ export default function AiMedicalDiagnosticsPage() {
         }}>
           {/* Introduction */}
           <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
-            Natural Language Processing (NLP) has become the backbone of human-AI communication, enabling machines to understand, interpret and respond to human language. As we step into the future AI world, NLP is evolving beyond simple comprehension. It's mastering the art of understanding emotions, intentions and context with remarkable precision.
+            Artificial Intelligence (AI) is no longer just a futuristic buzzword in education—it's actively reshaping how we teach, learn, and connect. From personalised learning experiences to streamlined administrative tasks, AI is making education more accessible, efficient and engaging for everyone involved.
           </p>
 
-          {/* From Syntax to Semantics */}
+          {/* Personalized Learning at Scale */}
           <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c', marginTop: '3rem' }}>
-            1. From Syntax to Semantics: Deeper Language Understanding
+            Personalised Learning at Scale
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-            Gone are the days when NLP was limited to analysing grammar and sentence structure. Today's models dive deeper into semantic meaning, tone, and even cultural nuances. This shift allows AI to grasp not just what is being said but why. For example:
-          </p>
-          <ul style={{ 
-            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
-            lineHeight: 1.8, 
-            marginBottom: '1.5rem', 
-            color: '#555',
-            paddingLeft: 'clamp(20px, 2vw, 24px)'
-          }}>
-            <li style={{ marginBottom: '1rem' }}>AI can now interpret sarcasm or humour in text.</li>
-            <li style={{ marginBottom: '1rem' }}>It can adapt responses based on cultural or regional contexts.</li>
-          </ul>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
-            Why does it Matter? This deeper understanding creates more human-like interactions, making AI assistants feel intuitive and empathetic.
-          </p>
-
-          {/* Conversational AI */}
-          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
-            2. Conversational AI Becomes Truly Intelligent
-          </h2>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-            Conversational AI is no longer just about answering questions; it's about engaging in meaningful conversations. With advancements in dialogue management and intent recognition, AI can:
+            Every learner is unique, and traditional education often struggles to meet individual needs. AI bridges this gap by delivering tailored content and real-time recommendations based on each student's progress and preferences:
           </p>
           <ul style={{ 
             fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
@@ -150,62 +129,20 @@ export default function AiMedicalDiagnosticsPage() {
             color: '#555',
             paddingLeft: 'clamp(20px, 2vw, 24px)'
           }}>
-            <li style={{ marginBottom: '1rem' }}>Maintain context across multi-turn conversations</li>
-            <li style={{ marginBottom: '1rem' }}>Remember user preferences and adapt responses dynamically</li>
-            <li style={{ marginBottom: '1rem' }}>Reduce repetitive prompts, creating smoother interactions</li>
+            <li style={{ marginBottom: '1rem' }}>Adaptive learning platforms dynamically adjust question difficulty and content based on student responses.</li>
+            <li style={{ marginBottom: '1rem' }}>AI-powered tutors provide targeted support, simulating a 1-on-1 learning experience.</li>
+            <li style={{ marginBottom: '1rem' }}>Learning analytics empower educators to quickly identify gaps and intervene early.</li>
           </ul>
-
-          {/* Breaking Barriers */}
-          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
-            3. Breaking Barriers with Low-Resource Language Support
-          </h2>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-            Inclusivity is at the forefront of NLP innovation. Thanks to advancements in multilingual NLP and fine-tuning on diverse datasets, AI now supports a broader range of languages and dialects, including those previously underrepresented.
-          </p>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1rem', color: '#555' }}>
-            Impact:
-          </p>
-          <ul style={{ 
-            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
-            lineHeight: 1.8, 
-            marginBottom: '1.5rem', 
-            color: '#555',
-            paddingLeft: 'clamp(20px, 2vw, 24px)'
-          }}>
-            <li style={{ marginBottom: '1rem' }}>Businesses can engage with global audiences in their native languages</li>
-            <li style={{ marginBottom: '1rem' }}>Technology becomes accessible to billions of people worldwide</li>
-          </ul>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
-            Real-World Example: A healthcare chatbot that provides critical information in indigenous languages or rare dialects ensuring no one is left behind.
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            This level of hyper-personalisation increases engagement, boosts retention, and fosters a more inclusive environment where every student can thrive.
           </p>
 
-          {/* Real-Time Relevance */}
+          {/* Natural Language Processing */}
           <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
-            4. Real-Time Relevance with NLP + RAG
+            Natural Language Processing (NLP) for Smarter Communication
           </h2>
           <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-            The integration of NLP with Retrieval-Augmented Generation (RAG) is a game-changer. By combining natural language understanding with real-time data retrieval, AI can:
-          </p>
-          <ul style={{ 
-            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
-            lineHeight: 1.8, 
-            marginBottom: '1.5rem', 
-            color: '#555',
-            paddingLeft: 'clamp(20px, 2vw, 24px)'
-          }}>
-            <li style={{ marginBottom: '1rem' }}>Fetch relevant information dynamically from external databases or APIs</li>
-            <li style={{ marginBottom: '1rem' }}>Generate responses that are accurate, contextual, and grounded in facts</li>
-          </ul>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
-            Why It's Revolutionary: Whether it's customer support or business intelligence, RAG-powered NLP ensures responses are always up-to-date and reliable.
-          </p>
-
-          {/* Sentiment Analysis */}
-          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
-            5. Sentiment, Emotion & Intent Detection
-          </h2>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-            NLP is no longer just about understanding what users say. It's about sensing how they feel. Advanced sentiment analysis now detects emotional tones like frustration, excitement or sadness. This capability is driving innovation across industries:
+            Natural Language Processing (NLP) is revolutionising how students and educators interact:
           </p>
           <ul style={{ 
             fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
@@ -214,12 +151,100 @@ export default function AiMedicalDiagnosticsPage() {
             color: '#555',
             paddingLeft: 'clamp(20px, 2vw, 24px)'
           }}>
-            <li style={{ marginBottom: '1rem' }}><strong>Customer Service:</strong> AI can de-escalate frustrated customers by responding empathetically</li>
-            <li style={{ marginBottom: '1rem' }}><strong>Mental Health Support:</strong> Virtual assistants can identify signs of emotional distress and provide timely interventions</li>
-            <li style={{ marginBottom: '1rem' }}><strong>Content Moderation:</strong> Platforms can flag harmful or toxic content more effectively</li>
+            <li style={{ marginBottom: '1rem' }}>AI chatbots deliver instant answers to questions about assignments, schedules and more.</li>
+            <li style={{ marginBottom: '1rem' }}>Automated grading tools accelerate feedback for objective and even short-answer questions.</li>
+            <li style={{ marginBottom: '1rem' }}>NLP-driven writing assistants help students improve grammar, clarity and tone in real time.</li>
           </ul>
-          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
-            The Result: Interactions that feel personal, supportive and human-centric.
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            NLP is especially transformative for language learning, offering real-time translations, pronunciation feedback, and culturally relevant guidance.
+          </p>
+
+          {/* Enhancing Accessibility */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            Enhancing Accessibility and Inclusivity
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            AI is breaking down barriers for learners with disabilities or language challenges:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}>Speech-to-text tools support students with hearing impairments.</li>
+            <li style={{ marginBottom: '1rem' }}>Text-to-speech applications assist visually impaired learners.</li>
+            <li style={{ marginBottom: '1rem' }}>Real-time translation and multilingual support make content accessible to non-native speakers.</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            These innovations ensure that education is equitable and accessible, regardless of physical or linguistic limitations.
+          </p>
+
+          {/* Administrative Work */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            Streamlining Administrative Work for Educators
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            AI is freeing educators from repetitive administrative tasks, allowing them to focus on what matters most—teaching and mentorship:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}>Automation of attendance, exam scheduling, and grading.</li>
+            <li style={{ marginBottom: '1rem' }}>Organization of student records and generation of performance analytics.</li>
+            <li style={{ marginBottom: '1rem' }}>Data-driven insights to refine curricula and improve student outcomes.</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            This shift enhances the overall quality of education by giving teachers more time for meaningful engagement with students.
+          </p>
+
+          {/* Data-Driven Decision Making */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            Data-Driven Decision Making
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            AI-powered analytics are driving smarter decisions at every level:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}>Identifying courses with high dropout rates and understanding the causes.</li>
+            <li style={{ marginBottom: '1rem' }}>Tracking long-term student outcomes to continually refine academic programs.</li>
+            <li style={{ marginBottom: '1rem' }}>Forecasting resource needs for staffing, classroom management and student services.</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            Data is now the backbone of strategic planning in modern education.
+          </p>
+
+          {/* What Lies Ahead */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            What Lies Ahead?
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            The future of AI in education is filled with promise:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}>Immersive learning through AI-powered Virtual and Augmented Reality.</li>
+            <li style={{ marginBottom: '1rem' }}>AI teaching assistants facilitating group discussions and peer learning.</li>
+            <li style={{ marginBottom: '1rem' }}>Predictive models to identify at-risk students and provide proactive support.</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            As AI continues to evolve, ethical use, data privacy and human oversight will be critical to ensuring positive outcomes.
           </p>
 
           {/* Conclusion */}
@@ -231,22 +256,11 @@ export default function AiMedicalDiagnosticsPage() {
             border: '1px solid #e1e8ff'
           }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1rem', color: '#1e3a5c' }}>
-              Why This Evolution Matters
+              Final Thought
             </h2>
-            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
-              NLP has moved from being a backend tool to becoming a strategic enabler for businesses. It powers:
+            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, color: '#555' }}>
+              AI in education isn't about replacing teachers—it's about empowering them with better tools and deeper insights. The goal is a learner-centric ecosystem where every student has the opportunity to succeed.
             </p>
-            <ul style={{ 
-              fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
-              lineHeight: 1.8, 
-              marginBottom: '0', 
-              color: '#555',
-              paddingLeft: 'clamp(20px, 2vw, 24px)'
-            }}>
-              <li style={{ marginBottom: '1rem' }}><strong>Hyper-Personalized Experiences:</strong> Tailored responses that resonate with individual users</li>
-              <li style={{ marginBottom: '1rem' }}><strong>Smarter Automation:</strong> Streamlined workflows with minimal human intervention</li>
-              <li style={{ marginBottom: '0' }}><strong>Actionable Insights:</strong> Real-time analysis of customer feedback or market trends</li>
-            </ul>
           </div>
         </div>
       </div>

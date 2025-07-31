@@ -70,14 +70,14 @@ export default function AiPersonalizedMedicinePage() {
                 letterSpacing: '0.5px',
                 paddingTop: '200px'
               }}>
-                <span>AI in Personalized Medicine</span><br />
+                <span>Real-World Applications of Agentic AI</span><br />
                 <span style={{
                   color: '#fff',
                   fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
                   fontWeight: 400,
                   display: 'block',
                   marginTop: '10px'
-                }}>Tailoring treatments to individual genetic profiles</span>
+                }}>Transforming Industries Beyond Automation</span>
               </h1>
               <div style={{
                 color: '#bcd1f7',
@@ -90,7 +90,7 @@ export default function AiPersonalizedMedicinePage() {
                   fontSize: 'clamp(0.8rem, 1.5vw, 0.98rem)',
                   color: '#bcd1f7',
                   marginTop: '5px'
-                }}>Content Writer & Healthcare Technology Analyst</span>
+                }}>Content Writer & AI Technology Analyst</span>
               </div>
             </div>
           </div>
@@ -103,63 +103,159 @@ export default function AiPersonalizedMedicinePage() {
         zIndex: 1,
         width: '100%',
         background: '#fff',
-        padding: '64px 24px'
+        padding: 'clamp(32px, 5vw, 64px) clamp(16px, 3vw, 24px)'
       }}>
         <div style={{
           maxWidth: '800px',
           margin: '0 auto',
           color: '#333'
         }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '24px', color: '#1e3a5c' }}>
-            The Future of Personalized Healthcare
+          {/* Introduction */}
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555' }}>
+            Agentic AI is no longer a futuristic concept—it's actively reshaping how businesses operate, innovate and compete. These self-directed systems don't just follow commands; they think, act and adapt autonomously. Let's explore how they're driving tangible impact across sectors.
+          </p>
+
+          {/* Healthcare Section */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c', marginTop: '3rem' }}>
+            The Proactive Medical Partner in Healthcare
           </h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '24px' }}>
-            Artificial Intelligence is revolutionizing healthcare by enabling truly personalized medicine. By analyzing vast amounts of patient data, including genetic information, medical history, and lifestyle factors, AI helps healthcare providers deliver more effective, individualized treatments.
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            Agentic AI is revolutionising healthcare by acting as a 24/7 medical assistant that:
+          </p>
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', marginBottom: '1rem', color: '#2a4a7f' }}>
+              Predicts Health Risks
+            </h3>
+            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+              Analyses patient vitals and historical data to identify anomalies (e.g., irregular heart rhythms) before they occur.
+            </p>
+          </div>
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', marginBottom: '1rem', color: '#2a4a7f' }}>
+              Coordinates Care
+            </h3>
+            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+              Automates workflows between labs, pharmacies and specialists, reducing delays in treatment.
+            </p>
+          </div>
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', marginBottom: '1rem', color: '#2a4a7f' }}>
+              Assists with Surgeries
+            </h3>
+            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+              Guides robotic systems during procedures, improving precision in complex operations.
+            </p>
+          </div>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
+            Real-World Impact: Tempus Labs uses Agentic AI to personalise cancer treatments, while Philips' IntelliVue Guardian System monitors ICU patients in real time.
           </p>
 
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', marginTop: '40px', color: '#1e3a5c' }}>
-            Key Applications in Personalized Medicine
-          </h3>
-          <ul style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '32px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '16px' }}>Genetic profile analysis</li>
-            <li style={{ marginBottom: '16px' }}>Treatment response prediction</li>
-            <li style={{ marginBottom: '16px' }}>Drug interaction assessment</li>
-            <li style={{ marginBottom: '16px' }}>Lifestyle and environmental factor analysis</li>
+          {/* Business Operations Section */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            Business Operations: The Autonomous Executive
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            Forget manual task management. Agentic AI streamlines operations by:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}><strong>Prioritising Emails:</strong> Using sentiment analysis to highlight urgent messages</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Automating Reporting:</strong> Generating financial summaries or project updates without human input</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Dynamic Scheduling:</strong> Rescheduling meetings based on real-time conflicts</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
+            Outcome: Teams save ~10 hours/week on administrative tasks, focusing on strategic work.
+          </p>
+
+          {/* R&D Section */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            R&D: The AI-Powered Innovator
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            Agentic AI accelerates discovery in research-heavy fields:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}><strong>Hypothesis Generation:</strong> Proposes new research angles by analysing millions of papers</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Parallel Experimentation:</strong> Runs 100+ simulated trials simultaneously</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Regulatory Compliance:</strong> Automatically updates protocols to align with changing standards</li>
+          </ul>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '2rem', color: '#555', fontStyle: 'italic' }}>
+            Case Study: Siemens uses Agentic AI to optimize manufacturing processes, reducing prototyping costs by 40%.
+          </p>
+
+          {/* E-Commerce Section */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            The Dynamic Sales Engine in E-Commerce
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            Agentic AI drives revenue by bridging insight and action:
+          </p>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}><strong>Personalized Campaigns:</strong> Crafts hyper-targeted ads using real-time browsing data</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Dynamic Pricing:</strong> Adjusts product prices based on demand spikes or competitor moves</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Inventory Optimisation:</strong> Predicts stock needs using weather, trends, and social signals</li>
           </ul>
 
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', marginTop: '40px', color: '#1e3a5c' }}>
-            Benefits of AI-Driven Personalized Medicine
-          </h3>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '24px' }}>
-            The integration of AI in personalized medicine offers numerous advantages:
+          {/* Sustainability Section */}
+          <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1.5rem', color: '#1e3a5c' }}>
+            Sustainability: The Smart City Architect
+          </h2>
+          <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+            Agentic AI is building greener, smarter urban ecosystems:
           </p>
-          <ul style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '32px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '16px' }}>More effective treatments</li>
-            <li style={{ marginBottom: '16px' }}>Reduced adverse reactions</li>
-            <li style={{ marginBottom: '16px' }}>Better patient outcomes</li>
-            <li style={{ marginBottom: '16px' }}>Cost-effective healthcare delivery</li>
+          <ul style={{ 
+            fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+            lineHeight: 1.8, 
+            marginBottom: '2rem', 
+            color: '#555',
+            paddingLeft: 'clamp(20px, 2vw, 24px)'
+          }}>
+            <li style={{ marginBottom: '1rem' }}><strong>Energy Optimisation:</strong> Balances grid loads using renewable sources and redirects excess power</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Traffic Management:</strong> Reroutes vehicles in real time to reduce congestion and emissions</li>
+            <li style={{ marginBottom: '1rem' }}><strong>Fault Detection:</strong> Identifies leaks in water systems or power outages before they escalate</li>
           </ul>
 
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', marginTop: '40px', color: '#1e3a5c' }}>
-            Future Implications
-          </h3>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '24px' }}>
-            As AI technology continues to advance, we can expect even more precise and effective personalized medicine solutions. The combination of genetic analysis, machine learning, and real-time health monitoring will revolutionize how we approach individual patient care.
-          </p>
-
+          {/* Business Impact Section */}
           <div style={{
-            marginTop: '48px',
-            padding: '24px',
+            marginTop: '3rem',
+            padding: 'clamp(20px, 3vw, 32px)',
             background: '#f5f8ff',
             borderRadius: '12px',
             border: '1px solid #e1e8ff'
           }}>
-            <h4 style={{ fontSize: '1.2rem', marginBottom: '16px', color: '#1e3a5c' }}>Key Takeaways</h4>
-            <ul style={{ fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '0', paddingLeft: '20px' }}>
-              <li style={{ marginBottom: '12px' }}>AI enables truly personalized treatment approaches</li>
-              <li style={{ marginBottom: '12px' }}>Improved treatment outcomes through data analysis</li>
-              <li style={{ marginBottom: '12px' }}>Better prediction of treatment responses</li>
-              <li style={{ marginBottom: '0' }}>More efficient healthcare delivery</li>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)', marginBottom: '1rem', color: '#1e3a5c' }}>
+              What This Means for Your Business
+            </h2>
+            <p style={{ fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', lineHeight: 1.8, marginBottom: '1.5rem', color: '#555' }}>
+              Agentic AI isn't replacing humans—it's augmenting capabilities by handling repetitive tasks and enabling data-driven decisions.
+            </p>
+            <ul style={{ 
+              fontSize: 'clamp(1rem, 1.1vw, 1.2rem)', 
+              lineHeight: 1.8, 
+              marginBottom: '0', 
+              color: '#555',
+              paddingLeft: 'clamp(20px, 2vw, 24px)'
+            }}>
+              <li style={{ marginBottom: '1rem' }}><strong>Autonomous Supply Chains:</strong> Self-optimizing logistics for manufacturers</li>
+              <li style={{ marginBottom: '1rem' }}><strong>AI-Driven Compliance:</strong> Real-time regulatory updates for financial firms</li>
+              <li style={{ marginBottom: '0' }}><strong>Smart Customer Engagements:</strong> Context-aware chatbots that resolve 80% of queries without escalation</li>
             </ul>
           </div>
         </div>
@@ -170,6 +266,27 @@ export default function AiPersonalizedMedicinePage() {
           0% { opacity: 0.5; }
           50% { opacity: 0.8; }
           100% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+          ul {
+            padding-left: 16px;
+          }
+          
+          li {
+            margin-bottom: 0.8rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+          }
+          
+          p {
+            margin-bottom: 1.5rem;
+          }
         }
       `}</style>
     </>
