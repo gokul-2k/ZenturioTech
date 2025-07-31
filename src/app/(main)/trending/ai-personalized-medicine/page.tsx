@@ -5,15 +5,21 @@ export default function AiPersonalizedMedicinePage() {
   return (
     <>
       {/* Hero Section */}
-      <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden' }}>
-        {/* Background Gradient */}
+      <div style={{ 
+        position: 'relative', 
+        width: '100%', 
+        minHeight: '100vh', 
+        overflow: 'hidden',
+        background: 'url(\'/images/blogbg.jpeg\') center/cover no-repeat, #0a1a2f',
+      }}>
+        {/* Dark overlay for better text readability */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, #0a1a2f 0%, #1e3a5c 60%, #3a5fa8 100%)',
+          background: 'linear-gradient(135deg, rgba(10,26,47,0.95) 0%, rgba(30,58,92,0.85) 60%, rgba(58,95,168,0.8) 100%)',
           zIndex: 0
         }}>
           {/* Animated gradient overlay */}
