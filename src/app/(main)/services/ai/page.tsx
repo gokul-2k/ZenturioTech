@@ -232,9 +232,9 @@ export default function AIPage() {
         }}>
           <IndustryCard icon="/images/ed.png" title="Education" isMobile={isMobile} />
           <IndustryCard icon="/images/hea.png" title="Health Care" isMobile={isMobile} />
-          <IndustryCard icon="/images/rea.png" title="Real Estate" isMobile={isMobile} />
-          <IndustryCard icon="/images/gencart1.png" title="E-Commerce" isMobile={isMobile} />
-          <IndustryCard icon="/images/log5.png" title="Logistics" isMobile={isMobile} />
+          <IndustryCard icon="/images/oilgasenergy2.png" title="Oil, Gas & Energy" isMobile={isMobile} />
+          <IndustryCard icon="/images/defense.png" title="Defence" isMobile={isMobile} />
+          <IndustryCard icon="/images/aerospace.png" title="Aerospace" isMobile={isMobile} />
         </div>
       </div>
     </div>
@@ -243,6 +243,7 @@ export default function AIPage() {
 
 function IndustryCard({ icon, title, isMobile }: { icon: string, title: string, isMobile: boolean }) {
   const isImage = icon.endsWith('.png') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.webp');
+  
   return (
     <div style={{
       background: 'linear-gradient(135deg, #0a2240 0%, #2ea6ff 100%)',
@@ -258,17 +259,39 @@ function IndustryCard({ icon, title, isMobile }: { icon: string, title: string, 
       gap: 12,
       boxShadow: '0 4px 24px 0 rgba(46,166,255,0.10)',
     }}>
-      {isImage ? (
-        <Image src={icon} alt={title + ' icon'} width={isMobile ? 48 : 64} height={isMobile ? 48 : 64} style={{ objectFit: 'contain', marginBottom: 8 }} />
-      ) : (
-        <span style={{ fontSize: isMobile ? 28 : 36 }}>{icon}</span>
-      )}
+      <div style={{
+        height: isMobile ? 48 : 64,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        {isImage ? (
+          <Image 
+            src={icon} 
+            alt={title + ' icon'} 
+            width={isMobile ? 48 : 64} 
+            height={isMobile ? 48 : 64} 
+            style={{ 
+              objectFit: 'contain',
+              maxWidth: '100%',
+              maxHeight: '100%',
+            }} 
+          />
+        ) : (
+          <span style={{ fontSize: isMobile ? 28 : 36 }}>{icon}</span>
+        )}
+      </div>
       <h3 style={{ 
         color: '#fff', 
         margin: 0,
-        fontSize: isMobile ? 16 : 18,
+        fontSize: isMobile ? 15 : 17,
         fontWeight: 500,
         textAlign: 'center',
+        lineHeight: 1.2,
+        height: isMobile ? 36 : 44,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>{title}</h3>
     </div>
   );
