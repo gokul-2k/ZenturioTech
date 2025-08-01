@@ -113,12 +113,13 @@ export default function Careers() {
           overflow: "hidden",
         }}>
           <img
-            src="/images/updatedgirls.png"
+            src="/images/car.jpeg"
             alt="Teamwork"
             style={{
               width: "100%",
-              height: "100%",
+              height: "170%",
               objectFit: "cover",
+              objectPosition: "center 30%",
               borderRadius: "2.2rem",
               display: "block",
             }}
@@ -152,22 +153,22 @@ export default function Careers() {
           alignItems: "left",
           justifyContent: "center",
         }}>
-          <div style={{ fontSize: 26, fontWeight: 600, marginBottom: 10, color: "#222", textAlign: "center" }}>
-            What makes us different? <span style={{ color: "#60a5fa" }}>Expect</span>
+         <div style={{ fontSize: 'clamp(22px, 4vw, 26px)', fontWeight: 600, marginBottom: 24, color: "#222", textAlign: "center" }}>
+            What makes us different?
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          <div style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: "#222", textAlign: "left" }}>
           •Self-motivated individuals who take ownership
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          <div style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: "#222", textAlign: "left" }}>
           •Collaborative spirits who believe in the power of team
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          <div style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: "#222", textAlign: "left" }}>
           •Courageous thinkers who speak up and stand out
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          <div style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: "#222", textAlign: "left", marginTop: 'clamp(16px, 4vw, 20px)' }}>
           With global collaborations, cutting-edge projects and a culture that celebrates ideas, ZenturioTech is where your ambition meets its playground.
           </div>
-          <div style={{ fontSize: 17, color: "#222", textAlign: "left" }}>
+          <div style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: "#222", textAlign: "left", marginTop: 'clamp(8px, 2vw, 10px)' }}>
           Bring your energy. Find your voice. Shape the future with us.
           </div>
         </div>
@@ -233,7 +234,7 @@ export default function Careers() {
           margin: 0 !important;
           height: auto !important;
           border-radius: 2rem !important;
-          padding: 1.2rem !important;
+          padding: 1.5rem !important;
         }
         .careers-openings {
           padding: 0 1vw !important;
@@ -241,6 +242,12 @@ export default function Careers() {
         .careers-job-card {
           font-size: 15px !important;
           padding: 1rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .careers-glass-card {
+          padding: 1.2rem !important;
         }
       }
     `}</style>
