@@ -187,9 +187,9 @@ export default function AIPage() {
               >
                 <div
                   style={{
-                    fontSize: isMobile ? 24 : 36,
+                    fontSize: isMobile ? 18 : isTablet ? 28 : 36,
                     fontWeight: 500,
-                    marginBottom: 16,
+                    marginBottom: 12,
                     color: '#8ecaff',
                     lineHeight: 1.2,
                   }}
@@ -198,7 +198,7 @@ export default function AIPage() {
                 </div>
                 <div
                   style={{
-                    fontSize: isMobile ? 17 : 30,
+                    fontSize: isMobile ? 14 : isTablet ? 20 : 30,
                     color: '#e0e6ed',
                     fontWeight: 400,
                     lineHeight: 1.5,
@@ -233,7 +233,7 @@ export default function AIPage() {
           <IndustryCard icon="/images/ed.png" title="Education" isMobile={isMobile} />
           <IndustryCard icon="/images/hea.png" title="Health Care" isMobile={isMobile} />
           <IndustryCard icon="/images/oilgasenergy2.png" title="Oil, Gas & Energy" isMobile={isMobile} />
-          <IndustryCard icon="/images/defense.png" title="Defence" isMobile={isMobile} />
+          <IndustryCard icon="/images/defence1.png" title="Defence" isMobile={isMobile} />
           <IndustryCard icon="/images/aerospace.png" title="Aerospace" isMobile={isMobile} />
         </div>
       </div>
