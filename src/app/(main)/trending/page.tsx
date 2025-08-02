@@ -10,10 +10,35 @@ import {
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
+import { strapiApi } from "@/lib/strapi";
 
 export default function Trending() {
   const { isMobile } = useDeviceDetect();
   const [showUpcoming, setShowUpcoming] = useState(false);
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        console.log('Fetching blogs from Strapi...');
+        const response = await strapiApi.getAllBlogs();
+        console.log('Strapi response:', response);
+        console.log('Response data:', response.data);
+        console.log('First blog if exists:', response.data?.[0]);
+        if (response.data) {
+          setBlogs(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Fetch blogs when component mounts
+    fetchBlogs();
+  }, []);
 
   return (
     <>
@@ -584,6 +609,16 @@ export default function Trending() {
                 borderRadius: 24,
                 overflowX: 'auto'
               }}>
+                {loading && (
+                  <div style={{ 
+                    color: '#fff', 
+                    textAlign: 'center', 
+                    padding: '20px',
+                    fontSize: '16px'
+                  }}>
+                    Loading blogs from Strapi...
+                  </div>
+                )}
                 <div style={{ 
                   display: 'flex', 
                   gap: '2.2rem', 
@@ -591,6 +626,7 @@ export default function Trending() {
                   minWidth: 'max-content',
                   paddingBottom: '1rem'
                 }}>
+                  {/* Static Blog Cards - Keep these unchanged */}
                   {/* Blog Card 5 */}
                   <Link href="/trending/ai-drug-discovery" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
                     <TiltFx>
@@ -634,7 +670,7 @@ export default function Trending() {
                     </TiltFx>
                   </Link>
 
-                  {/* Blog Card 6 - Updated from Cybersecurity to Education */}
+                  {/* Blog Card 6 */}
                   <Link href="/trending/ai-education" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
                     <TiltFx>
                       <div style={{
@@ -676,6 +712,248 @@ export default function Trending() {
                       </div>
                     </TiltFx>
                   </Link>
+
+                  {/* Blog Card 7 */}
+                  <Link href="/trending/ai-personalized-medicine" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
+                    <TiltFx>
+                      <div style={{
+                        flex: '1 1 360px',
+                        minWidth: 320,
+                        maxWidth: 380,
+                        height: 240,
+                        background: 'rgba(255,255,255,0.13)',
+                        borderRadius: '2rem',
+                        boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)',
+                        border: '1.5px solid rgba(255,255,255,0.22)',
+                        color: '#fff',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        justifyContent: 'flex-start',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }} className="trending-card">
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          pointerEvents: 'none',
+                          zIndex: 1,
+                          background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                          mixBlendMode: 'lighten',
+                        }} />
+                        <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>Real-World Applications of Agentic AI</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Transforming Industries Beyond Automation</div>
+                        </div>
+                      </div>
+                    </TiltFx>
+                  </Link>
+
+                  {/* Blog Card 8 */}
+                  <Link href="/trending/ai-medical-diagnostics" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
+                    <TiltFx>
+                      <div style={{
+                        flex: '1 1 360px',
+                        minWidth: 320,
+                        maxWidth: 380,
+                        height: 240,
+                        background: 'rgba(255,255,255,0.13)',
+                        borderRadius: '2rem',
+                        boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)',
+                        border: '1.5px solid rgba(255,255,255,0.22)',
+                        color: '#fff',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        justifyContent: 'flex-start',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }} className="trending-card">
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          pointerEvents: 'none',
+                          zIndex: 1,
+                          background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                          mixBlendMode: 'lighten',
+                        }} />
+                        <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>NLP: The Future of Human-AI Interaction</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>It's mastering the art of understanding emotions, intentions and context with remarkable precision.</div>
+                        </div>
+                      </div>
+                    </TiltFx>
+                  </Link>
+
+                  {/* Blog Card 9 */}
+                  <Link href="/trending/ai-healthcare-automation" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
+                    <TiltFx>
+                      <div style={{
+                        flex: '1 1 360px',
+                        minWidth: 320,
+                        maxWidth: 380,
+                        height: 240,
+                        background: 'rgba(255,255,255,0.13)',
+                        borderRadius: '2rem',
+                        boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)',
+                        border: '1.5px solid rgba(255,255,255,0.22)',
+                        color: '#fff',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        justifyContent: 'flex-start',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }} className="trending-card">
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          pointerEvents: 'none',
+                          zIndex: 1,
+                          background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                          mixBlendMode: 'lighten',
+                        }} />
+                        <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Healthcare Automation</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Streamlining clinical workflows and administrative tasks with intelligent automation solutions</div>
+                        </div>
+                      </div>
+                    </TiltFx>
+                  </Link>
+
+                  {/* Blog Card 10 */}
+                  <Link href="/trending/ai-patient-care" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
+                    <TiltFx>
+                      <div style={{
+                        flex: '1 1 360px',
+                        minWidth: 320,
+                        maxWidth: 380,
+                        height: 240,
+                        background: 'rgba(255,255,255,0.13)',
+                        borderRadius: '2rem',
+                        boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                        backdropFilter: 'blur(16px)',
+                        WebkitBackdropFilter: 'blur(16px)',
+                        border: '1.5px solid rgba(255,255,255,0.22)',
+                        color: '#fff',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        justifyContent: 'flex-start',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }} className="trending-card">
+                        <div style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          pointerEvents: 'none',
+                          zIndex: 1,
+                          background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                          mixBlendMode: 'lighten',
+                        }} />
+                        <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
+                          <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>AI in Patient Care</div>
+                          <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>Revolutionizing patient monitoring and care delivery with AI-powered solutions</div>
+                        </div>
+                      </div>
+                    </TiltFx>
+                  </Link>
+
+                  {/* Dynamic Strapi Blogs */}
+                  {blogs && blogs.length > 0 && (
+                    <div style={{ 
+                      color: '#fff', 
+                      textAlign: 'center', 
+                      padding: '10px',
+                      fontSize: '14px',
+                      opacity: 0.8
+                    }}>
+                      Found {blogs.length} blogs from Strapi
+                    </div>
+                  )}
+                  {blogs && blogs.length > 0 && blogs.map((blog, index) => {
+                    console.log('Processing blog:', blog);
+                    console.log('Blog attributes:', blog.attributes);
+                    return (
+                      <Link 
+                        key={blog.id} 
+                        href={`/trending/${blog.attributes?.slug || blog.attributes?.Slug || 'blog'}`} 
+                        style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}
+                      >
+                        <TiltFx>
+                          <div style={{
+                            flex: '1 1 360px',
+                            minWidth: 320,
+                            maxWidth: 380,
+                            height: 240,
+                            background: 'rgba(255,255,255,0.13)',
+                            borderRadius: '2rem',
+                            boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                            backdropFilter: 'blur(16px)',
+                            WebkitBackdropFilter: 'blur(16px)',
+                            border: '1.5px solid rgba(255,255,255,0.22)',
+                            color: '#fff',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'flex-end',
+                            justifyContent: 'flex-start',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            padding: 0,
+                            cursor: 'pointer',
+                          }} className="trending-card">
+                            <div style={{
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%',
+                              height: '100%',
+                              pointerEvents: 'none',
+                              zIndex: 1,
+                              background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                              mixBlendMode: 'lighten',
+                            }} />
+                            <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
+                              <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>
+                                {blog.attributes?.title || blog.attributes?.Title || 'Blog Title'}
+                              </div>
+                              <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>
+                                {blog.attributes?.excerpt || blog.attributes?.Excerpt || blog.attributes?.description || blog.attributes?.Description || 'Blog description'}
+                              </div>
+                            </div>
+                          </div>
+                        </TiltFx>
+                      </Link>
+                    );
+                  })}
+
+
 
                   {/* Blog Card 7 */}
                   <Link href="/trending/ai-personalized-medicine" style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}>
