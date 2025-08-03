@@ -14,10 +14,37 @@ const axiosInstance = axios.create({
 export const strapiApi = {
   async getAllBlogs() {
     try {
-      const response = await axiosInstance.get('/api/blogs?populate=*&sort=publishedAt:desc');
+      console.log('🔍 Strapi Config:', {
+        STRAPI_URL,
+        hasToken: !!STRAPI_TOKEN,
+        tokenLength: STRAPI_TOKEN?.length || 0
+      });
+      
+      const url = '/api/blogs?populate=*&sort=publishedAt:desc';
+      console.log('📡 Making request to:', `${STRAPI_URL}${url}`);
+      
+      const response = await axiosInstance.get(url);
+      console.log('✅ Strapi Response Status:', response.status);
+      console.log('📊 Response Data Structure:', {
+        hasData: !!response.data,
+        dataType: typeof response.data,
+        dataKeys: response.data ? Object.keys(response.data) : 'No data',
+        blogsCount: response.data?.data?.length || 0
+      });
+      
       return response.data;
     } catch (error) {
-      console.error('Error fetching blogs:', error);
+      console.error('❌ Error fetching blogs:', {
+        message: error.message,
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+          headers: error.config?.headers
+        }
+      });
       throw error;
     }
   },
