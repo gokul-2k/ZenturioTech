@@ -37,6 +37,7 @@ const applications = [
   "Real Estate Virtual Tours",
   "Education & Skill Development",
   "Tourism and Entertainment ",
+  "Defence",
 ];
 
 // Responsive style helper
@@ -255,106 +256,44 @@ export default function VRServicePage() {
         {/* Applications Section container */}
         <div style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          flexWrap: isMobile ? 'nowrap' : 'wrap',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
           justifyContent: 'center',
-          alignItems: isMobile ? 'center' : 'stretch',
-          gap: isMobile ? 12 : 24,
-          marginBottom: isMobile ? 40 : 100,
+          alignItems: 'stretch',
+          gap: isMobile ? 16 : isTablet ? 20 : 24,
+          padding: isMobile ? '0 16px' : isTablet ? '0 24px' : '0',
+          marginBottom: isMobile ? 40 : isTablet ? 60 : 100,
         }}>
-          {/* Desktop layout: 2x2 + 1 center, Mobile: stacked */}
-          {isMobile ? (
-            applications.map((app, i) => (
-              <div key={i} style={{
-                background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
-                borderRadius: 24,
-                padding: isMobile ? '12px 8px' : '18px 12px',
+          {applications.map((app, i) => (
+            <div
+              key={i}
+              style={{
+                flex: isMobile ? '1 1 100%' : isTablet ? '1 1 calc(50% - 10px)' : '1 1 calc(33.333% - 16px)',
+                minWidth: isMobile ? 'auto' : isTablet ? '300px' : '340px',
+                maxWidth: isMobile ? '100%' : isTablet ? 'calc(50% - 10px)' : '400px',
+                background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                borderRadius: isMobile ? 24 : 32,
+                padding: isMobile ? '16px 12px' : isTablet ? '24px 32px' : '28px 48px',
                 color: '#fff',
                 fontWeight: 600,
-                fontSize: isMobile ? 13 : 16,
-                minWidth: 0,
-                width: isMobile ? '92vw' : '90vw',
-                maxWidth: isMobile ? 320 : 400,
+                fontSize: isMobile ? 16 : isTablet ? 20 : 24,
                 textAlign: 'center',
                 boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                margin: '0 auto',
-              }}>{app}</div>
-            ))
-          ) : (
-            <>
-              <div style={{ display: 'flex', gap: 32 }}>
-                <div style={{
-                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                  borderRadius: 32,
-                  padding: '28px 48px',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 24,
-                  minWidth: 340,
-                  textAlign: 'center',
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                }}>
-                  Corporate & Industrial Training
-                </div>
-                <div style={{
-                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                  borderRadius: 32,
-                  padding: '28px 48px',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 24,
-                  minWidth: 340,
-                  textAlign: 'center',
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                }}>
-                  Healthcare Simulation
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: 32 }}>
-                <div style={{
-                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                  borderRadius: 32,
-                  padding: '28px 48px',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 24,
-                  minWidth: 340,
-                  textAlign: 'center',
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                }}>
-                  Real Estate Virtual Tours
-                </div>
-                <div style={{
-                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                  borderRadius: 32,
-                  padding: '28px 48px',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 24,
-                  minWidth: 340,
-                  textAlign: 'center',
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                }}>
-                  Education & Skill Development
-                </div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 16 }}>
-                <div style={{
-                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                  borderRadius: 32,
-                  padding: '28px 48px',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 24,
-                  minWidth: 340,
-                  textAlign: 'center',
-                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
-                }}>
-                  Tourism and Entertainment 
-                </div>
-              </div>
-            </>
-          )}
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                cursor: 'pointer',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 4px 20px 0 rgba(0,0,0,0.15)',
+                }
+              }}
+            >
+              {app}
+            </div>
+          ))}
+          
         </div>
       </div>
     </div>
