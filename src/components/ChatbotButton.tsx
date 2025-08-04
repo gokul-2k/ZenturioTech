@@ -17,8 +17,16 @@ export default function ChatbotButton() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const chatBodyRef = useRef<HTMLDivElement>(null);
 
+  // Check if component is mounted to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Check mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -322,7 +330,7 @@ export default function ChatbotButton() {
   return (
     <>
       {/* Chat Window rendered in portal */}
-      {open && typeof window !== 'undefined' && createPortal(chatWindow, document.body)}
+      {open && isMounted && createPortal(chatWindow, document.body)}
       {/* Floating Chat Button with click animation */}
       {!open && (
         <Button

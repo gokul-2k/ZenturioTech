@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import {
   Heading,
   Text,
@@ -14,6 +15,18 @@ import {
 import Link from "next/link";
 
 export default function Home() {
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    const checkMobileWidth = () => {
+      setIsMobileWidth(window.innerWidth <= 900);
+    };
+    
+    checkMobileWidth();
+    window.addEventListener('resize', checkMobileWidth);
+    return () => window.removeEventListener('resize', checkMobileWidth);
+  }, []);
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
       {/* Video Background - positioned absolutely behind content, starts under header */}
@@ -154,7 +167,7 @@ export default function Home() {
               minWidth: '320px',
               minHeight: '60px',
               // Move arch further down and shrink on mobile/tablet
-              ...(typeof window !== 'undefined' && window.innerWidth <= 900 ? {
+              ...(isMobileWidth ? {
                 top: '15vw',
                 width: 'min(600px, 98vw)',
                 height: 'min(110px, 16vw)',
@@ -179,7 +192,7 @@ export default function Home() {
               zIndex: 2,
               marginTop: 0,
               /* Responsive margin for tablet/mobile */
-              ...(typeof window !== 'undefined' && window.innerWidth <= 900 ? { marginTop: 32 } : {}),
+              ...(isMobileWidth ? { marginTop: 32 } : {}),
             }}
           >
             {`We specalised in AI driven web and\nmobile solutions, mastering every step\nfrom concept to market`}
@@ -456,7 +469,7 @@ export default function Home() {
               minWidth: '320px',
               minHeight: '60px',
               // Responsive for mobile/tablet
-              ...(typeof window !== 'undefined' && window.innerWidth <= 900 ? {
+              ...(isMobileWidth ? {
                 bottom: '-10vw',
                 width: 'min(600px, 98vw)',
                 height: 'min(110px, 16vw)',

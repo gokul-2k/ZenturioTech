@@ -34,9 +34,17 @@ export default function Trending() {
       
       console.log('Fetching blogs from Strapi...');
       const response = await strapiApi.getAllBlogs();
-      console.log('Strapi response:', response);
-      console.log('Response data:', response.data);
-      console.log('First blog if exists:', response.data?.[0]);
+      console.log('Strapi response:', JSON.stringify(response, null, 2));
+      console.log('Response data structure:', response.data ? {
+        length: response.data.length,
+        firstBlog: response.data[0] ? {
+          id: response.data[0].id,
+          attributes: response.data[0].attributes,
+        } : null,
+      } : 'No data');
+      if (response.data?.[0]) {
+        console.log('First blog attributes:', response.data[0].attributes);
+      }
       if (response.data) {
         setBlogs(response.data);
         setLastUpdated(new Date());
@@ -680,57 +688,142 @@ export default function Trending() {
                   paddingBottom: '1rem'
                 }}>
                   {/* Only show Strapi blogs as cards */}
-                  {blogs && blogs.length > 0 && blogs.map((blog, index) => (
-                    <div
-                      key={blog.id}
-                      style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px', cursor: 'pointer' }}
-                      onClick={() => setSelectedBlog(blog)}
-                    >
-                      <TiltFx>
-                        <div style={{
-                          flex: '1 1 360px',
-                          minWidth: 320,
-                          maxWidth: 380,
-                          height: 240,
-                          background: 'rgba(255,255,255,0.13)',
-                          borderRadius: '2rem',
-                          boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
-                          backdropFilter: 'blur(16px)',
-                          WebkitBackdropFilter: 'blur(16px)',
-                          border: '1.5px solid rgba(255,255,255,0.22)',
-                          color: '#fff',
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'flex-end',
-                          justifyContent: 'flex-start',
-                          position: 'relative',
-                          overflow: 'hidden',
-                          padding: 0,
-                          cursor: 'pointer',
-                        }} className="trending-card">
+                  {blogs && blogs.length > 0 && blogs.map((blog, index) => {
+                    // Debug log for each blog
+                    // Debug the entire blog object structure
+                    console.log('Complete blog object:', JSON.stringify(blog, null, 2));
+                    // Debug the data we're trying to access
+                    console.log('Blog details:', {
+                      id: blog.id,
+                      rawAttributes: blog.attributes,
+                      textcontent: blog.attributes?.Textcontent,
+                      slug: blog.attributes?.slug,
+                      author: blog.attributes?.author,
+                      desig: blog.attributes?.desig,
+                      image: blog.attributes?.image?.data?.url
+                    });
+
+                    return (
+                      <Link
+                        href={`/blog/${blog.slug}`}
+                        key={blog.slug || index}
+                        style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: '360px' }}
+                      >
+                        <TiltFx>
                           <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            pointerEvents: 'none',
-                            zIndex: 1,
-                            background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
-                            mixBlendMode: 'lighten',
-                          }} />
-                          <div style={{ padding: '28px', flex: 1, position: 'relative', zIndex: 2 }} className="trending-text">
-                            <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 12, lineHeight: 1.3 }}>
-                              {blog.attributes?.title || blog.attributes?.Title || 'Blog Title'}
+                            flex: '1 1 360px',
+                            minWidth: 320,
+                            maxWidth: 380,
+                            height: 240,
+                            background: 'rgba(255,255,255,0.13)',
+                            borderRadius: '2rem',
+                            boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
+                            backdropFilter: 'blur(16px)',
+                            WebkitBackdropFilter: 'blur(16px)',
+                            border: '1.5px solid rgba(255,255,255,0.22)',
+                            color: '#fff',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'flex-end',
+                            justifyContent: 'flex-start',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            padding: 0,
+                            cursor: 'pointer',
+                          }} className="trending-card">
+                            {/* Reflective glass effect */}
+                            <div style={{
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              width: '100%',
+                              height: '100%',
+                              pointerEvents: 'none',
+                              zIndex: 1,
+                              background: 'linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.01) 100%)',
+                              mixBlendMode: 'lighten',
+                            }} />
+                            {/* Blog number badge */}
+                            <span style={{
+                              position: 'absolute',
+                              top: 18,
+                              left: 18,
+                              display: 'inline-block',
+                              background: 'rgba(255,255,255,0.13)',
+                              border: '1px solid rgba(255,255,255,0.22)',
+                              color: '#fff',
+                              borderRadius: '1.2rem',
+                              fontWeight: 600,
+                              fontSize: 13,
+                              padding: '0.5rem 1.1rem',
+                              boxShadow: '0 2px 8px 0 rgba(25,118,210,0.13)',
+                              zIndex: 2,
+                            }}>Blog #{index + 5}</span>
+                            {/* Text at left bottom */}
+                            <div style={{ 
+                              padding: '0 0 18px 28px', 
+                              flex: 1, 
+                              display: 'flex', 
+                              flexDirection: 'column', 
+                              justifyContent: 'flex-end', 
+                              alignItems: 'flex-start', 
+                              zIndex: 2, 
+                              textAlign: 'left', 
+                              paddingRight: 170 
+                            }}>
+                              <div style={{ 
+                                fontWeight: 700, 
+                                fontSize: 15, 
+                                marginBottom: 4, 
+                                color: '#fff' 
+                              }}>
+                                {blog.Title || 'Untitled Blog'}
+                              </div>
+                              <div style={{ 
+                                fontSize: 12, 
+                                opacity: 0.85, 
+                                color: '#fff',
+                                overflow: 'hidden',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical',
+                                textOverflow: 'ellipsis'
+                              }}>
+                                {blog.content?.substring(0, 150) || 'No content available'}
+                              </div>
+                              {/* {(blog.author || blog.desig) && (
+                                <div style={{ 
+                                  fontSize: 13, 
+                                  opacity: 0.7, 
+                                  color: '#fff',
+                                  marginTop: 8
+                                }}>
+                                  {blog.author && `By ${blog.author}`}
+                                  {blog.desig && ` - ${blog.desig}`}
+                                </div>
+                              )} */}
                             </div>
-                            <div style={{ fontSize: 15, opacity: 0.9, lineHeight: 1.5 }}>
-                              {blog.attributes?.excerpt || blog.attributes?.Excerpt || blog.attributes?.description || blog.attributes?.Description || 'Blog description'}
-                            </div>
+                            {/* Blog Image */}
+                            <img 
+                              src={blog.image?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.image.url}` : '/images/default-blog.png'} 
+                              alt={blog.Title || 'Blog Image'} 
+                              style={{ 
+                                width: 160, 
+                                height: 180, 
+                                borderRadius: 18, 
+                                objectFit: 'cover', 
+                                position: 'absolute', 
+                                right: 1, 
+                                bottom: 1, 
+                                boxShadow: '0 2px 8px 0 rgba(25,118,210,0.13)', 
+                                zIndex: 2 
+                              }} 
+                            />
                           </div>
-                        </div>
-                      </TiltFx>
-                    </div>
-                  ))}
+                        </TiltFx>
+                      </Link>
+                    );
+                  })}
                 </div>
                 {/* Blog Content Modal/Inline */}
                 {selectedBlog && (
@@ -764,19 +857,102 @@ export default function Trending() {
                     >
                       ×
                     </button>
-                    <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 24 }}>
-                      {selectedBlog.attributes?.title || selectedBlog.attributes?.Title || 'Blog Title'}
-                      {console.log(selectedBlog)}
-                    </h1>
-                    <ReactMarkdown
-                      components={{
-                        h2: ({node, ...props}) => <h2 style={{ fontSize: 24, fontWeight: 600, marginTop: 28, marginBottom: 12, color: '#6ea8ff' }} {...props} />,
-                        p: ({node, ...props}) => <p style={{ fontSize: 17, marginBottom: 16, color: '#fff', lineHeight: 1.7 }} {...props} />,
-                        li: ({node, ...props}) => <li style={{ fontSize: 17, marginBottom: 8, color: '#fff', lineHeight: 1.7, marginLeft: 24 }} {...props} />,
-                      }}
-                    >
-                      {selectedBlog.attributes?.content || selectedBlog.attributes?.Content || ''}
-                    </ReactMarkdown>
+                    
+                    {/* Blog Header */}
+                    <div style={{ marginBottom: 32 }}>
+                      <h1 style={{ 
+                        fontSize: 32, 
+                        fontWeight: 700, 
+                        marginBottom: 16,
+                        color: '#6ea8ff'
+                      }}>
+                        {selectedBlog.attributes?.Title || 'Untitled Blog'}
+                      </h1>
+                      
+                      {(selectedBlog.attributes?.author || selectedBlog.attributes?.desig) && (
+                        <div style={{ 
+                          fontSize: 16, 
+                          color: '#fff', 
+                          opacity: 0.8,
+                          marginBottom: 24
+                        }}>
+                          {selectedBlog.attributes.author && `By ${selectedBlog.attributes.author}`}
+                          {selectedBlog.attributes.desig && ` - ${selectedBlog.attributes.desig}`}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Blog Image */}
+                    {selectedBlog.attributes?.image && (
+                      <div style={{ marginBottom: 32 }}>
+                        <img 
+                          src={selectedBlog.attributes.image}
+                          alt={selectedBlog.attributes.Title || 'Blog image'}
+                          style={{
+                            width: '100%',
+                            maxHeight: 400,
+                            objectFit: 'cover',
+                            borderRadius: 12
+                          }}
+                        />
+                      </div>
+                    )}
+
+                    {/* Blog Content */}
+                    <div style={{ fontSize: 17, lineHeight: 1.7 }}>
+                      <ReactMarkdown
+                        components={{
+                          h2: ({node, ...props}) => (
+                            <h2 style={{ 
+                              fontSize: 24, 
+                              fontWeight: 600, 
+                              marginTop: 32, 
+                              marginBottom: 16, 
+                              color: '#6ea8ff' 
+                            }} {...props} />
+                          ),
+                          p: ({node, ...props}) => (
+                            <p style={{ 
+                              fontSize: 17, 
+                              marginBottom: 20, 
+                              color: '#fff', 
+                              lineHeight: 1.7 
+                            }} {...props} />
+                          ),
+                          li: ({node, ...props}) => (
+                            <li style={{ 
+                              fontSize: 17, 
+                              marginBottom: 8, 
+                              color: '#fff', 
+                              lineHeight: 1.7, 
+                              marginLeft: 24 
+                            }} {...props} />
+                          ),
+                          ul: ({node, ...props}) => (
+                            <ul style={{ 
+                              marginBottom: 20, 
+                              marginTop: 12 
+                            }} {...props} />
+                          ),
+                        }}
+                      >
+                        {selectedBlog.attributes?.content || 'No content available'}
+                      </ReactMarkdown>
+                    </div>
+
+                    {/* Author Section */}
+                    {selectedBlog.attributes?.author && (
+                      <div style={{ 
+                        marginTop: 40, 
+                        paddingTop: 24, 
+                        borderTop: '1px solid rgba(255,255,255,0.1)',
+                        fontSize: 14,
+                        color: '#fff',
+                        opacity: 0.7
+                      }}>
+                        Written by {selectedBlog.attributes.author}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

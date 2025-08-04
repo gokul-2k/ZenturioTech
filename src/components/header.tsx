@@ -94,9 +94,18 @@ export default function Header() {
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const mobileServicesDropdownRef = useRef<HTMLDivElement>(null);
   const [keepDropdownOpen, setKeepDropdownOpen] = useState(false);
+  const [isCenteredDock, setIsCenteredDock] = useState(false);
 
-  // Responsive width for dock centering
-  const isCenteredDock = typeof window !== 'undefined' && window.innerWidth <= 1450 && window.innerWidth >= 1071;
+  // Responsive width for dock centering - moved to useEffect to avoid hydration mismatch
+  useEffect(() => {
+    const checkCenteredDock = () => {
+      setIsCenteredDock(window.innerWidth <= 1450 && window.innerWidth >= 1071);
+    };
+    
+    checkCenteredDock();
+    window.addEventListener('resize', checkCenteredDock);
+    return () => window.removeEventListener('resize', checkCenteredDock);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
