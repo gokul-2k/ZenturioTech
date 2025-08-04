@@ -216,7 +216,7 @@ export default function BlogPost() {
                 margin: '0 auto'
               }}>
                 <img 
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${blog.image.url}`}
+                  src={`${blog.image.url}`}
                   alt={blog.Title || 'Blog image'}
                   style={{
                     width: '100%',

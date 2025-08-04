@@ -64,7 +64,7 @@ export default function Trending() {
     const interval = setInterval(() => {
       console.log('Auto-refreshing blogs...');
       fetchBlogs();
-    }, 30000); // 30 seconds
+    }, 30000000000000000000000); // 30 seconds
     
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
@@ -805,7 +805,7 @@ export default function Trending() {
                             </div>
                             {/* Blog Image */}
                             <img 
-                              src={blog.image?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.image.url}` : '/images/default-blog.png'} 
+                              src={blog.image?.url ? `${blog.image.url}` : '/images/default-blog.png'} 
                               alt={blog.Title || 'Blog Image'} 
                               style={{ 
                                 width: 160, 
