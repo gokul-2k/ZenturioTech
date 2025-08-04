@@ -30,7 +30,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function RootLayout({
+export default function BlogLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -166,4 +166,4 @@ export default function RootLayout({
       </Providers>
     </html>
   );
-}
+} 
