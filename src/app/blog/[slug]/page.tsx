@@ -43,7 +43,7 @@ export default function BlogPost() {
         
         // Find the blog with matching slug from the response data
         if (response.data && response.data.length > 0) {
-          const foundBlog = response.data.find((blog: any) => blog.slug === params.slug);
+          const foundBlog: any = response.data.find((blog: any) => blog.slug === params.slug);
           if (foundBlog) {
             const mappedBlog = {
               id: foundBlog.id,
