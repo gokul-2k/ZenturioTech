@@ -253,58 +253,128 @@ export default function VRServicePage() {
           fontSize: isMobile ? 20 : isTablet ? 32 : 38,
           fontWeight: 700,
           textAlign: 'center',
-          marginBottom: isMobile ? 32 : 48,
+          marginBottom: isMobile ? 24 : 40,
           letterSpacing: 1,
         }}>
           Applications
         </h2>
         {/* Applications Section container */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile 
-            ? '1fr' 
-            : isTablet 
-            ? 'repeat(2, minmax(300px, 1fr))' 
-            : 'repeat(3, minmax(300px, 1fr))',
-          gap: isMobile ? '16px' : isTablet ? '20px' : '24px',
-          padding: isMobile ? '0 16px' : '0 24px',
-          marginBottom: isMobile ? 40 : isTablet ? 60 : 100,
-          width: '100%',
-          maxWidth: '1200px',
-          margin: '0 auto',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          flexWrap: isMobile ? 'nowrap' : 'wrap',
+          justifyContent: 'center',
+          alignItems: isMobile ? 'center' : 'stretch',
+          gap: isMobile ? 12 : 24,
+          marginBottom: isMobile ? 40 : 100,
         }}>
-          {applications.map((app, i) => (
-            <div
-              key={i}
-              style={{
-                background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
-                borderRadius: isMobile ? 24 : 32,
-                padding: isMobile ? '16px 20px' : isTablet ? '20px 24px' : '24px 32px',
+          {/* Desktop layout: 2x2 + 1 center, Mobile: stacked */}
+          {isMobile ? (
+            applications.map((app, i) => (
+              <div key={i} style={{
+                background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                borderRadius: 24,
+                padding: isMobile ? '12px 8px' : '18px 12px',
                 color: '#fff',
                 fontWeight: 600,
-                fontSize: isMobile ? 14 : isTablet ? 18 : 20,
+                fontSize: isMobile ? 13 : 16,
+                minWidth: 0,
+                width: isMobile ? '92vw' : '90vw',
+                maxWidth: isMobile ? 320 : 400,
                 textAlign: 'center',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-                transform: 'translateY(0)',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer',
-                height: '64px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                WebkitTransition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                ':hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 6px 24px rgba(0,0,0,0.2)'
-                }
-              }}
-            >
-              {app}
-            </div>
-          ))}
+                boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                margin: '0 auto',
+              }}>{app}</div>
+            ))
+          ) : (
+            <>
+              <div style={{ display: 'flex', gap: 32 }}>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Corporate & Industrial Training
+                </div>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Healthcare Simulation
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 32 }}>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Real Estate Virtual Tours
+                </div>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Education & Skill Development
+                </div>
+              </div>
+              
+              <div style={{ display: 'flex', gap: 32, justifyContent: 'center', width: '100%', marginTop: 16 }}>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Tourism and Entertainment 
+                </div>
+                <div style={{
+                  background: 'linear-gradient(90deg,rgb(24, 51, 110) 0%,rgb(54, 102, 122) 100%)',
+                  borderRadius: 32,
+                  padding: '28px 48px',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 24,
+                  minWidth: 340,
+                  textAlign: 'center',
+                  boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                }}>
+                  Defence
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
