@@ -700,7 +700,8 @@ export default function Trending() {
                       slug: blog.attributes?.slug,
                       author: blog.attributes?.author,
                       desig: blog.attributes?.desig,
-                      image: blog.attributes?.image?.data?.url
+                      image: blog.attributes?.image?.data?.url,
+                      thumbnail: blog.attributes?.thumbnail?.data?.url
                     });
 
                     return (
@@ -810,7 +811,7 @@ export default function Trending() {
                             </div>
                             {/* Blog Image */}
                             <img 
-                              src={blog.image?.url ? `${blog.image.url}` : '/images/default-blog.png'} 
+                              src={blog.thumbnail?.url ? `${blog.thumbnail.url}` : '/images/default-blog.png'} 
                               alt={blog.Title || 'Blog Image'} 
                               style={{ 
                                 width: 160, 
