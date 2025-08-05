@@ -59,7 +59,7 @@ export default function AIPage() {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'rgba(10,34,64,0.65)',
+          background: 'rgba(10,25,47,0.65)',
           zIndex: 1,
         }} />
         {/* Bottom Blur Gradient */}
@@ -119,6 +119,7 @@ export default function AIPage() {
         margin: "0 auto", 
         padding: isMobile ? '40px 20px' : '60px 20px', 
         marginTop: isMobile ? 40 : 60,
+        background: '#0a192f', // Added consistent background
       }}>
         {services.map((service, idx) => {
           const isLeft = idx % 2 === 0;
@@ -133,6 +134,7 @@ export default function AIPage() {
                 marginBottom: 80,
                 minHeight: isMobile ? 'auto' : 300,
                 width: '100%',
+                background: '#0a192f', // Added consistent background
               }}
             >
               {/* Image OUTSIDE the card box */}
@@ -146,6 +148,7 @@ export default function AIPage() {
                   marginLeft: isMobile ? 0 : isLeft ? 0 : -100,
                   marginRight: isMobile ? 0 : isLeft ? -100 : 0,
                   marginBottom: isMobile ? 32 : 0,
+                  background: 'transparent', // Transparent to show parent background
                 }}
               >
                 <Image
@@ -214,12 +217,17 @@ export default function AIPage() {
       </div>
 
       {/* Industries Section */}
-      <div style={{ textAlign: 'center', marginBottom: 60 }}>
+      <div style={{ 
+        textAlign: 'center', 
+        marginBottom: 60,
+        background: '#0a192f', // Added consistent background
+        padding: '20px 0', // Added padding for visual consistency
+      }}>
         <h2 style={{ 
           fontSize: 32, 
-          color: '#4a9eff', 
+          color: '#4a9eff',
           marginBottom: 40,
-          fontWeight: 500 
+          fontWeight: 500
         }}>
           Industries <span style={{ color: '#fff' }}>We Serve</span>
         </h2>
@@ -228,7 +236,8 @@ export default function AIPage() {
           justifyContent: 'center', 
           gap: 24,
           flexWrap: 'wrap',
-          padding: '0 20px'
+          padding: '0 20px',
+          background: '#0a192f', // Added consistent background
         }}>
           <IndustryCard icon="/images/ed.png" title="Education" isMobile={isMobile} />
           <IndustryCard icon="/images/hea.png" title="Health Care" isMobile={isMobile} />
