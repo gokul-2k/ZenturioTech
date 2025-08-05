@@ -68,14 +68,14 @@ export default function WhoWeAre() {
       <div
         style={{
           position: 'absolute',
-          top: 'clamp(0px, 6vw, 40px)',
+          top: 'clamp(0px, 6vw, 80px)',
           left: '50%',
           transform: 'translate(-50%, 0)',
           width: 'min(1400px, 100vw)',
           height: 'min(220px, 18vw)',
           zIndex: 1,
           pointerEvents: 'none',
-          background: 'linear-gradient(180deg,rgb(18, 64, 95) 0%, #142e55 80%, #142e55 100%)',
+          background: 'linear-gradient(180deg,rgb(18, 64, 95) 0%, #0a264d 80%, #0a264d 100%)',
           opacity: 0.7,
           borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
           filter: 'blur(2px)',
