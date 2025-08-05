@@ -714,7 +714,7 @@ export default function Trending() {
                             flex: '1 1 360px',
                             minWidth: 320,
                             maxWidth: 380,
-                            height: isMobile ,
+                            height: 240 ,
                             background: 'rgba(255,255,255,0.13)',
                             borderRadius: '2rem',
                             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
