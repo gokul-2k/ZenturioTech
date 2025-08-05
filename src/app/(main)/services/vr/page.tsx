@@ -61,7 +61,7 @@ export default function VRServicePage() {
       color: "#fff",
       padding: 0,
       margin: 0,
-      marginBottom: -65,
+      marginBottom: -80,
     }}>
       {/* HERO SECTION */}
       <div style={{
@@ -145,7 +145,8 @@ export default function VRServicePage() {
         maxWidth: isTablet ? 800 : 1200, 
         margin: "0 auto", 
         padding: isMobile ? '32px 8px' : isTablet ? '48px 16px' : '60px 20px', 
-        marginTop: isMobile ? 40 : 60, 
+        marginTop: isMobile ? 40 : 60,
+        background: "#0a192f",
       }}>
         {cards.map((card, idx) => {
           const isLeft = idx % 2 === 0;
@@ -241,19 +242,23 @@ export default function VRServicePage() {
           );
         })}
       </div>
+      
       {/* Applications Section */}
       <div style={{ 
         maxWidth: 1100, 
         margin: '0 auto', 
-        marginTop: isMobile ? -80 : -60 
+        marginTop: isMobile ? -80 : -60,
+        background: "#0a192f",
+        padding: isMobile ? '0 16px' : '0 20px',
+        paddingBottom: isMobile ? 60 : 100,
       }}>
         {/* Applications Section h2 */}
         <h2 style={{
           color: '#3ba3ff',
-          fontSize: isMobile ? 20 : isTablet ? 32 : 38,
+          fontSize: isMobile ? 24 : isTablet ? 32 : 38,
           fontWeight: 700,
           textAlign: 'center',
-          marginBottom: isMobile ? 24 : 40,
+          marginBottom: isMobile ? 32 : 40,
           letterSpacing: 1,
         }}>
           Applications
@@ -264,26 +269,30 @@ export default function VRServicePage() {
           flexDirection: isMobile ? 'column' : 'row',
           flexWrap: isMobile ? 'nowrap' : 'wrap',
           justifyContent: 'center',
-          alignItems: isMobile ? 'center' : 'stretch',
-          gap: isMobile ? 12 : 24,
+          alignItems: 'center',
+          gap: isMobile ? 16 : 24,
           marginBottom: isMobile ? 40 : 100,
+          width: '100%',
         }}>
           {/* Desktop layout: 2x2 + 1 center, Mobile: stacked */}
           {isMobile ? (
             applications.map((app, i) => (
               <div key={i} style={{
                 background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
-                borderRadius: 24,
-                padding: isMobile ? '12px 8px' : '18px 12px',
+                borderRadius: 20,
+                padding: '16px 20px',
                 color: '#fff',
                 fontWeight: 600,
-                fontSize: isMobile ? 13 : 16,
-                minWidth: 0,
-                width: isMobile ? '92vw' : '90vw',
-                maxWidth: isMobile ? 320 : 400,
+                fontSize: 15,
                 textAlign: 'center',
-                boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                width: '100%',
+                maxWidth: 280,
                 margin: '0 auto',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 50,
               }}>{app}</div>
             ))
           ) : (
@@ -379,4 +388,4 @@ export default function VRServicePage() {
       </div>
     </div>
   );
-} 
+}
