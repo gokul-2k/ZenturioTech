@@ -714,7 +714,7 @@ export default function Trending() {
                             flex: '1 1 360px',
                             minWidth: 320,
                             maxWidth: 380,
-                            height: 240,
+                            height: isMobile ,
                             background: 'rgba(255,255,255,0.13)',
                             borderRadius: '2rem',
                             boxShadow: '0 4px 24px 0 rgba(7,37,73,0.16)',
@@ -773,11 +773,16 @@ export default function Trending() {
                             }}>
                               <div style={{ 
                                 fontWeight: 700, 
-                                fontSize: 15, 
+                                fontSize: 14, 
                                 marginBottom: 4, 
-                                color: '#fff' 
+                                color: '#fff',
+                                overflow: 'hidden',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 3,
+                                WebkitBoxOrient: 'vertical',
+                                textOverflow: 'ellipsis' 
                               }}>
-                                {blog.Title || 'Untitled Blog'}
+                                {blog.Title?.substring(0, 65) || 'Untitled Blog'}
                               </div>
                               <div style={{ 
                                 fontSize: 12, 
@@ -1027,7 +1032,7 @@ export default function Trending() {
           }
           .trending-card {
             margin-left: 10px !important;
-            height: 180px !important;
+            height: 200px !important;
             min-width: 280px !important;
             max-width: 100% !important;
           }

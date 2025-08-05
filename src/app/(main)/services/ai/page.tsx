@@ -35,7 +35,7 @@ export default function AIPage() {
   const { isMobile, isTablet } = useDeviceDetect();
 
   return (
-    <div style={{ background: '#0a192f', minHeight: '100vh', width: '100%', padding: 0, margin: 0, marginBottom: -70 }}>
+    <div style={{ background: '#0a192f', minHeight: '100vh', width: '100%', padding: 0, margin: 0, marginBottom: -100 }}>
       {/* HERO SECTION */}
       <div style={{
         width: '100%',
@@ -219,9 +219,10 @@ export default function AIPage() {
       {/* Industries Section */}
       <div style={{ 
         textAlign: 'center', 
-        marginBottom: 60,
+        marginBottom: 100,
         background: '#0a192f', // Added consistent background
         padding: '20px 0', // Added padding for visual consistency
+        paddingBottom: '60px'
       }}>
         <h2 style={{ 
           fontSize: 32, 
