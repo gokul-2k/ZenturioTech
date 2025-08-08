@@ -343,7 +343,7 @@ export default function BlogPost() {
                   ),
                 }}
               >
-                {blog.content}
+                {blog.content.split('\n\n').slice(1).join('\n\n')}
               </ReactMarkdown>
             </div>
 
