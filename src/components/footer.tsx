@@ -220,6 +220,24 @@ export default function Footer() {
             margin-top: 3px;
           }
         }
+        @media (max-width: 1200px) {
+          .footer-container {
+            gap: 2rem !important;
+            padding-left: 3vw !important;
+            padding-right: 3vw !important;
+            font-size: 0.95rem !important;
+          }
+          .nvidia-logo-img {
+            width: 160px !important;
+            max-width: 60vw;
+          }
+          .nvidia-text {
+            font-size: 13px;
+          }
+          .copyright-text {
+            font-size: 12px;
+          }
+        }
       `}</style>
     </footer>
   );
